@@ -30,9 +30,9 @@ Main features:
 ---
 
 ### Usefull command
-- generate documentation using jsodc and better-docs: 
-```bash
-jsdoc ./scripts/ --readme ./README.md -d docs -r -t ~/.nvm/versions/node/v19.1.0/lib/node_modules/jsdoc/templates/better-docs/
+- generate documentation using ```jsodc``` and ```better-docs```: 
+```
+jsdoc ./scripts/ --readme ./README.md -d docs -r -t ~/path_to_jsdoc/jsdoc/templates/better-docs/
 ```
 ---
 
