@@ -48,7 +48,7 @@ pull-new-commit:
 build-container: 
 - This stage must print a message "Building new image on latest commit", change directory, build docker image with last commit: \
     - echo "Building new image on latest commit" \
-    - ssh atnog@10.0.12.115 "cd ~/git/ml_models/simulator_predictor; sudo docker build -t sdrt/ml_models:$CI_COMMIT_SHORT_SHA .;"
+    - ssh atnog@10.0.12.115 "cd ~/git/ml_models/src; sudo docker build -t sdrt/ml_models:$CI_COMMIT_SHORT_SHA .;"
 
 
 deploy-container: 
