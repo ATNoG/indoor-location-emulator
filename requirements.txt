@@ -1,0 +1,10 @@
+turfpy>=0.0.7
+geopandas>=0.10.2
+pygeos>=0.12.0
+paho-mqtt>=1.6.1
+Shapely>=1.8.0
+joblib>=1.1.0
+matplotlib>=3.5.2
+scipy>=1.8.0
+scikit-learn>=1.0.2
+pdoc>=12.2.0
