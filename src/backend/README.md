@@ -17,7 +17,7 @@ The Dev environment implies the creation of a virtual environment (venv) whose d
 - create .venv directory: > ```python3 -m venv .venv```
 - activate .venv: > ```source .venv/bin/activate```
 - install dependencies on .venv from requiremnts.txt: > ```pip install -r requirements.txt```
-- generate documentation using pdoc: > ```pdoc --math -d google -o docs backend_emulator``` 
+- generate documentation using pdoc: > ```pdoc --math -d google -o docs src``` 
 
 ---
 
