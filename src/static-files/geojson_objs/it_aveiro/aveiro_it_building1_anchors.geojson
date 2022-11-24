@@ -1,0 +1,22 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 0,
+        "title": "Anchor 1",
+        "description": "Anchor 1 description",
+        "show_lines": false,
+        "draggable": true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.659895539764743,
+          40.63394618048323
+        ]
+      }
+    }
+  ]
+}

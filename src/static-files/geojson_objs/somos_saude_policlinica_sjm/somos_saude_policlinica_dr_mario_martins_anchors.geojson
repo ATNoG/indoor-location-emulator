@@ -1,0 +1,73 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 0,
+        "title": "Anchor 1",
+        "description": "Anchor 1 description",
+        "show_lines": false,
+        "draggable": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.500996359655801,
+          40.89701482690765
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 1,
+        "title": "Anchor 2",
+        "description": "Anchor 2 description",
+        "show_lines": false,
+        "draggable": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.501018330320676,
+          40.89700676241364
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 2,
+        "title": "Anchor 3",
+        "description": "Anchor 3 description",
+        "show_lines": false,
+        "draggable": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.501029154560229,
+          40.89700276830581
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 3,
+        "title": "Anchor 4",
+        "description": "Anchor 4 description",
+        "show_lines": false,
+        "draggable": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.501050597403093,
+          40.896994650951655
+        ]
+      }
+    }
+  ]
+}
