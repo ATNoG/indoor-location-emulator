@@ -1016,15 +1016,15 @@ def calculate(client: mqtt.Client, session_uuid: str, calculate_cache: dict):
         if(god.getMapId(session_uuid) == 0):
             # open config file
             config_file_url = urllib.request.urlopen(
-                "http://10.0.12.91/sdrt/static-objects/config_files/config-params-library-ua-floor2.json")
+                "http://10.0.12.91/sdrt/static-files/src/config_files/config-params-library-ua-floor2.json")
         elif(god.getMapId(session_uuid) == 1):
             # open config file
             config_file_url = urllib.request.urlopen(
-                "http://10.0.12.91/sdrt/static-objects/config_files/config-params-aveiro-it-building1.json")
+                "http://10.0.12.91/sdrt/static-files/src/config_files/config-params-aveiro-it-building1.json")
         elif(god.getMapId(session_uuid) == 2):
             # open config file
             config_file_url = urllib.request.urlopen(
-                "http://10.0.12.91/sdrt/static-objects/config_files/config-params-sjm-policlinica-mario-martins.json")
+                "http://10.0.12.91/sdrt/static-files/src/config_files/config-params-ss-policlinica-dr-mario-martins.json")
 
         # read config data file
         config_data = config_file_url.read().decode('utf-8')
@@ -1053,7 +1053,7 @@ def calculate(client: mqtt.Client, session_uuid: str, calculate_cache: dict):
         ########## Antenna RF Activations & Average Time of Readings ##########
         # Get Nr_Activations and AvgTimeReadings of Antenna data from csv file
         antenna_dataset_file_url = urllib.request.urlopen(
-            "http://10.0.12.91/sdrt/static-objects/antenna_datasets/antenna_experimental_dataset_10m.csv")
+            "http://10.0.12.91/sdrt/static-files/src/antenna_datasets/antenna_experimental_dataset_10m.csv")
         # read antenna data file
         antenna_experimental_data_activations = antenna_dataset_file_url.read().decode('utf-8')
 

@@ -5,16 +5,16 @@
         "maptiler_apiKey": "CqUY0prA6SBAAsv1wyQw"
     },
     "map": {
-        "map_url": "static-objects/geojson_objs/it_aveiro/aveiro_it_building1_custom_map_2d.geojson",
-        "antennas_url": "static-objects/geojson_objs/it_aveiro/aveiro_it_building1_antennas.geojson",
-        "anchors_url": "static-objects/geojson_objs/it_aveiro/aveiro_it_building1_anchors.geojson",
-        "assets_url": "static-objects/geojson_objs/it_aveiro/aveiro_it_building1_asset_points.geojson",
-        "pulsing_dot_points": "static-objects/geojson_objs/it_aveiro/aveiro_it_building1_pulsing_dot_points.geojson",
+        "map_url": "static-files/src/geojson_objs/it_aveiro/aveiro_it_building1_custom_map_2d.geojson",
+        "antennas_url": "static-files/src/geojson_objs/it_aveiro/aveiro_it_building1_antennas.geojson",
+        "anchors_url": "static-files/src/geojson_objs/it_aveiro/aveiro_it_building1_anchors.geojson",
+        "assets_url": "static-files/src/geojson_objs/it_aveiro/aveiro_it_building1_asset_points.geojson",
+        "pulsing_dot_points": "static-files/src/geojson_objs/it_aveiro/aveiro_it_building1_pulsing_dot_points.geojson",
         "asset_point_animations": [
-            "static-objects/geojson_objs/it_aveiro/aveiro_it_building1_asset_point_custom_move1.geojson",
-            "static-objects/geojson_objs/it_aveiro/aveiro_it_building1_asset_point_custom_move2.geojson",
-            "static-objects/geojson_objs/it_aveiro/aveiro_it_building1_asset_point_custom_move3.geojson",
-            "static-objects/geojson_objs/it_aveiro/aveiro_it_building1_asset_point_custom_move4.geojson"
+            "static-files/src/geojson_objs/it_aveiro/aveiro_it_building1_asset_point_custom_move1.geojson",
+            "static-files/src/geojson_objs/it_aveiro/aveiro_it_building1_asset_point_custom_move2.geojson",
+            "static-files/src/geojson_objs/it_aveiro/aveiro_it_building1_asset_point_custom_move3.geojson",
+            "static-files/src/geojson_objs/it_aveiro/aveiro_it_building1_asset_point_custom_move4.geojson"
         ],
         "filter_walls_keywords": ["Entrance", "Reception", "Print", "Room", "Service", "Laboratory", "Lab", "Toilets", "Canteen", "Bar", "Stairs", "Stair", "Exit"],
         "filter_walls_levels": [0],
