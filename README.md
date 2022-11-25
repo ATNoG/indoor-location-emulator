@@ -31,7 +31,7 @@ Main features:
 
 ### Usefull command
 - generate documentation using ```jsodc``` and ```better-docs```: 
-```
+```text
 jsdoc ./src/ --readme ./README.md -d docs -r -t ~/path_to_jsdoc/jsdoc/templates/better-docs/
 ```
 ---
