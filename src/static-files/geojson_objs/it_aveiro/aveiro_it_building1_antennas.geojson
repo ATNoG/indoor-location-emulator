@@ -1,0 +1,81 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 0,
+        "title": "Antenna 1",
+        "description": "Antenna 1 description",
+        "tx_power": 300,
+        "angle_direction": -90,
+        "angle_opening": 90,
+        "draggable": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.660231131718291,
+          40.634156553095071
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 1,
+        "title": "Antenna 2",
+        "description": "Antenna 2 description",
+        "tx_power": 300,
+        "angle_direction": 180,
+        "angle_opening": 90,
+        "draggable": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.659936488924075,
+          40.634380295310024
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 2,
+        "title": "Antenna 3",
+        "description": "Antenna 3 description",
+        "tx_power": 300,
+        "angle_direction": 90,
+        "angle_opening": 90,
+        "draggable": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.659637007890638,
+          40.634152521271941
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 3,
+        "title": "Antenna 4",
+        "description": "Antenna 4 description",
+        "tx_power": 300,
+        "angle_direction": 0,
+        "angle_opening": 90,
+        "draggable": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.659926306174583,
+          40.633920592431621
+        ]
+      }
+    }
+  ]
+}
