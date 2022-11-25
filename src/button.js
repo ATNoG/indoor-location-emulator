@@ -1,91 +1,4 @@
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> button.js</title>
-
-  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="./build/entry.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
-  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
-  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
-  <link type="text/css" rel="stylesheet" href="">
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-  
-</head>
-
-
-
-<body class="layout small-header">
-    <div id="stickyNavbarOverlay"></div>
-    
-
-<div class="top-nav">
-    <div class="inner">
-        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
-        <div class="logo">
-            
-            
-        </div>
-        <div class="menu">
-            
-            <div class="navigation">
-                <a
-                    href="index.html"
-                    class="link"
-                >
-                    Documentation
-                </a>
-                
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-    <div id="main">
-        <div
-            class="sidebar "
-            id="sidebarNav"
-        >
-            
-            <nav>
-                
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-animations.html">animations</a></li><li><a href="module-button.html">button</a></li><li><a href="module-communication.html">communication</a></li><li><a href="module-config.html">config</a></li><li><a href="module-main.html">main</a></li><li><a href="module-mapping.html">mapping</a></li><li><a href="module-mqtt.html">mqtt</a></li><li><a href="module-ui_interactions.html">ui_interactions</a></li></ul><h3>Classes</h3><ul><li><a href="module-button-MapboxGLButtonControl.html">MapboxGLButtonControl</a></li></ul></div>
-                
-            </nav>
-        </div>
-        <div class="core" id="main-content-wrapper">
-            <div class="content">
-                <header class="page-title">
-                    <p>Source</p>
-                    <h1>button.js</h1>
-                </header>
-                
-
-
-
-    
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
+/**
  * Custom Buttons Controls Class and functions definitons
  * @module button */
 
@@ -235,7 +148,7 @@ function toggleCoordinatesAssetPointContainer() {
 }
 
 /**
- * Toggle Distance &amp; RSSI Point Container
+ * Toggle Distance & RSSI Point Container
  */
 function toggleDistanceRssiContainer() {
     if (distanceRssiContainerFlag == 1) {
@@ -432,7 +345,7 @@ function addAssetPointMarkerToMap(
     pulsing_dots_layers_sources.push(geojson_pulsing_dots_points_new_add);
 
     // for first 8 pulsing dots 
-    for (let i = 0; i &lt; pulsing_dots_fixed_size; i++) {
+    for (let i = 0; i < pulsing_dots_fixed_size; i++) {
         const pulsing_dot_feature = pulsing_dots_layers_sources[0].features[i];
         const new_pulsing_dot_index = pulsing_dots_layers_sources[0].features.length * (new_ap_index) + i;
         const algo = pulsing_dot_feature.properties.algorithm.toUpperCase();
@@ -533,9 +446,9 @@ function addAssetPointMarkerToMap(
     console.log(printableMessage);
     printOnConsoleDebugger(printableMessage);
 
-    // add header message to print on console and on Distances &amp; RSSI container (?)
-    var messageToContainer = `&lt;strong>Distances [m] | RSSI [dBm] | Walls: # | Directionated: (boolean)&lt;/strong>&lt;/br>` +
-        ` &amp;#8226; Asset Point added. Connect to MQTT to know the measurements.`;
+    // add header message to print on console and on Distances & RSSI container (?)
+    var messageToContainer = `<strong>Distances [m] | RSSI [dBm] | Walls: # | Directionated: (boolean)</strong></br>` +
+        ` &#8226; Asset Point added. Connect to MQTT to know the measurements.`;
 
     // Update container innerHTML 
     updateContainerInnerHtml(distance_rssi_container, messageToContainer)
@@ -630,9 +543,9 @@ function deleteLastAssetPointMarkerFromMap(
             console.log(printableMessage);
             printOnConsoleDebugger(printableMessage);
 
-            // add header message to print on console and on Distances &amp; RSSI container (?)
-            var messageToContainer = `&lt;strong>Distances [m] | RSSI [dBm] | Walls: # | Directionated: (boolean)&lt;/strong>&lt;/br>` +
-                ` &amp;#8226; Asset Point removed. Connect to MQTT to know the measurements.`;
+            // add header message to print on console and on Distances & RSSI container (?)
+            var messageToContainer = `<strong>Distances [m] | RSSI [dBm] | Walls: # | Directionated: (boolean)</strong></br>` +
+                ` &#8226; Asset Point removed. Connect to MQTT to know the measurements.`;
 
             // Update container innerHTML
             updateContainerInnerHtml(distance_rssi_container, messageToContainer)
@@ -647,8 +560,8 @@ function deleteLastAssetPointMarkerFromMap(
     }
     else {
         // populate message to print
-        var messageToContainer = `&lt;strong>Distances [m] | RSSI [dBm] | Walls: # | Directionated: (boolean)&lt;/strong>&lt;/br>` +
-            ` &amp;#8226; Keep at least one Asset Point, to measure Distances and RSSI. \n Connect to MQTT to know the measurements.`;
+        var messageToContainer = `<strong>Distances [m] | RSSI [dBm] | Walls: # | Directionated: (boolean)</strong></br>` +
+            ` &#8226; Keep at least one Asset Point, to measure Distances and RSSI. \n Connect to MQTT to know the measurements.`;
 
         // print to console and to console_debugger
         console.log(messageToContainer);
@@ -729,9 +642,9 @@ function addAntennaMarkerToMap(
     console.log(printableMessage);
     printOnConsoleDebugger(printableMessage);
 
-    // add header message to print on console and on Distances &amp; RSSI container
-    var messageToContainer = `&lt;strong>Distances [m] | RSSI [dBm] | Walls: # | Directionated: (boolean)&lt;/strong>&lt;/br>` +
-        ` &amp;#8226; Antenna added. Connect to MQTT to know the measurements.`;
+    // add header message to print on console and on Distances & RSSI container
+    var messageToContainer = `<strong>Distances [m] | RSSI [dBm] | Walls: # | Directionated: (boolean)</strong></br>` +
+        ` &#8226; Antenna added. Connect to MQTT to know the measurements.`;
 
     // Update container innerHTML
     updateContainerInnerHtml(distance_rssi_container, messageToContainer)
@@ -792,9 +705,9 @@ function deleteLastAntennaMarkerFromMap(
             console.log(printableMessage);
             printOnConsoleDebugger(printableMessage);
 
-            // add header message to print on console and on Distances &amp; RSSI container
-            var messageToContainer = `&lt;strong>Distances [m] | RSSI [dBm] | Walls: # | Directionated: (boolean)&lt;/strong>&lt;/br>` +
-                ` &amp;#8226; Antenna removed. Connect to MQTT to know the measurements.`;
+            // add header message to print on console and on Distances & RSSI container
+            var messageToContainer = `<strong>Distances [m] | RSSI [dBm] | Walls: # | Directionated: (boolean)</strong></br>` +
+                ` &#8226; Antenna removed. Connect to MQTT to know the measurements.`;
 
             // Start the LinesOfSight animation.
             animateLinesOfSight(geojson_asset_points, geojson_anchors, geojson_antennas, geojson_lines_of_sight);
@@ -809,8 +722,8 @@ function deleteLastAntennaMarkerFromMap(
     }
     else {
         // populate message to print
-        var messageToContainer = `&lt;strong>Distances [m] | RSSI [dBm] | Walls: # | Directionated: (boolean)&lt;/strong>&lt;/br>` +
-            ` &amp;#8226; Keep at least one Antenna, to measure Distances and RSSI. \n Connect to MQTT to know the measurements.`;
+        var messageToContainer = `<strong>Distances [m] | RSSI [dBm] | Walls: # | Directionated: (boolean)</strong></br>` +
+            ` &#8226; Keep at least one Antenna, to measure Distances and RSSI. \n Connect to MQTT to know the measurements.`;
 
         // print to console and to console_debugger
         console.log(messageToContainer);
@@ -879,9 +792,9 @@ function addAnchorMarkerToMap(
     console.log(printableMessage);
     printOnConsoleDebugger(printableMessage);
 
-    // add header message to print on console and on Distances &amp; RSSI container
-    var messageToContainer = `&lt;strong>Distances [m] | RSSI [dBm] | Walls: # | Directionated: (boolean)&lt;/strong>&lt;/br>` +
-        ` &amp;#8226; Anchor added. Connect to MQTT to know the measurements.`;
+    // add header message to print on console and on Distances & RSSI container
+    var messageToContainer = `<strong>Distances [m] | RSSI [dBm] | Walls: # | Directionated: (boolean)</strong></br>` +
+        ` &#8226; Anchor added. Connect to MQTT to know the measurements.`;
 
     // Start the LinesOfSight animation.
     animateLinesOfSight(geojson_asset_points, geojson_anchors, geojson_antennas, geojson_lines_of_sight);
@@ -930,9 +843,9 @@ function deleteLastAnchorMarkerFromMap(
             console.log(printableMessage);
             printOnConsoleDebugger(printableMessage);
 
-            // add header message to print on console and on Distances &amp; RSSI container
-            var messageToContainer = `&lt;strong>Distances [m] | RSSI [dBm] | Walls: # | Directionated: (boolean)&lt;/strong>&lt;/br>` +
-                ` &amp;#8226; Anchor removed. Connect to MQTT to know the measurements.`;
+            // add header message to print on console and on Distances & RSSI container
+            var messageToContainer = `<strong>Distances [m] | RSSI [dBm] | Walls: # | Directionated: (boolean)</strong></br>` +
+                ` &#8226; Anchor removed. Connect to MQTT to know the measurements.`;
 
             // Start the LinesOfSight animation.
             animateLinesOfSight(geojson_asset_points, geojson_anchors, geojson_antennas, geojson_lines_of_sight);
@@ -946,8 +859,8 @@ function deleteLastAnchorMarkerFromMap(
     }
     else {
         // populate message to print
-        var messageToContainer = `&lt;strong>Distances [m] | RSSI [dBm] | Walls: # | Directionated: (boolean)&lt;/strong>&lt;/br>` +
-            ` &amp;#8226; There is no anchors on the map, add first one. \n Connect to MQTT to know the measurements.`;
+        var messageToContainer = `<strong>Distances [m] | RSSI [dBm] | Walls: # | Directionated: (boolean)</strong></br>` +
+            ` &#8226; There is no anchors on the map, add first one. \n Connect to MQTT to know the measurements.`;
 
         // print to console and to console_debugger
         console.log(messageToContainer);
@@ -958,33 +871,4 @@ function deleteLastAnchorMarkerFromMap(
     updateContainerInnerHtml(distance_rssi_container, messageToContainer);
 }
 
-// ========== End of Buttons Controls Event Handlers ========== //</code></pre>
-        </article>
-    </section>
-
-
-
-
-            </div>
-            
-            <footer class="footer">
-                <div class="content has-text-centered">
-                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.0</a></p>
-                    <p class="sidebar-created-by">
-                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
-                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
-                    </p>
-                </div>
-            </footer>
-            
-        </div>
-        <div id="side-nav" class="side-nav">
-        </div>
-    </div>
-<script src="scripts/app.min.js"></script>
-<script>PR.prettyPrint();</script>
-<script src="scripts/linenumber.js"> </script>
-
-
-</body>
-</html>
+// ========== End of Buttons Controls Event Handlers ========== //

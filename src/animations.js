@@ -1,91 +1,4 @@
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> animations.js</title>
-
-  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="./build/entry.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
-  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
-  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
-  <link type="text/css" rel="stylesheet" href="">
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-  
-</head>
-
-
-
-<body class="layout small-header">
-    <div id="stickyNavbarOverlay"></div>
-    
-
-<div class="top-nav">
-    <div class="inner">
-        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
-        <div class="logo">
-            
-            
-        </div>
-        <div class="menu">
-            
-            <div class="navigation">
-                <a
-                    href="index.html"
-                    class="link"
-                >
-                    Documentation
-                </a>
-                
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-    <div id="main">
-        <div
-            class="sidebar "
-            id="sidebarNav"
-        >
-            
-            <nav>
-                
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-animations.html">animations</a></li><li><a href="module-button.html">button</a></li><li><a href="module-communication.html">communication</a></li><li><a href="module-config.html">config</a></li><li><a href="module-main.html">main</a></li><li><a href="module-mapping.html">mapping</a></li><li><a href="module-mqtt.html">mqtt</a></li><li><a href="module-ui_interactions.html">ui_interactions</a></li></ul><h3>Classes</h3><ul><li><a href="module-button-MapboxGLButtonControl.html">MapboxGLButtonControl</a></li></ul></div>
-                
-            </nav>
-        </div>
-        <div class="core" id="main-content-wrapper">
-            <div class="content">
-                <header class="page-title">
-                    <p>Source</p>
-                    <h1>animations.js</h1>
-                </header>
-                
-
-
-
-    
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
+/**
  * Asset Point Animations Functions definitions
  *  @module animations */
 
@@ -368,14 +281,14 @@ async function animateAssetPointWithCustomMove(
             var now = currentDate.getTime();
 
             // limit to (cpu_frame_rate/10) updates per second
-            if ((now - last_frame) &lt; cpu_frame_rate) {
+            if ((now - last_frame) < cpu_frame_rate) {
                 return;
             };
 
             // Call event to close all open popups
             map.fire('closeAllPopups');
 
-            if (i &lt; coordinates.length &amp;&amp; animatingAssetPointFlags[currentAssetFeatureId]) {
+            if (i < coordinates.length && animatingAssetPointFlags[currentAssetFeatureId]) {
                 // save last position coordinate
                 lastCoord = geojson_asset_points.features[currentAssetFeatureId].geometry.coordinates;
                 // save new position coordinate
@@ -409,16 +322,16 @@ async function animateAssetPointWithCustomMove(
                 // Print the coordinates of where the point had
                 // finished being moved to on the map.
                 messageToPrint =
-                    `&lt;strong>${geojson_asset_points.features[currentAssetFeatureId].properties.title} Coordinates: &lt;/strong>&lt;br /> ` +
-                    `&amp;#8226; Longitude:  ${rescrictTo180Degrees(geojson_asset_points.features[currentAssetFeatureId].geometry.coordinates[0])} ` +
-                    `(${convertDMSLng(rescrictTo180Degrees(geojson_asset_points.features[currentAssetFeatureId].geometry.coordinates[0]))}) &lt;br /> ` +
-                    `&amp;#8226; Latitude:  ${geojson_asset_points.features[currentAssetFeatureId].geometry.coordinates[1]} ` +
+                    `<strong>${geojson_asset_points.features[currentAssetFeatureId].properties.title} Coordinates: </strong><br /> ` +
+                    `&#8226; Longitude:  ${rescrictTo180Degrees(geojson_asset_points.features[currentAssetFeatureId].geometry.coordinates[0])} ` +
+                    `(${convertDMSLng(rescrictTo180Degrees(geojson_asset_points.features[currentAssetFeatureId].geometry.coordinates[0]))}) <br /> ` +
+                    `&#8226; Latitude:  ${geojson_asset_points.features[currentAssetFeatureId].geometry.coordinates[1]} ` +
                     `(${convertDMSLat(geojson_asset_points.features[currentAssetFeatureId].geometry.coordinates[1])})`;
                 // Update container innerHTML
                 updateContainerInnerHtml(coordinates_point_container, messageToPrint);
 
                 // set 2nd printableMessage 
-                printableMessage2 = `&lt;strong>Coordinates (Long, Lat):&lt;/strong>&lt;br />` +
+                printableMessage2 = `<strong>Coordinates (Long, Lat):</strong><br />` +
                     `(${geojson_asset_points.features[currentAssetFeatureId].geometry.coordinates[0]}, ` +
                     `${geojson_asset_points.features[currentAssetFeatureId].geometry.coordinates[1]})`;
 
@@ -467,33 +380,4 @@ async function animateAssetPointWithCustomMove(
     }
 }
 
-// =========== End of Asset Point Animations Functions =========== //</code></pre>
-        </article>
-    </section>
-
-
-
-
-            </div>
-            
-            <footer class="footer">
-                <div class="content has-text-centered">
-                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.0</a></p>
-                    <p class="sidebar-created-by">
-                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
-                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
-                    </p>
-                </div>
-            </footer>
-            
-        </div>
-        <div id="side-nav" class="side-nav">
-        </div>
-    </div>
-<script src="scripts/app.min.js"></script>
-<script>PR.prettyPrint();</script>
-<script src="scripts/linenumber.js"> </script>
-
-
-</body>
-</html>
+// =========== End of Asset Point Animations Functions =========== //

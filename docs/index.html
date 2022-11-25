@@ -129,7 +129,14 @@ Main features:</p>
 <li>Holding RSSI calculations for Antennas and Asset Point positions (Long, Lat) on a csv file</li>
 </ul>
 <hr>
-<h2>CI/CD Pipeline:</h2>
+<h3>Usefull command</h3>
+<ul>
+<li>generate documentation using <code>jsodc</code> and <code>better-docs</code>:</li>
+</ul>
+<pre class="prettyprint source"><code>jsdoc ./scripts/ --readme ./README.md -d docs -r -t ~/path_to_jsdoc/jsdoc/templates/better-docs/
+</code></pre>
+<hr>
+<h2>CI/CD Pipeline</h2>
 <h3>Stages for deployment</h3>
 <ul>
 <li>deploy-prod</li>
@@ -139,7 +146,7 @@ Main features:</p>
 <li>This stage must print a message &quot;This job deploys something from the $CI_COMMIT_BRANCH branch.&quot;, change directory and pull the code to selected directory: \
 <ul>
 <li>echo &quot;This job deploys something from the $CI_COMMIT_BRANCH branch.&quot; \</li>
-<li>ssh atnog@10.0.12.91 &quot;cd ~/git/ml-location-simulator; git pull;&quot;</li>
+<li>ssh atnog@10.0.12.91 &quot;cd ~/git/frontend-emulator; git pull;&quot;</li>
 </ul>
 </li>
 </ul>

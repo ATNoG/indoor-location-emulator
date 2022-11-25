@@ -1,2 +1,3 @@
 .vscode
-static-objects
+static-files
+utils/python_mqtt_client/pycache

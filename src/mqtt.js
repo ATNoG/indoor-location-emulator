@@ -1,91 +1,4 @@
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> mqtt.js</title>
-
-  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="./build/entry.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
-  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
-  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
-  <link type="text/css" rel="stylesheet" href="">
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-  
-</head>
-
-
-
-<body class="layout small-header">
-    <div id="stickyNavbarOverlay"></div>
-    
-
-<div class="top-nav">
-    <div class="inner">
-        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
-        <div class="logo">
-            
-            
-        </div>
-        <div class="menu">
-            
-            <div class="navigation">
-                <a
-                    href="index.html"
-                    class="link"
-                >
-                    Documentation
-                </a>
-                
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-    <div id="main">
-        <div
-            class="sidebar "
-            id="sidebarNav"
-        >
-            
-            <nav>
-                
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-animations.html">animations</a></li><li><a href="module-button.html">button</a></li><li><a href="module-communication.html">communication</a></li><li><a href="module-config.html">config</a></li><li><a href="module-main.html">main</a></li><li><a href="module-mapping.html">mapping</a></li><li><a href="module-mqtt.html">mqtt</a></li><li><a href="module-ui_interactions.html">ui_interactions</a></li></ul><h3>Classes</h3><ul><li><a href="module-button-MapboxGLButtonControl.html">MapboxGLButtonControl</a></li></ul></div>
-                
-            </nav>
-        </div>
-        <div class="core" id="main-content-wrapper">
-            <div class="content">
-                <header class="page-title">
-                    <p>Source</p>
-                    <h1>mqtt.js</h1>
-                </header>
-                
-
-
-
-    
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
+/**
  * MQTT Connection functions definitions
  *  @module mqtt */
 
@@ -542,7 +455,7 @@ function publishMqttMessage(topicName, messagePayload) {
 
     // print to console and to console_debugger
     console.log("Message Published: " + message.payloadString);
-    printOnConsoleDebugger("Message Published: &lt;/br>" + message.payloadString);
+    printOnConsoleDebugger("Message Published: </br>" + message.payloadString);
 }
 
 /**
@@ -580,7 +493,7 @@ function onMqttMessageArrived(
         if (message.destinationName == mqttTopicToReceivePredictions + "/" + session_uuid
             || message.destinationName == mqttTopicToReceiveCalculations + "/" + session_uuid) {
             // do something with received data (backend and predictions)
-            var printableMessage = "Message Received: " + "&lt;/br>" +
+            var printableMessage = "Message Received: " + "</br>" +
                 message.payloadString + " | " +
                 "Topic: " + message.destinationName + " | " +
                 "QoS: " + message.qos + " | " +
@@ -716,10 +629,10 @@ function disconnectFromMqttBroker(
         // show window alert message
         alert(printableMessage2);
 
-        // print the Distances | RSSI | Walls | Direction at the Distances &amp; RSSI container
+        // print the Distances | RSSI | Walls | Direction at the Distances & RSSI container
         var messageRssiDistancesContainer =
-            `&lt;strong>Distances [m] | RSSI [dBm] | Walls: # | Directionated: (boolean)&lt;/strong>&lt;/br>` +
-            ` &amp;#8226; Connect to MQTT to know the measurements.&lt;/br>`;
+            `<strong>Distances [m] | RSSI [dBm] | Walls: # | Directionated: (boolean)</strong></br>` +
+            ` &#8226; Connect to MQTT to know the measurements.</br>`;
 
         // Update container innerHTML
         updateContainerInnerHtml(distance_rssi_container, messageRssiDistancesContainer)
@@ -727,33 +640,3 @@ function disconnectFromMqttBroker(
 }
 
 // ========== End of MQTT Connection Functions ========== //
-</code></pre>
-        </article>
-    </section>
-
-
-
-
-            </div>
-            
-            <footer class="footer">
-                <div class="content has-text-centered">
-                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.0</a></p>
-                    <p class="sidebar-created-by">
-                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
-                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
-                    </p>
-                </div>
-            </footer>
-            
-        </div>
-        <div id="side-nav" class="side-nav">
-        </div>
-    </div>
-<script src="scripts/app.min.js"></script>
-<script>PR.prettyPrint();</script>
-<script src="scripts/linenumber.js"> </script>
-
-
-</body>
-</html>

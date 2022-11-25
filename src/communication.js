@@ -1,91 +1,4 @@
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> communication.js</title>
-
-  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="./build/entry.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
-  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
-  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
-  <link type="text/css" rel="stylesheet" href="">
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-  
-</head>
-
-
-
-<body class="layout small-header">
-    <div id="stickyNavbarOverlay"></div>
-    
-
-<div class="top-nav">
-    <div class="inner">
-        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
-        <div class="logo">
-            
-            
-        </div>
-        <div class="menu">
-            
-            <div class="navigation">
-                <a
-                    href="index.html"
-                    class="link"
-                >
-                    Documentation
-                </a>
-                
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-    <div id="main">
-        <div
-            class="sidebar "
-            id="sidebarNav"
-        >
-            
-            <nav>
-                
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-animations.html">animations</a></li><li><a href="module-button.html">button</a></li><li><a href="module-communication.html">communication</a></li><li><a href="module-config.html">config</a></li><li><a href="module-main.html">main</a></li><li><a href="module-mapping.html">mapping</a></li><li><a href="module-mqtt.html">mqtt</a></li><li><a href="module-ui_interactions.html">ui_interactions</a></li></ul><h3>Classes</h3><ul><li><a href="module-button-MapboxGLButtonControl.html">MapboxGLButtonControl</a></li></ul></div>
-                
-            </nav>
-        </div>
-        <div class="core" id="main-content-wrapper">
-            <div class="content">
-                <header class="page-title">
-                    <p>Source</p>
-                    <h1>communication.js</h1>
-                </header>
-                
-
-
-
-    
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
+/**
  * Communication functions definitions to deal with sent and received messages
  * @module communication */
 
@@ -180,7 +93,7 @@ function addAntennasDataToJsonMessage(payloadString, geojson_antennas, geojson_p
     payloadString += '"ant": [';
 
     // iterate by all others 'geojson_antennas' features
-    for (let index = 0, len = geojson_antennas.features.length; index &lt; len; index++) {
+    for (let index = 0, len = geojson_antennas.features.length; index < len; index++) {
         // save long, lat, direction and opening values by index of antennas
         var antennaLong = geojson_antennas.features[index].geometry.coordinates[0].toFixed(geojson_precison_decimal_places)
         var antennaLat = geojson_antennas.features[index].geometry.coordinates[1].toFixed(geojson_precison_decimal_places)
@@ -189,7 +102,7 @@ function addAntennasDataToJsonMessage(payloadString, geojson_antennas, geojson_p
         var antennaTxPower = geojson_antennas.features[index].properties.tx_power;
 
         // Add the antennas positions until last
-        if (index &lt; len - 1) {
+        if (index < len - 1) {
             payloadString += `{"LongLat": [${antennaLong + "," + antennaLat}], "DirOpen": [${antennaDir + "," + antennaOp}], "TxPower": ${antennaTxPower}}, `;
         }
         // Add the last antenna position 
@@ -213,13 +126,13 @@ function addAnchorsDataToJsonMessage(payloadString, geojson_anchors, geojson_pre
     payloadString += '"anchors": [';
 
     // iterate by all others 'geojson_anchors' features
-    for (let index = 0, len = geojson_anchors.features.length; index &lt; len; index++) {
+    for (let index = 0, len = geojson_anchors.features.length; index < len; index++) {
         // save long and lat values by index of anchors
         var anchorLong = geojson_anchors.features[index].geometry.coordinates[0].toFixed(geojson_precison_decimal_places)
         var anchorLat = geojson_anchors.features[index].geometry.coordinates[1].toFixed(geojson_precison_decimal_places)
 
         // Add the anchors positions until last
-        if (index &lt; len - 1) {
+        if (index < len - 1) {
             payloadString += `{"LongLat": [${anchorLong + "," + anchorLat}]},`;
         }
         // Add the last anchor position 
@@ -243,7 +156,7 @@ function addAssetPointsDataToJsonMessage(payloadString, geojson_asset_points, ge
     payloadString += '"ap": [';
 
     // iterate by all others 'geojson_asset_points' features
-    for (let index = 0, len = geojson_asset_points.features.length; index &lt; len; index++) {
+    for (let index = 0, len = geojson_asset_points.features.length; index < len; index++) {
         // save long, lat, direction and opening values by index of asset points
         var apLong = geojson_asset_points.features[index].geometry.coordinates[0].toFixed(geojson_precison_decimal_places)
         var apLat = geojson_asset_points.features[index].geometry.coordinates[1].toFixed(geojson_precison_decimal_places)
@@ -253,7 +166,7 @@ function addAssetPointsDataToJsonMessage(payloadString, geojson_asset_points, ge
         var apOpSmall = geojson_asset_points.features[index].properties.angle_opening_small_lobe.toFixed(2);
 
         // Add the antennas positions until last
-        if (index &lt; len - 1) {
+        if (index < len - 1) {
             payloadString += `{"LongLat": [${apLong + "," + apLat}], "LargeDirOpen": [${apDirLarge + "," + apOpLarge}], "SmallDirOpen": [${apDirSmall + "," + apOpSmall}]}, `;
         }
         // Add the last antenna position 
@@ -328,7 +241,7 @@ function constructJsonMessage(
     selectedMapIndex,
     messageToSend
 ) {
-    if (geojson_asset_points.features.length > 0 &amp;&amp; geojson_antennas.features.length > 0) {
+    if (geojson_asset_points.features.length > 0 && geojson_antennas.features.length > 0) {
         // var to create the message string - Open JSON structure
         var payloadString = '{';
 
@@ -459,15 +372,15 @@ function processReceivedJsonMessage(message, geojson_asset_points, geojson_ancho
             anchors_wall_intersections = jsonData["anch-wall-inter"];
             ant_dir_anchors_intersections = jsonData["ant-dir-anch-inter"];
 
-            // set message and populate to print on console and on Distances &amp; RSSI container
-            var messageToContainer = `&lt;strong>Distances [m] | RSSI [dBm] | Walls: # | Directionated: (boolean)&lt;/strong>&lt;/br>`;
+            // set message and populate to print on console and on Distances & RSSI container
+            var messageToContainer = `<strong>Distances [m] | RSSI [dBm] | Walls: # | Directionated: (boolean)</strong></br>`;
 
             // check length of received data
             if (geojson_asset_points.features.length == ap_distance_values.length) {
                 // iterate over geojson_asset_points
                 geojson_asset_points.features.forEach(index_asset_point => {
                     // populate message to print
-                    messageToContainer += `AP ${index_asset_point.properties.id + 1}:&lt;/br>`
+                    messageToContainer += `AP ${index_asset_point.properties.id + 1}:</br>`
 
                     // iterate over geojson_antennas
                     geojson_antennas.features.forEach(index_antenna => {
@@ -482,25 +395,25 @@ function processReceivedJsonMessage(message, geojson_asset_points, geojson_ancho
                         // save direction intersections by line
                         var dir_intersections_by_line = ant_dir_ap_intersections[index_asset_point.properties.id][index_antenna.properties.id]
                         // populate message to print
-                        messageToContainer += ` &amp;#8226; ${antenna_name}: ${distance_value} m | RSSI: ${rssi_value} dBm | Walls: ${wall_intersections_by_line} | Dir: ${String(dir_intersections_by_line)}&lt;/br>`;
+                        messageToContainer += ` &#8226; ${antenna_name}: ${distance_value} m | RSSI: ${rssi_value} dBm | Walls: ${wall_intersections_by_line} | Dir: ${String(dir_intersections_by_line)}</br>`;
                     });
                 });
             }
             else {
-                messageToContainer += ' &amp;#8226; Updating Asset Points data ... &lt;/br>';
+                messageToContainer += ' &#8226; Updating Asset Points data ... </br>';
             }
             // add anchors data if added
             if (anchors_dists.length > 0) {
                 if (anchors_dists.length == geojson_anchors.features.length) {
                     // populate message to print
-                    messageToContainer += `Anchors: &lt;/br>`
+                    messageToContainer += `Anchors: </br>`
 
                     // iterate over geojson_anchors
                     geojson_anchors.features.forEach(index_anchor => {
                         // save anchor name by index
                         var anchor_name = `Anchor ${index_anchor.properties.id + 1}`;
                         // populate message to print
-                        messageToContainer += ` &amp;#8226; ${anchor_name}: `;
+                        messageToContainer += ` &#8226; ${anchor_name}: `;
 
                         // iterate over geojson_antennas 
                         geojson_antennas.features.forEach(index_antenna => {
@@ -508,19 +421,19 @@ function processReceivedJsonMessage(message, geojson_asset_points, geojson_ancho
                             var anchor_dist_value = Math.round(parseFloat(anchors_dists[index_anchor.properties.id][index_antenna.properties.id]) * 100) / 100
 
                             // Add until the last antenna anchor distance
-                            if (index_antenna.properties.id &lt; geojson_antennas.features.length - 1) {
+                            if (index_antenna.properties.id < geojson_antennas.features.length - 1) {
                                 // populate message to print
                                 messageToContainer += `${anchor_dist_value} m | `;
                             }
                             // Add the last antenna anchor distance 
                             if (index_antenna.properties.id == geojson_antennas.features.length - 1) {
-                                messageToContainer += `${anchor_dist_value} m &lt;/br>`;
+                                messageToContainer += `${anchor_dist_value} m </br>`;
                             }
                         });
                     });
                 }
                 else {
-                    messageToContainer += 'Updating Anchors data ... &lt;/br>';
+                    messageToContainer += 'Updating Anchors data ... </br>';
                 }
             }
             // Update container innerHTML
@@ -543,12 +456,12 @@ function processReceivedJsonMessage(message, geojson_asset_points, geojson_ancho
             // check if received data has the same size as geojson_asset_points
             if (jsonData["coords"].length == geojson_asset_points.features.length) {
                 // iterate over 'predictor' message
-                for (let i = 0, len_i = jsonData["coords"].length; i &lt; len_i; i++) {
+                for (let i = 0, len_i = jsonData["coords"].length; i < len_i; i++) {
                     // save ap_number = ap index + 1
                     const ap_number = geojson_asset_points.features[i].properties.id + 1;
                     // Deal with coordinates to pulsing dots
                     // iterate over 'pulsing_dots_algorithms' array
-                    for (let a = 0, len = pulsing_dots_fixed_size; a &lt; len; a++) {
+                    for (let a = 0, len = pulsing_dots_fixed_size; a < len; a++) {
                         // save algorithm name to create layerID
                         const algo_name = pulsing_dots_layers_sources[i].features[a].properties.algorithm.replace(/"/g, '').toUpperCase();
                         // create the layerID
@@ -558,7 +471,7 @@ function processReceivedJsonMessage(message, geojson_asset_points, geojson_ancho
                             // flag to check if algorithm already exists
                             var enabled = false;
                             // iterate over 'coords data' array
-                            for (let j = 0, len_j = jsonData["coords"][i].length; j &lt; len_j; j++) {
+                            for (let j = 0, len_j = jsonData["coords"][i].length; j < len_j; j++) {
                                 // check if jsonData "coords" array have some 'pulsing_dots_algorithms'
                                 if (jsonData["coords"][i][j][2] == `${algo_name}`) {
                                     if (geojson_asset_points.features[i].properties.show_predictions) {
@@ -600,33 +513,4 @@ function processReceivedJsonMessage(message, geojson_asset_points, geojson_ancho
     }
 }
 
-// ========== End of Communication Functions to deal with sent and received messages ========== //</code></pre>
-        </article>
-    </section>
-
-
-
-
-            </div>
-            
-            <footer class="footer">
-                <div class="content has-text-centered">
-                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.0</a></p>
-                    <p class="sidebar-created-by">
-                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
-                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
-                    </p>
-                </div>
-            </footer>
-            
-        </div>
-        <div id="side-nav" class="side-nav">
-        </div>
-    </div>
-<script src="scripts/app.min.js"></script>
-<script>PR.prettyPrint();</script>
-<script src="scripts/linenumber.js"> </script>
-
-
-</body>
-</html>
+// ========== End of Communication Functions to deal with sent and received messages ========== //
