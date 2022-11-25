@@ -1,0 +1,18 @@
+1648659229.465152, sdrt-health/mac:02010b41cdec/antenna/power/set, {"power": 220}
+1648659230.037059, sdrt-health/mac:02010b41cdec/antenna/power, no response
+1648659235.058147, sdrt-health/mac:02010b41cdec/antenna/tag/scan, {"time": 60000}
+1648659236.714211, sdrt-health/mac:02010b41cdec/antenna/tag/e28068940000400386621d4f, 83
+1648659243.235737, sdrt-health/mac:02010b41cdec/antenna/tag/e28068940000400386621d4f, 83
+1648659249.714257, sdrt-health/mac:02010b41cdec/antenna/tag/e28068940000400386621d4f, 83
+1648659256.22943, sdrt-health/mac:02010b41cdec/antenna/tag/e28068940000400386621d4f, 83
+1648659262.714522, sdrt-health/mac:02010b41cdec/antenna/tag/e28068940000400386621d4f, 87
+1648659269.223724, sdrt-health/mac:02010b41cdec/antenna/tag/e28068940000400386621d4f, 83
+1648659275.714097, sdrt-health/mac:02010b41cdec/antenna/tag/e28068940000400386621d4f, 87
+1648659282.228344, sdrt-health/mac:02010b41cdec/antenna/tag/e28068940000400386621d4f, 87
+1648659285.452096, sdrt-health/mac:02010b41cdec/antenna/state, connected
+1648659285.452622, sdrt-health/mac:02010b41cdec/fw, {"version":"1.8.0","model":"200","hash":"2f556501b58f1dad542af428d7928d18","timestamp":1648659285}
+1648659285.61451, sdrt-health/mac:02010b41cdec/antenna/version, 
+1648659286.125673, sdrt-health/mac:02010b41cdec/antenna/power, 
+1648659288.728636, sdrt-health/mac:02010b41cdec/antenna/tag/e28068940000400386621d4f, 81
+1648659295.226525, sdrt-health/mac:02010b41cdec/antenna/tag/e28068940000400386621d4f, 83
+1648659295.648018, sdrt-health/mac:02010b41cdec/antenna/tag/scan, scan stopped
