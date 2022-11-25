@@ -619,7 +619,7 @@ function loadMapAssets(
 
         // Add an image to use as a custom marker (antennas)
         map.loadImage(
-            'static-objects/icons/antenna_icon.png',
+            'static-files/icons/antenna_icon.png',
             (error, image1) => {
                 if (error) throw error;
 
@@ -860,7 +860,7 @@ function loadMapAssets(
 
         // Add an image to use as a custom marker (anchors)
         map.loadImage(
-            'static-objects/icons/anchor_icon.png',
+            'static-files/icons/anchor_icon.png',
             (error, image2) => {
                 if (error) throw error;
 
