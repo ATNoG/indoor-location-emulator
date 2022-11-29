@@ -30,9 +30,11 @@ Main features:
 ---
 
 ### Usefull command
-- generate documentation using ```jsodc``` and ```better-docs``` or ```docdash```, run: 
+- generate documentation using ```jsodc``` and ```better-docs``` or ```docdash```: 
 ```
 jsdoc ./src/ --readme ./README.md -d docs -r -t ~/path_to_jsdoc/jsdoc/templates/better-docs/
+
+or
 
 jsdoc ./src/ --readme ./README.md -d docs -r -t ~/path_to_jsdoc/jsdoc/templates/docdash/
 ```
