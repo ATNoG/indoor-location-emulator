@@ -1,0 +1,4 @@
+1648742116.12784, sdrt-health/mac:02010b41cdec/antenna/power/set, {"power": 230}
+1648742116.715247, sdrt-health/mac:02010b41cdec/antenna/power, no response
+1648742121.734171, sdrt-health/mac:02010b41cdec/antenna/tag/scan, {"time": 60000}
+1648742122.049167, sdrt-health/mac:02010b41cdec/antenna/tag/scan, no response
