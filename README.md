@@ -34,6 +34,8 @@ Main features:
 ```
 jsdoc ./src/ --readme ./README.md -d docs -r -t ~/path_to_jsdoc/jsdoc/templates/better-docs/
 
+OR
+
 jsdoc ./src/ --readme ./README.md -d docs -r -t ~/path_to_jsdoc/jsdoc/templates/docdash/
 ```
 ---
