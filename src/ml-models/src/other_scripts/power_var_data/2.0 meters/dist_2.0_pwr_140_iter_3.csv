@@ -1,8 +1,0 @@
-1648667804.423873, sdrt-health/mac:02010b41cdec/antenna/power/set, {"power": 140}
-1648667805.005281, sdrt-health/mac:02010b41cdec/antenna/power, no response
-1648667810.027993, sdrt-health/mac:02010b41cdec/antenna/tag/scan, {"time": 60000}
-1648667813.123482, sdrt-health/mac:02010b41cdec/antenna/state, connected
-1648667813.123722, sdrt-health/mac:02010b41cdec/fw, {"version":"1.8.0","model":"200","hash":"2f556501b58f1dad542af428d7928d18","timestamp":1648667813}
-1648667813.301945, sdrt-health/mac:02010b41cdec/antenna/version, 
-1648667813.805837, sdrt-health/mac:02010b41cdec/antenna/power, 
-1648667870.804244, sdrt-health/mac:02010b41cdec/antenna/tag/scan, scan stopped
