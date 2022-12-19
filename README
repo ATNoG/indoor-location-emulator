@@ -11,5 +11,7 @@ The indoor-location-emulator is a project that was designed to compile and provi
 
 ## Documentantion 
 
-Documentation was created individually for each module and aggregated into a page that is served on GitHub Pages and can be accessed [here](https://atnog.github.io/indoor-location-emulator/ "Documentation").
+Documentation was created individually for each module and aggregated into a page that is served on GitHub Pages and can be accessed [here][1].
+
+[1]: https://atnog.github.io/indoor-location-emulator/
 
