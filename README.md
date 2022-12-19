@@ -4,10 +4,10 @@ The <em>indoor-location-emulator</em> is a project that was designed to compile 
 
 ## Main Modules:
 
-- frontend - This module includes the frontend processing of Indoor Location Emulator and Tracking (using Mapbox GL JS) [Developed with HTML, Vanilla Javascript & CSS].
-- backend - That module includes the backend processing of Indoor Location Emulator [Developed in Python].
-- ml-models - This module includes Machine Learning scripts [Developed in Python]. 
-- static-files - Static Files objects used in Emulation .
+- <em>frontend</em>: This module includes the frontend processing of Indoor Location Emulator and Tracking (using Mapbox GL JS) [Developed with HTML, Vanilla Javascript & CSS].
+- <em>backend</em>: That module includes the backend processing of Indoor Location Emulator [Developed in Python].
+- <em>ml-models</em>: This module includes Machine Learning scripts [Developed in Python]. 
+- <em>static-files</em>: This module includes the Static Files objects used in Emulation .
 
 ## Documentantion 
 
