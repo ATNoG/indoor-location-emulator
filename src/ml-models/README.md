@@ -1,7 +1,6 @@
 # Machine Learning Models
 
 This repository includes machine learning modules for the SDRT project.
-It contains 2 main directories:
 
 src - ML techniques based on the SDRT simulator. It contains python scripts for model training, stored in the corresponding location directory and a python script "predictor.py" that contains a MQTT agent responsible for communicating with the simulator and predict the location of assets based on their rssi values and the previously trained ml models.
 
