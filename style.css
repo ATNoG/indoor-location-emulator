@@ -64,6 +64,7 @@ header {
 	border-radius: 5%;
 	cursor: pointer;
 }
+
 #github_logo {
 	background-image: url('https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png');
 	background-size: cover;
