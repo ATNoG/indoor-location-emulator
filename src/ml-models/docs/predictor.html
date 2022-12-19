@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="pdoc 12.3.0"/>
+    <meta name="generator" content="pdoc 12.2.0"/>
     <title>predictor API documentation</title>
 
     <style>/*! * Bootstrap Reboot v5.0.0 (https://getbootstrap.com/) * Copyright 2011-2021 The Bootstrap Authors * Copyright 2011-2021 Twitter, Inc. * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE) * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md) */*,::after,::before{box-sizing:border-box}@media (prefers-reduced-motion:no-preference){:root{scroll-behavior:smooth}}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:1rem;font-weight:400;line-height:1.5;color:#212529;background-color:#fff;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}hr{margin:1rem 0;color:inherit;background-color:currentColor;border:0;opacity:.25}hr:not([size]){height:1px}h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:.5rem;font-weight:500;line-height:1.2}h1{font-size:calc(1.375rem + 1.5vw)}@media (min-width:1200px){h1{font-size:2.5rem}}h2{font-size:calc(1.325rem + .9vw)}@media (min-width:1200px){h2{font-size:2rem}}h3{font-size:calc(1.3rem + .6vw)}@media (min-width:1200px){h3{font-size:1.75rem}}h4{font-size:calc(1.275rem + .3vw)}@media (min-width:1200px){h4{font-size:1.5rem}}h5{font-size:1.25rem}h6{font-size:1rem}p{margin-top:0;margin-bottom:1rem}abbr[data-bs-original-title],abbr[title]{-webkit-text-decoration:underline dotted;text-decoration:underline dotted;cursor:help;-webkit-text-decoration-skip-ink:none;text-decoration-skip-ink:none}address{margin-bottom:1rem;font-style:normal;line-height:inherit}ol,ul{padding-left:2rem}dl,ol,ul{margin-top:0;margin-bottom:1rem}ol ol,ol ul,ul ol,ul ul{margin-bottom:0}dt{font-weight:700}dd{margin-bottom:.5rem;margin-left:0}blockquote{margin:0 0 1rem}b,strong{font-weight:bolder}small{font-size:.875em}mark{padding:.2em;background-color:#fcf8e3}sub,sup{position:relative;font-size:.75em;line-height:0;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}a{color:#0d6efd;text-decoration:underline}a:hover{color:#0a58ca}a:not([href]):not([class]),a:not([href]):not([class]):hover{color:inherit;text-decoration:none}code,kbd,pre,samp{font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:1em;direction:ltr;unicode-bidi:bidi-override}pre{display:block;margin-top:0;margin-bottom:1rem;overflow:auto;font-size:.875em}pre code{font-size:inherit;color:inherit;word-break:normal}code{font-size:.875em;color:#d63384;word-wrap:break-word}a>code{color:inherit}kbd{padding:.2rem .4rem;font-size:.875em;color:#fff;background-color:#212529;border-radius:.2rem}kbd kbd{padding:0;font-size:1em;font-weight:700}figure{margin:0 0 1rem}img,svg{vertical-align:middle}table{caption-side:bottom;border-collapse:collapse}caption{padding-top:.5rem;padding-bottom:.5rem;color:#6c757d;text-align:left}th{text-align:inherit;text-align:-webkit-match-parent}tbody,td,tfoot,th,thead,tr{border-color:inherit;border-style:solid;border-width:0}label{display:inline-block}button{border-radius:0}button:focus:not(:focus-visible){outline:0}button,input,optgroup,select,textarea{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}button,select{text-transform:none}[role=button]{cursor:pointer}select{word-wrap:normal}select:disabled{opacity:1}[list]::-webkit-calendar-picker-indicator{display:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]:not(:disabled),[type=reset]:not(:disabled),[type=submit]:not(:disabled),button:not(:disabled){cursor:pointer}::-moz-focus-inner{padding:0;border-style:none}textarea{resize:vertical}fieldset{min-width:0;padding:0;margin:0;border:0}legend{float:left;width:100%;padding:0;margin-bottom:.5rem;font-size:calc(1.275rem + .3vw);line-height:inherit}@media (min-width:1200px){legend{font-size:1.5rem}}legend+*{clear:left}::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-fields-wrapper,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-text,::-webkit-datetime-edit-year-field{padding:0}::-webkit-inner-spin-button{height:auto}[type=search]{outline-offset:-2px;-webkit-appearance:textfield}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-color-swatch-wrapper{padding:0}::file-selector-button{font:inherit}::-webkit-file-upload-button{font:inherit;-webkit-appearance:button}output{display:inline-block}iframe{border:0}summary{display:list-item;cursor:pointer}progress{vertical-align:baseline}[hidden]{display:none!important}</style>
@@ -28,12 +28,7 @@
             {childList: true}
         );
     })
-</script>
-<style>
-    mjx-container {
-        overflow-x: auto;
-    }
-</style></head>
+</script></head>
 <body>
     <nav class="pdoc">
         <label id="navtoggle" for="togglestate" class="pdoc-button"><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke-linecap='round' stroke="currentColor" stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg></label>
@@ -132,8 +127,7 @@ predictor    </h1>
 
                         <div class="docstring"><h1 id="machine-learning-models">Machine Learning Models</h1>
 
-<p>This repository includes machine learning modules for the SDRT project.
-It contains 2 main directories:</p>
+<p>This repository includes machine learning modules for the SDRT project.</p>
 
 <p>src - ML techniques based on the SDRT simulator. It contains python scripts for model training, stored in the corresponding location directory and a python script "predictor.py" that contains a MQTT agent responsible for communicating with the simulator and predict the location of assets based on their rssi values and the previously trained ml models.</p>
 
@@ -152,7 +146,7 @@ The dir which the models will be moved into is the "somos_saude" by default, but
 <li>Asset location prediction based on stored models</li>
 </ul>
 
-<p>It implies the creation of a virtual environment (venv) whose dependencies come in the requirements.txt file.</p>
+<p>It implies the creation of a virtual environment (venv) whose dependencies come in the <code>requirements.txt</code> file.</p>
 
 <h3 id="usefull-commands">Usefull commands:</h3>
 
@@ -193,7 +187,7 @@ The dir which the models will be moved into is the "somos_saude" by default, but
 <li>This stage must print a message "Building new image on latest commit", change directory, build docker image with last commit: \
 <ul>
 <li>echo "Building new image on latest commit" \</li>
-<li>ssh atnog@10.0.12.115 "cd ~/git/ml_models/src; sudo docker build -t sdrt/ml_models:$CI_COMMIT_SHORT_SHA .;"</li>
+<li>ssh atnog@10.0.12.115 "cd ~/git/ml_models/; sudo docker build -t sdrt/ml_models:$CI_COMMIT_SHORT_SHA .;"</li>
 </ul></li>
 </ul>
 
@@ -732,7 +726,7 @@ The dir which the models will be moved into is the "somos_saude" by default, but
 </span><span id="L-506"><a href="#L-506"><span class="linenos">506</span></a>    <span class="k">global</span> <span class="n">previous_pos_iterations</span>
 </span><span id="L-507"><a href="#L-507"><span class="linenos">507</span></a>
 </span><span id="L-508"><a href="#L-508"><span class="linenos">508</span></a>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Predicts the location of a tag based on rssi values.&quot;</span><span class="p">)</span>
-</span><span id="L-509"><a href="#L-509"><span class="linenos">509</span></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-m&quot;</span><span class="p">,</span> <span class="s2">&quot;--models&quot;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;it&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Enter the name of the rssi models dir. default = it. other = somos_saude&quot;</span><span class="p">)</span>
+</span><span id="L-509"><a href="#L-509"><span class="linenos">509</span></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-m&quot;</span><span class="p">,</span> <span class="s2">&quot;--models&quot;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;src/it&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Enter the name of the rssi models dir. default = it. other = somos_saude&quot;</span><span class="p">)</span>
 </span><span id="L-510"><a href="#L-510"><span class="linenos">510</span></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-n&quot;</span><span class="p">,</span> <span class="s2">&quot;--n_antennas&quot;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Enter the number of antennas. default = 4&quot;</span><span class="p">)</span>
 </span><span id="L-511"><a href="#L-511"><span class="linenos">511</span></a>    <span class="n">models_dir</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span><span class="o">.</span><span class="n">models</span>
 </span><span id="L-512"><a href="#L-512"><span class="linenos">512</span></a>    <span class="n">n_antennas</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span><span class="o">.</span><span class="n">n_antennas</span>
@@ -868,13 +862,13 @@ $$
 meters=\frac{2 \times \pi \times earthRadius \times degrees}{360}
 $$</p>
 
-<h6 id="arguments">Arguments:</h6>
+<h6 id="args">Args</h6>
 
 <ul>
 <li><strong>deg (float):</strong>  coordinate in degrees</li>
 </ul>
 
-<h6 id="returns">Returns:</h6>
+<h6 id="returns">Returns</h6>
 
 <blockquote>
   <p>float: coordinate in meters</p>
@@ -916,13 +910,13 @@ $$
 degrees=\frac{360 \times meters}{2 \times \pi \times earthRadius}
 $$</p>
 
-<h6 id="arguments">Arguments:</h6>
+<h6 id="args">Args</h6>
 
 <ul>
 <li><strong>metres (float):</strong>  coordinate in degrees</li>
 </ul>
 
-<h6 id="returns">Returns:</h6>
+<h6 id="returns">Returns</h6>
 
 <blockquote>
   <p>float: coordinate in degrees</p>
@@ -959,14 +953,14 @@ $$</p>
 
             <div class="docstring"><p>Root mean sequare error.</p>
 
-<h6 id="arguments">Arguments:</h6>
+<h6 id="args">Args</h6>
 
 <ul>
 <li><strong>y_true (list):</strong>  list of true values</li>
 <li><strong>y_pred (list):</strong>  list of predicted values</li>
 </ul>
 
-<h6 id="returns">Returns:</h6>
+<h6 id="returns">Returns</h6>
 
 <blockquote>
   <p>float: rmse</p>
@@ -1005,7 +999,7 @@ $$</p>
 
             <div class="docstring"><p>Min max scaler.</p>
 
-<h6 id="arguments">Arguments:</h6>
+<h6 id="args">Args</h6>
 
 <ul>
 <li><strong>val (float):</strong>  value to be scaled</li>
@@ -1013,7 +1007,7 @@ $$</p>
 <li><strong>max_val (float):</strong>  maximum value</li>
 </ul>
 
-<h6 id="returns">Returns:</h6>
+<h6 id="returns">Returns</h6>
 
 <blockquote>
   <p>float: min_max_scaler</p>
@@ -1052,7 +1046,7 @@ $$</p>
 
             <div class="docstring"><p>Min max reverse scaler.</p>
 
-<h6 id="arguments">Arguments:</h6>
+<h6 id="args">Args</h6>
 
 <ul>
 <li><strong>val (float):</strong>  value to be unscaled</li>
@@ -1060,7 +1054,7 @@ $$</p>
 <li><strong>max_val (float):</strong>  maximum value</li>
 </ul>
 
-<h6 id="returns">Returns:</h6>
+<h6 id="returns">Returns</h6>
 
 <blockquote>
   <p>float: reverse_min_max_scaler</p>
@@ -1108,13 +1102,13 @@ $$</p>
 
             <div class="docstring"><p>Makes an average of the rssi values in each iteration.</p>
 
-<h6 id="arguments">Arguments:</h6>
+<h6 id="args">Args</h6>
 
 <ul>
 <li><strong>d (list):</strong>  list of rssi values</li>
 </ul>
 
-<h6 id="returns">Returns:</h6>
+<h6 id="returns">Returns</h6>
 
 <blockquote>
   <p>dict: average rssi values</p>
@@ -1153,13 +1147,13 @@ $$</p>
 
             <div class="docstring"><p>Scales using the min and max coordinates.</p>
 
-<h6 id="arguments">Arguments:</h6>
+<h6 id="args">Args</h6>
 
 <ul>
 <li><strong>val (list):</strong>  coordinates to be scaled</li>
 </ul>
 
-<h6 id="returns">Returns:</h6>
+<h6 id="returns">Returns</h6>
 
 <blockquote>
   <p>float: scaled coordinates</p>
@@ -1197,13 +1191,13 @@ $$</p>
 
             <div class="docstring"><p>Unscales using the min and max coordinates.</p>
 
-<h6 id="arguments">Arguments:</h6>
+<h6 id="args">Args</h6>
 
 <ul>
 <li><strong>val (list):</strong>  coordinates to be unscaled</li>
 </ul>
 
-<h6 id="returns">Returns:</h6>
+<h6 id="returns">Returns</h6>
 
 <blockquote>
   <p>float: real coordinates</p>
@@ -1244,7 +1238,7 @@ $$</p>
 
             <div class="docstring"><p>Estimates the asset coordinates using data regarding the distance to an antenna, its position and angle.</p>
 
-<h6 id="arguments">Arguments:</h6>
+<h6 id="args">Args</h6>
 
 <ul>
 <li><strong>dist (float):</strong>  distance from the tag to the antenna</li>
@@ -1252,7 +1246,7 @@ $$</p>
 <li><strong>antenna_angle (float):</strong>  angle of direction of the antenna</li>
 </ul>
 
-<h6 id="returns">Returns:</h6>
+<h6 id="returns">Returns</h6>
 
 <blockquote>
   <p>tuple: asset coordinates</p>
@@ -1296,7 +1290,7 @@ $$</p>
 
             <div class="docstring"><p>Predicts the distance of an asset using anchors data its number of activations.</p>
 
-<h6 id="arguments">Arguments:</h6>
+<h6 id="args">Args</h6>
 
 <ul>
 <li><strong>model:</strong>  ML model</li>
@@ -1304,7 +1298,7 @@ $$</p>
 <li><strong>anchors_activ (list):</strong>  activations of the anchors</li>
 </ul>
 
-<h6 id="returns">Returns:</h6>
+<h6 id="returns">Returns</h6>
 
 <blockquote>
   <p>float: distance between the asset and the antenna</p>
@@ -1410,7 +1404,7 @@ $$</p>
 
             <div class="docstring"><p>Predicts the position of an asset using data regarding the number of activations recorded.</p>
 
-<h6 id="arguments">Arguments:</h6>
+<h6 id="args">Args</h6>
 
 <ul>
 <li><strong>client:</strong>  client</li>
@@ -1564,7 +1558,7 @@ $$</p>
 
             <div class="docstring"><p>Predicts the position of an asset using RSSI data.</p>
 
-<h6 id="arguments">Arguments:</h6>
+<h6 id="args">Args</h6>
 
 <ul>
 <li><strong>client:</strong>  client</li>
@@ -1734,7 +1728,7 @@ $$</p>
 </span><span id="main-507"><a href="#main-507"><span class="linenos">507</span></a>    <span class="k">global</span> <span class="n">previous_pos_iterations</span>
 </span><span id="main-508"><a href="#main-508"><span class="linenos">508</span></a>
 </span><span id="main-509"><a href="#main-509"><span class="linenos">509</span></a>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Predicts the location of a tag based on rssi values.&quot;</span><span class="p">)</span>
-</span><span id="main-510"><a href="#main-510"><span class="linenos">510</span></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-m&quot;</span><span class="p">,</span> <span class="s2">&quot;--models&quot;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;it&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Enter the name of the rssi models dir. default = it. other = somos_saude&quot;</span><span class="p">)</span>
+</span><span id="main-510"><a href="#main-510"><span class="linenos">510</span></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-m&quot;</span><span class="p">,</span> <span class="s2">&quot;--models&quot;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;src/it&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Enter the name of the rssi models dir. default = it. other = somos_saude&quot;</span><span class="p">)</span>
 </span><span id="main-511"><a href="#main-511"><span class="linenos">511</span></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-n&quot;</span><span class="p">,</span> <span class="s2">&quot;--n_antennas&quot;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Enter the number of antennas. default = 4&quot;</span><span class="p">)</span>
 </span><span id="main-512"><a href="#main-512"><span class="linenos">512</span></a>    <span class="n">models_dir</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span><span class="o">.</span><span class="n">models</span>
 </span><span id="main-513"><a href="#main-513"><span class="linenos">513</span></a>    <span class="n">n_antennas</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span><span class="o">.</span><span class="n">n_antennas</span>

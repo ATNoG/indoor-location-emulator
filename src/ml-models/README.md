@@ -16,7 +16,7 @@ Main features:
 - Model trainning
 - Asset location prediction based on stored models
 
-It implies the creation of a virtual environment (venv) whose dependencies come in the requirements.txt file.
+It implies the creation of a virtual environment (venv) whose dependencies come in the ```requirements.txt``` file.
 
 ### Usefull commands:
 - install venv package: > ```sudo apt-get install python3-venv```
