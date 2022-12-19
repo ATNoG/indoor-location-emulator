@@ -11,5 +11,5 @@ Inside the src directory are disposed the main modules:
 
 ## Documentantion 
 
-Documentation was created individually for each module and aggregated into a page that is served on GitHub Pages and can be accessed [here](https://atnog.github.io/indoor-location-emulator/).
+Documentation was created individually for each module and aggregated into that page that is served on GitHub Pages and can be accessed [here](https://atnog.github.io/indoor-location-emulator/).
 
