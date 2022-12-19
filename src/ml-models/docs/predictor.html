@@ -663,132 +663,208 @@ The dir which the models will be moved into is the "somos_saude" by default, but
 </span><span id="L-443"><a href="#L-443"><span class="linenos">443</span></a>
 </span><span id="L-444"><a href="#L-444"><span class="linenos">444</span></a><span class="c1"># Define on connect event function</span>
 </span><span id="L-445"><a href="#L-445"><span class="linenos">445</span></a><span class="c1"># We shall subscribe to our Topic in this function</span>
-</span><span id="L-446"><a href="#L-446"><span class="linenos">446</span></a><span class="k">def</span> <span class="nf">on_connect</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
-</span><span id="L-447"><a href="#L-447"><span class="linenos">447</span></a>    <span class="k">global</span> <span class="n">received_topic</span>
-</span><span id="L-448"><a href="#L-448"><span class="linenos">448</span></a>    <span class="k">global</span> <span class="n">publish_topic</span>
-</span><span id="L-449"><a href="#L-449"><span class="linenos">449</span></a>    <span class="k">if</span> <span class="n">rc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="L-450"><a href="#L-450"><span class="linenos">450</span></a>        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">_client_id</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span><span class="o">+</span><span class="s2">&quot; is connected to MQTT Broker, with return code: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rc</span><span class="p">))</span>
-</span><span id="L-451"><a href="#L-451"><span class="linenos">451</span></a>        <span class="k">global</span> <span class="n">Connected</span>                <span class="c1">#Use global variable</span>
-</span><span id="L-452"><a href="#L-452"><span class="linenos">452</span></a>        <span class="n">Connected</span> <span class="o">=</span> <span class="kc">True</span>                <span class="c1">#Signal connection</span>
-</span><span id="L-453"><a href="#L-453"><span class="linenos">453</span></a>        
-</span><span id="L-454"><a href="#L-454"><span class="linenos">454</span></a>        <span class="c1"># Subscribe the topic</span>
-</span><span id="L-455"><a href="#L-455"><span class="linenos">455</span></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Subscribing to topic: &quot;</span><span class="p">,</span> <span class="n">received_topic</span><span class="p">)</span>
-</span><span id="L-456"><a href="#L-456"><span class="linenos">456</span></a>        <span class="n">client</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">received_topic</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</span><span id="L-457"><a href="#L-457"><span class="linenos">457</span></a>    <span class="k">else</span><span class="p">:</span>
-</span><span id="L-458"><a href="#L-458"><span class="linenos">458</span></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failed to connect, with return code: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rc</span><span class="p">))</span>
-</span><span id="L-459"><a href="#L-459"><span class="linenos">459</span></a>
-</span><span id="L-460"><a href="#L-460"><span class="linenos">460</span></a><span class="c1"># Define on_message event function. </span>
-</span><span id="L-461"><a href="#L-461"><span class="linenos">461</span></a><span class="c1"># This function will be invoked every time,</span>
-</span><span id="L-462"><a href="#L-462"><span class="linenos">462</span></a><span class="c1"># a new message arrives for the subscribed topic</span>
-</span><span id="L-463"><a href="#L-463"><span class="linenos">463</span></a><span class="k">def</span> <span class="nf">on_message</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span> 
-</span><span id="L-464"><a href="#L-464"><span class="linenos">464</span></a>    <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">topic</span> <span class="o">==</span> <span class="n">received_topic</span><span class="p">:</span>
-</span><span id="L-465"><a href="#L-465"><span class="linenos">465</span></a>        <span class="n">received_data</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+</span><span id="L-446"><a href="#L-446"><span class="linenos">446</span></a><span class="k">def</span> <span class="nf">on_connect</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="o">.</span><span class="n">connect</span><span class="p">,</span> <span class="n">flags</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">rc</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="L-447"><a href="#L-447"><span class="linenos">447</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-448"><a href="#L-448"><span class="linenos">448</span></a><span class="sd">    Define MQTT on_connect event function. We shall subscribe to our Topic in this function.</span>
+</span><span id="L-449"><a href="#L-449"><span class="linenos">449</span></a>
+</span><span id="L-450"><a href="#L-450"><span class="linenos">450</span></a><span class="sd">    Args:</span>
+</span><span id="L-451"><a href="#L-451"><span class="linenos">451</span></a><span class="sd">        client (mqtt.Client): The MQTT client object</span>
+</span><span id="L-452"><a href="#L-452"><span class="linenos">452</span></a><span class="sd">        obj (mqtt.Client.connect): The connection object </span>
+</span><span id="L-453"><a href="#L-453"><span class="linenos">453</span></a><span class="sd">        flags (dict): The connection flags</span>
+</span><span id="L-454"><a href="#L-454"><span class="linenos">454</span></a><span class="sd">        rc (int): The return code</span>
+</span><span id="L-455"><a href="#L-455"><span class="linenos">455</span></a><span class="sd">    </span>
+</span><span id="L-456"><a href="#L-456"><span class="linenos">456</span></a><span class="sd">    *Return codes - rc:*</span>
+</span><span id="L-457"><a href="#L-457"><span class="linenos">457</span></a>
+</span><span id="L-458"><a href="#L-458"><span class="linenos">458</span></a><span class="sd">        0: Connection successful </span>
+</span><span id="L-459"><a href="#L-459"><span class="linenos">459</span></a><span class="sd">        1: Connection refused: incorrect protocol version </span>
+</span><span id="L-460"><a href="#L-460"><span class="linenos">460</span></a><span class="sd">        2: Connection refused: invalid client identifier </span>
+</span><span id="L-461"><a href="#L-461"><span class="linenos">461</span></a><span class="sd">        3: Connection refused: server unavailable </span>
+</span><span id="L-462"><a href="#L-462"><span class="linenos">462</span></a><span class="sd">        4: Connection refused: bad username or password </span>
+</span><span id="L-463"><a href="#L-463"><span class="linenos">463</span></a><span class="sd">        5: Connection refused: not authorised </span>
+</span><span id="L-464"><a href="#L-464"><span class="linenos">464</span></a><span class="sd">        6-255: Currently unused. </span>
+</span><span id="L-465"><a href="#L-465"><span class="linenos">465</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="L-466"><a href="#L-466"><span class="linenos">466</span></a>
-</span><span id="L-467"><a href="#L-467"><span class="linenos">467</span></a>        <span class="c1"># array_data = received_data.split(&#39;, &#39;)</span>
-</span><span id="L-468"><a href="#L-468"><span class="linenos">468</span></a>        <span class="n">array_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">received_data</span><span class="p">)</span>
-</span><span id="L-469"><a href="#L-469"><span class="linenos">469</span></a>
-</span><span id="L-470"><a href="#L-470"><span class="linenos">470</span></a>        <span class="c1"># print received message</span>
-</span><span id="L-471"><a href="#L-471"><span class="linenos">471</span></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Message received: &quot;</span><span class="p">,</span> <span class="n">array_json</span><span class="p">,</span>
-</span><span id="L-472"><a href="#L-472"><span class="linenos">472</span></a>            <span class="s2">&quot; | topic=&quot;</span><span class="p">,</span><span class="n">message</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span>
-</span><span id="L-473"><a href="#L-473"><span class="linenos">473</span></a>            <span class="s2">&quot; | qos=&quot;</span><span class="p">,</span><span class="n">message</span><span class="o">.</span><span class="n">qos</span><span class="p">,</span>
-</span><span id="L-474"><a href="#L-474"><span class="linenos">474</span></a>            <span class="s2">&quot; | retain flag=&quot;</span><span class="p">,</span><span class="n">message</span><span class="o">.</span><span class="n">retain</span><span class="p">)</span> 
-</span><span id="L-475"><a href="#L-475"><span class="linenos">475</span></a>
-</span><span id="L-476"><a href="#L-476"><span class="linenos">476</span></a>        <span class="c1"># predict(client, array_data)</span>
-</span><span id="L-477"><a href="#L-477"><span class="linenos">477</span></a>        <span class="n">q</span><span class="o">.</span><span class="n">put</span><span class="p">((</span><span class="n">client</span><span class="p">,</span> <span class="n">array_json</span><span class="p">))</span>
-</span><span id="L-478"><a href="#L-478"><span class="linenos">478</span></a>    
-</span><span id="L-479"><a href="#L-479"><span class="linenos">479</span></a>    
-</span><span id="L-480"><a href="#L-480"><span class="linenos">480</span></a><span class="c1"># Define on_subscribe event function.</span>
-</span><span id="L-481"><a href="#L-481"><span class="linenos">481</span></a><span class="k">def</span> <span class="nf">on_subscribe</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">granted_qos</span><span class="p">):</span>
-</span><span id="L-482"><a href="#L-482"><span class="linenos">482</span></a>    <span class="c1">#global publish_topic</span>
-</span><span id="L-483"><a href="#L-483"><span class="linenos">483</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Subscribed to topic: &quot;</span> <span class="o">+</span> <span class="n">received_topic</span> <span class="o">+</span>
-</span><span id="L-484"><a href="#L-484"><span class="linenos">484</span></a>    <span class="s2">&quot; | mid: &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; | QoS: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">granted_qos</span><span class="p">))</span>
-</span><span id="L-485"><a href="#L-485"><span class="linenos">485</span></a>
-</span><span id="L-486"><a href="#L-486"><span class="linenos">486</span></a><span class="c1"># Define on_publish event function.</span>
-</span><span id="L-487"><a href="#L-487"><span class="linenos">487</span></a><span class="k">def</span> <span class="nf">on_publish</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">mid</span><span class="p">):</span>
-</span><span id="L-488"><a href="#L-488"><span class="linenos">488</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mid: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mid</span><span class="p">))</span>
-</span><span id="L-489"><a href="#L-489"><span class="linenos">489</span></a>
-</span><span id="L-490"><a href="#L-490"><span class="linenos">490</span></a><span class="c1"># Define on_log event function.</span>
-</span><span id="L-491"><a href="#L-491"><span class="linenos">491</span></a><span class="k">def</span> <span class="nf">on_log</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
-</span><span id="L-492"><a href="#L-492"><span class="linenos">492</span></a>    <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
-</span><span id="L-493"><a href="#L-493"><span class="linenos">493</span></a>
-</span><span id="L-494"><a href="#L-494"><span class="linenos">494</span></a><span class="c1"># Define on_disconnect event function.</span>
-</span><span id="L-495"><a href="#L-495"><span class="linenos">495</span></a><span class="k">def</span> <span class="nf">on_disconnect</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
-</span><span id="L-496"><a href="#L-496"><span class="linenos">496</span></a>    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
-</span><span id="L-497"><a href="#L-497"><span class="linenos">497</span></a>        <span class="k">global</span> <span class="n">Connected</span>                <span class="c1">#Use global variable</span>
-</span><span id="L-498"><a href="#L-498"><span class="linenos">498</span></a>        <span class="n">Connected</span> <span class="o">=</span> <span class="kc">False</span>               <span class="c1">#Signal connection</span>
-</span><span id="L-499"><a href="#L-499"><span class="linenos">499</span></a>        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">_client_id</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span><span class="o">+</span> <span class="s2">&quot; was unexpected disconnected. Will auto-reconnect. Return code: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rc</span><span class="p">))</span>
-</span><span id="L-500"><a href="#L-500"><span class="linenos">500</span></a>
-</span><span id="L-501"><a href="#L-501"><span class="linenos">501</span></a><span class="c1">########## End of MQTT functions ##########</span>
-</span><span id="L-502"><a href="#L-502"><span class="linenos">502</span></a>
-</span><span id="L-503"><a href="#L-503"><span class="linenos">503</span></a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-</span><span id="L-504"><a href="#L-504"><span class="linenos">504</span></a>    <span class="k">global</span> <span class="n">q</span><span class="p">,</span> <span class="n">models_dict</span><span class="p">,</span> <span class="n">models_anchors_dict</span><span class="p">,</span> <span class="n">use_anchors</span><span class="p">,</span> <span class="n">models_based_on_experiments</span><span class="p">,</span> <span class="n">previous_pos_values</span>
-</span><span id="L-505"><a href="#L-505"><span class="linenos">505</span></a>    <span class="k">global</span> <span class="n">n_antennas</span><span class="p">,</span> <span class="n">models_dir</span><span class="p">,</span> <span class="n">previous_rssi_values</span><span class="p">,</span> <span class="n">previous_rssi_iterations</span><span class="p">,</span> <span class="n">algorithms</span><span class="p">,</span> <span class="n">algorithms2</span>
-</span><span id="L-506"><a href="#L-506"><span class="linenos">506</span></a>    <span class="k">global</span> <span class="n">previous_pos_iterations</span>
-</span><span id="L-507"><a href="#L-507"><span class="linenos">507</span></a>
-</span><span id="L-508"><a href="#L-508"><span class="linenos">508</span></a>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Predicts the location of a tag based on rssi values.&quot;</span><span class="p">)</span>
-</span><span id="L-509"><a href="#L-509"><span class="linenos">509</span></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-m&quot;</span><span class="p">,</span> <span class="s2">&quot;--models&quot;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;src/it&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Enter the name of the rssi models dir. default = it. other = somos_saude&quot;</span><span class="p">)</span>
-</span><span id="L-510"><a href="#L-510"><span class="linenos">510</span></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-n&quot;</span><span class="p">,</span> <span class="s2">&quot;--n_antennas&quot;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Enter the number of antennas. default = 4&quot;</span><span class="p">)</span>
-</span><span id="L-511"><a href="#L-511"><span class="linenos">511</span></a>    <span class="n">models_dir</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span><span class="o">.</span><span class="n">models</span>
-</span><span id="L-512"><a href="#L-512"><span class="linenos">512</span></a>    <span class="n">n_antennas</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span><span class="o">.</span><span class="n">n_antennas</span>
-</span><span id="L-513"><a href="#L-513"><span class="linenos">513</span></a>
-</span><span id="L-514"><a href="#L-514"><span class="linenos">514</span></a>    <span class="n">algorithms</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;knn&quot;</span><span class="p">,</span> <span class="s2">&quot;svr&quot;</span><span class="p">,</span> <span class="s2">&quot;gbr&quot;</span><span class="p">,</span> <span class="s2">&quot;rf&quot;</span><span class="p">,</span> <span class="s2">&quot;dt&quot;</span><span class="p">]</span>
-</span><span id="L-515"><a href="#L-515"><span class="linenos">515</span></a>    <span class="n">algorithms2</span><span class="o">=</span> <span class="p">[</span><span class="s2">&quot;fp_rf&quot;</span><span class="p">,</span> <span class="s2">&quot;fp_dt&quot;</span><span class="p">,</span> <span class="s2">&quot;fp_rnn&quot;</span><span class="p">]</span>
-</span><span id="L-516"><a href="#L-516"><span class="linenos">516</span></a>    <span class="n">q</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">Queue</span><span class="p">()</span> <span class="c1"># backend messages</span>
-</span><span id="L-517"><a href="#L-517"><span class="linenos">517</span></a>
-</span><span id="L-518"><a href="#L-518"><span class="linenos">518</span></a>    <span class="n">previous_pos_iterations</span> <span class="o">=</span> <span class="mi">5</span> 
-</span><span id="L-519"><a href="#L-519"><span class="linenos">519</span></a>    <span class="n">previous_pos_values</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="n">maxlen</span><span class="o">=</span><span class="n">previous_pos_iterations</span><span class="p">)</span>  <span class="c1"># sequences used for future prediction</span>
-</span><span id="L-520"><a href="#L-520"><span class="linenos">520</span></a>
-</span><span id="L-521"><a href="#L-521"><span class="linenos">521</span></a>    <span class="n">previous_rssi_iterations</span> <span class="o">=</span> <span class="mi">3</span>
-</span><span id="L-522"><a href="#L-522"><span class="linenos">522</span></a>    <span class="n">previous_rssi_values</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="n">maxlen</span><span class="o">=</span><span class="n">previous_rssi_iterations</span><span class="p">)</span>  <span class="c1"># sequences used for the average rssi</span>
-</span><span id="L-523"><a href="#L-523"><span class="linenos">523</span></a>
-</span><span id="L-524"><a href="#L-524"><span class="linenos">524</span></a>    <span class="c1"># Load ML models</span>
-</span><span id="L-525"><a href="#L-525"><span class="linenos">525</span></a>    <span class="n">models_dict</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="L-526"><a href="#L-526"><span class="linenos">526</span></a>    <span class="n">models_anchors_dict</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="L-527"><a href="#L-527"><span class="linenos">527</span></a>    <span class="n">use_anchors</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># ANCHORS SWITCH</span>
-</span><span id="L-528"><a href="#L-528"><span class="linenos">528</span></a>    <span class="n">models_based_on_experiments</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># SWITCH MODELS</span>
-</span><span id="L-529"><a href="#L-529"><span class="linenos">529</span></a>    <span class="k">for</span> <span class="n">alg</span> <span class="ow">in</span> <span class="n">algorithms</span><span class="p">:</span>
-</span><span id="L-530"><a href="#L-530"><span class="linenos">530</span></a>        <span class="k">if</span> <span class="n">models_based_on_experiments</span><span class="p">:</span>
-</span><span id="L-531"><a href="#L-531"><span class="linenos">531</span></a>            <span class="n">models_dict</span><span class="p">[</span><span class="n">alg</span><span class="p">]</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./src/activ_models/&quot;</span><span class="o">+</span><span class="n">alg</span><span class="o">+</span><span class="s2">&quot;.sav&quot;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span> <span class="c1"># based on experiments</span>
-</span><span id="L-532"><a href="#L-532"><span class="linenos">532</span></a>        <span class="k">else</span><span class="p">:</span>
-</span><span id="L-533"><a href="#L-533"><span class="linenos">533</span></a>            <span class="c1"># models_dict[alg] = pickle.load(open(&quot;./src/activ_sim_models/&quot;+alg+&quot;_activ_sim.sav&quot;, &#39;rb&#39;)) # based on simulator</span>
-</span><span id="L-534"><a href="#L-534"><span class="linenos">534</span></a>            <span class="n">models_dict</span><span class="p">[</span><span class="n">alg</span><span class="p">]</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./src/activ_sim_models/&quot;</span><span class="o">+</span><span class="n">alg</span><span class="o">+</span><span class="s2">&quot;_activ_sim_calc_dist.sav&quot;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
-</span><span id="L-535"><a href="#L-535"><span class="linenos">535</span></a>        <span class="n">models_anchors_dict</span><span class="p">[</span><span class="n">alg</span><span class="p">]</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./src/activ_sim_models/&quot;</span><span class="o">+</span><span class="n">alg</span><span class="o">+</span><span class="s2">&quot;_activ_dif_antenna4_sim_calc_dist.sav&quot;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span> <span class="c1"># based on simulator</span>
-</span><span id="L-536"><a href="#L-536"><span class="linenos">536</span></a>
-</span><span id="L-537"><a href="#L-537"><span class="linenos">537</span></a>    <span class="c1"># turn-on the worker thread</span>
-</span><span id="L-538"><a href="#L-538"><span class="linenos">538</span></a>    <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span><span id="L-467"><a href="#L-467"><span class="linenos">467</span></a>    <span class="k">global</span> <span class="n">received_topic</span>
+</span><span id="L-468"><a href="#L-468"><span class="linenos">468</span></a>    <span class="k">global</span> <span class="n">publish_topic</span>
+</span><span id="L-469"><a href="#L-469"><span class="linenos">469</span></a>    <span class="k">if</span> <span class="n">rc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="L-470"><a href="#L-470"><span class="linenos">470</span></a>        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">_client_id</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span><span class="o">+</span><span class="s2">&quot; is connected to MQTT Broker, with return code: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rc</span><span class="p">))</span>
+</span><span id="L-471"><a href="#L-471"><span class="linenos">471</span></a>        <span class="k">global</span> <span class="n">Connected</span>                <span class="c1">#Use global variable</span>
+</span><span id="L-472"><a href="#L-472"><span class="linenos">472</span></a>        <span class="n">Connected</span> <span class="o">=</span> <span class="kc">True</span>                <span class="c1">#Signal connection</span>
+</span><span id="L-473"><a href="#L-473"><span class="linenos">473</span></a>        
+</span><span id="L-474"><a href="#L-474"><span class="linenos">474</span></a>        <span class="c1"># Subscribe the topic</span>
+</span><span id="L-475"><a href="#L-475"><span class="linenos">475</span></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Subscribing to topic: &quot;</span><span class="p">,</span> <span class="n">received_topic</span><span class="p">)</span>
+</span><span id="L-476"><a href="#L-476"><span class="linenos">476</span></a>        <span class="n">client</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">received_topic</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span><span id="L-477"><a href="#L-477"><span class="linenos">477</span></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="L-478"><a href="#L-478"><span class="linenos">478</span></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failed to connect, with return code: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rc</span><span class="p">))</span>
+</span><span id="L-479"><a href="#L-479"><span class="linenos">479</span></a>
+</span><span id="L-480"><a href="#L-480"><span class="linenos">480</span></a><span class="c1"># Define on_message event function. </span>
+</span><span id="L-481"><a href="#L-481"><span class="linenos">481</span></a><span class="c1"># This function will be invoked every time,</span>
+</span><span id="L-482"><a href="#L-482"><span class="linenos">482</span></a><span class="c1"># a new message arrives for the subscribed topic</span>
+</span><span id="L-483"><a href="#L-483"><span class="linenos">483</span></a><span class="k">def</span> <span class="nf">on_message</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="o">.</span><span class="n">connect</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">MQTTMessage</span><span class="p">):</span>
+</span><span id="L-484"><a href="#L-484"><span class="linenos">484</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-485"><a href="#L-485"><span class="linenos">485</span></a><span class="sd">    Define MQTT on_message event function. This function will be invoked every time a new message arrives for the subscribed topic</span>
+</span><span id="L-486"><a href="#L-486"><span class="linenos">486</span></a>
+</span><span id="L-487"><a href="#L-487"><span class="linenos">487</span></a><span class="sd">    Args:</span>
+</span><span id="L-488"><a href="#L-488"><span class="linenos">488</span></a><span class="sd">        client (mqtt.Client): The MQTT client object</span>
+</span><span id="L-489"><a href="#L-489"><span class="linenos">489</span></a><span class="sd">        obj (mqtt.Client.connect): The connection object </span>
+</span><span id="L-490"><a href="#L-490"><span class="linenos">490</span></a><span class="sd">        message (str): The message in MQTT transit communication</span>
+</span><span id="L-491"><a href="#L-491"><span class="linenos">491</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-492"><a href="#L-492"><span class="linenos">492</span></a>    <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">topic</span> <span class="o">==</span> <span class="n">received_topic</span><span class="p">:</span>
+</span><span id="L-493"><a href="#L-493"><span class="linenos">493</span></a>        <span class="n">received_data</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+</span><span id="L-494"><a href="#L-494"><span class="linenos">494</span></a>
+</span><span id="L-495"><a href="#L-495"><span class="linenos">495</span></a>        <span class="c1"># array_data = received_data.split(&#39;, &#39;)</span>
+</span><span id="L-496"><a href="#L-496"><span class="linenos">496</span></a>        <span class="n">array_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">received_data</span><span class="p">)</span>
+</span><span id="L-497"><a href="#L-497"><span class="linenos">497</span></a>
+</span><span id="L-498"><a href="#L-498"><span class="linenos">498</span></a>        <span class="c1"># print received message</span>
+</span><span id="L-499"><a href="#L-499"><span class="linenos">499</span></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Message received: &quot;</span><span class="p">,</span> <span class="n">array_json</span><span class="p">,</span>
+</span><span id="L-500"><a href="#L-500"><span class="linenos">500</span></a>            <span class="s2">&quot; | topic=&quot;</span><span class="p">,</span><span class="n">message</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span>
+</span><span id="L-501"><a href="#L-501"><span class="linenos">501</span></a>            <span class="s2">&quot; | qos=&quot;</span><span class="p">,</span><span class="n">message</span><span class="o">.</span><span class="n">qos</span><span class="p">,</span>
+</span><span id="L-502"><a href="#L-502"><span class="linenos">502</span></a>            <span class="s2">&quot; | retain flag=&quot;</span><span class="p">,</span><span class="n">message</span><span class="o">.</span><span class="n">retain</span><span class="p">)</span> 
+</span><span id="L-503"><a href="#L-503"><span class="linenos">503</span></a>
+</span><span id="L-504"><a href="#L-504"><span class="linenos">504</span></a>        <span class="c1"># predict(client, array_data)</span>
+</span><span id="L-505"><a href="#L-505"><span class="linenos">505</span></a>        <span class="n">q</span><span class="o">.</span><span class="n">put</span><span class="p">((</span><span class="n">client</span><span class="p">,</span> <span class="n">array_json</span><span class="p">))</span>
+</span><span id="L-506"><a href="#L-506"><span class="linenos">506</span></a>    
+</span><span id="L-507"><a href="#L-507"><span class="linenos">507</span></a>    
+</span><span id="L-508"><a href="#L-508"><span class="linenos">508</span></a><span class="c1"># Define on_subscribe event function.</span>
+</span><span id="L-509"><a href="#L-509"><span class="linenos">509</span></a><span class="k">def</span> <span class="nf">on_subscribe</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="o">.</span><span class="n">connect</span><span class="p">,</span> <span class="n">mid</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">granted_qos</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">):</span>
+</span><span id="L-510"><a href="#L-510"><span class="linenos">510</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-511"><a href="#L-511"><span class="linenos">511</span></a><span class="sd">    Define MQTT on_subscribe event function.</span>
+</span><span id="L-512"><a href="#L-512"><span class="linenos">512</span></a>
+</span><span id="L-513"><a href="#L-513"><span class="linenos">513</span></a><span class="sd">    Args:</span>
+</span><span id="L-514"><a href="#L-514"><span class="linenos">514</span></a><span class="sd">        client (mqtt.Client): The MQTT client object</span>
+</span><span id="L-515"><a href="#L-515"><span class="linenos">515</span></a><span class="sd">        obj (mqtt.Client.connect): The connection object </span>
+</span><span id="L-516"><a href="#L-516"><span class="linenos">516</span></a><span class="sd">        mid (int): The message id in MQTT transit communication</span>
+</span><span id="L-517"><a href="#L-517"><span class="linenos">517</span></a><span class="sd">        granted_qos (tuple): (The MQTT Granted Quality of Service, )</span>
+</span><span id="L-518"><a href="#L-518"><span class="linenos">518</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-519"><a href="#L-519"><span class="linenos">519</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Subscribed successfully.&quot;</span> <span class="o">+</span>
+</span><span id="L-520"><a href="#L-520"><span class="linenos">520</span></a>          <span class="s2">&quot; | mid: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; | QoS: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">granted_qos</span><span class="p">))</span>
+</span><span id="L-521"><a href="#L-521"><span class="linenos">521</span></a>
+</span><span id="L-522"><a href="#L-522"><span class="linenos">522</span></a><span class="c1"># Define on_publish event function.</span>
+</span><span id="L-523"><a href="#L-523"><span class="linenos">523</span></a><span class="k">def</span> <span class="nf">on_publish</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="o">.</span><span class="n">connect</span><span class="p">,</span> <span class="n">mid</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="L-524"><a href="#L-524"><span class="linenos">524</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-525"><a href="#L-525"><span class="linenos">525</span></a><span class="sd">    Define MQTT on_publish event function.</span>
+</span><span id="L-526"><a href="#L-526"><span class="linenos">526</span></a>
+</span><span id="L-527"><a href="#L-527"><span class="linenos">527</span></a><span class="sd">    Args:</span>
+</span><span id="L-528"><a href="#L-528"><span class="linenos">528</span></a><span class="sd">        client (mqtt.Client): The MQTT client object</span>
+</span><span id="L-529"><a href="#L-529"><span class="linenos">529</span></a><span class="sd">        obj (mqtt.Client.connect): The connection object  </span>
+</span><span id="L-530"><a href="#L-530"><span class="linenos">530</span></a><span class="sd">        mid (int): The message id in MQTT transit communication</span>
+</span><span id="L-531"><a href="#L-531"><span class="linenos">531</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-532"><a href="#L-532"><span class="linenos">532</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Published message.&quot;</span> <span class="o">+</span>
+</span><span id="L-533"><a href="#L-533"><span class="linenos">533</span></a>          <span class="s2">&quot; | mid: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="L-534"><a href="#L-534"><span class="linenos">534</span></a>
+</span><span id="L-535"><a href="#L-535"><span class="linenos">535</span></a><span class="c1"># Define on_log event function (uncalled).</span>
+</span><span id="L-536"><a href="#L-536"><span class="linenos">536</span></a><span class="k">def</span> <span class="nf">on_log</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="o">.</span><span class="n">connect</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="L-537"><a href="#L-537"><span class="linenos">537</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-538"><a href="#L-538"><span class="linenos">538</span></a><span class="sd">    Define MQTT on_log event function.</span>
 </span><span id="L-539"><a href="#L-539"><span class="linenos">539</span></a>
-</span><span id="L-540"><a href="#L-540"><span class="linenos">540</span></a>    <span class="c1"># Create a MQTT client</span>
-</span><span id="L-541"><a href="#L-541"><span class="linenos">541</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Creating new client instance...&quot;</span><span class="p">)</span>
-</span><span id="L-542"><a href="#L-542"><span class="linenos">542</span></a>    <span class="n">randomInt</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
-</span><span id="L-543"><a href="#L-543"><span class="linenos">543</span></a>    <span class="n">mqtt_client</span> <span class="o">=</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="s2">&quot;clientPython-&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">randomInt</span><span class="p">),</span> <span class="n">transport</span><span class="o">=</span><span class="s2">&quot;websockets&quot;</span><span class="p">)</span> <span class="c1">#create new instance websockets</span>
-</span><span id="L-544"><a href="#L-544"><span class="linenos">544</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">username_pw_set</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">)</span>    <span class="c1">#set username and password</span>
-</span><span id="L-545"><a href="#L-545"><span class="linenos">545</span></a>
-</span><span id="L-546"><a href="#L-546"><span class="linenos">546</span></a>    <span class="c1"># Assign event callbacks</span>
-</span><span id="L-547"><a href="#L-547"><span class="linenos">547</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">on_connect</span> <span class="o">=</span> <span class="n">on_connect</span>
-</span><span id="L-548"><a href="#L-548"><span class="linenos">548</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">on_message</span> <span class="o">=</span> <span class="n">on_message</span> 
-</span><span id="L-549"><a href="#L-549"><span class="linenos">549</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">on_subscribe</span> <span class="o">=</span> <span class="n">on_subscribe</span>
-</span><span id="L-550"><a href="#L-550"><span class="linenos">550</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">on_publish</span> <span class="o">=</span> <span class="n">on_publish</span>
-</span><span id="L-551"><a href="#L-551"><span class="linenos">551</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">on_disconnect</span> <span class="o">=</span> <span class="n">on_disconnect</span>
-</span><span id="L-552"><a href="#L-552"><span class="linenos">552</span></a>
-</span><span id="L-553"><a href="#L-553"><span class="linenos">553</span></a>    <span class="c1"># Uncomment to enable debug messages</span>
-</span><span id="L-554"><a href="#L-554"><span class="linenos">554</span></a>    <span class="c1">#client.on_log = on_log</span>
-</span><span id="L-555"><a href="#L-555"><span class="linenos">555</span></a>
-</span><span id="L-556"><a href="#L-556"><span class="linenos">556</span></a>    <span class="c1"># Connect with MQTT Broker</span>
-</span><span id="L-557"><a href="#L-557"><span class="linenos">557</span></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connecting to broker &#39;ws://</span><span class="si">{</span><span class="n">broker_host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">broker_port</span><span class="si">}</span><span class="s2">/mqtt&#39;&quot;</span><span class="p">)</span>
-</span><span id="L-558"><a href="#L-558"><span class="linenos">558</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">broker_host</span><span class="p">,</span> <span class="n">broker_port</span><span class="p">,</span> <span class="n">broker_keepalive</span><span class="p">)</span> <span class="c1">#connect to broker</span>
-</span><span id="L-559"><a href="#L-559"><span class="linenos">559</span></a>    
-</span><span id="L-560"><a href="#L-560"><span class="linenos">560</span></a>    <span class="c1"># Blocking call that processes network traffic, dispatches callbacks and</span>
-</span><span id="L-561"><a href="#L-561"><span class="linenos">561</span></a>    <span class="c1"># handles reconnecting.</span>
-</span><span id="L-562"><a href="#L-562"><span class="linenos">562</span></a>    <span class="c1"># Other loop*() functions are available that give a threaded interface and a</span>
-</span><span id="L-563"><a href="#L-563"><span class="linenos">563</span></a>    <span class="c1"># manual interface.</span>
-</span><span id="L-564"><a href="#L-564"><span class="linenos">564</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">loop_forever</span><span class="p">()</span>
-</span><span id="L-565"><a href="#L-565"><span class="linenos">565</span></a>    <span class="c1"># Non blocking : client.loop_start()  #N.B. need a while True: statement</span>
-</span><span id="L-566"><a href="#L-566"><span class="linenos">566</span></a>
-</span><span id="L-567"><a href="#L-567"><span class="linenos">567</span></a>    <span class="c1"># block until all tasks are done</span>
-</span><span id="L-568"><a href="#L-568"><span class="linenos">568</span></a>    <span class="c1">#q.join()</span>
-</span><span id="L-569"><a href="#L-569"><span class="linenos">569</span></a>
-</span><span id="L-570"><a href="#L-570"><span class="linenos">570</span></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-</span><span id="L-571"><a href="#L-571"><span class="linenos">571</span></a>    <span class="n">main</span><span class="p">()</span>
+</span><span id="L-540"><a href="#L-540"><span class="linenos">540</span></a><span class="sd">    Args:</span>
+</span><span id="L-541"><a href="#L-541"><span class="linenos">541</span></a><span class="sd">        client (mqtt.Client): The MQTT client object</span>
+</span><span id="L-542"><a href="#L-542"><span class="linenos">542</span></a><span class="sd">        obj (mqtt.Client.connect): The connection object </span>
+</span><span id="L-543"><a href="#L-543"><span class="linenos">543</span></a><span class="sd">        level (int): The level of detail log</span>
+</span><span id="L-544"><a href="#L-544"><span class="linenos">544</span></a><span class="sd">        string (str): The log string message</span>
+</span><span id="L-545"><a href="#L-545"><span class="linenos">545</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-546"><a href="#L-546"><span class="linenos">546</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;On log: &quot;</span> <span class="o">+</span> <span class="n">string</span><span class="p">)</span>
+</span><span id="L-547"><a href="#L-547"><span class="linenos">547</span></a>
+</span><span id="L-548"><a href="#L-548"><span class="linenos">548</span></a>
+</span><span id="L-549"><a href="#L-549"><span class="linenos">549</span></a><span class="c1"># Define on_disconnect event function.</span>
+</span><span id="L-550"><a href="#L-550"><span class="linenos">550</span></a><span class="k">def</span> <span class="nf">on_disconnect</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="o">.</span><span class="n">user_data_set</span><span class="p">,</span> <span class="n">rc</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="L-551"><a href="#L-551"><span class="linenos">551</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-552"><a href="#L-552"><span class="linenos">552</span></a><span class="sd">    Define MQTT on_disconnect event function.</span>
+</span><span id="L-553"><a href="#L-553"><span class="linenos">553</span></a>
+</span><span id="L-554"><a href="#L-554"><span class="linenos">554</span></a><span class="sd">    Args:</span>
+</span><span id="L-555"><a href="#L-555"><span class="linenos">555</span></a><span class="sd">        client (mqtt.Client): The MQTT client object</span>
+</span><span id="L-556"><a href="#L-556"><span class="linenos">556</span></a><span class="sd">        userdata (mqtt.Client.user_data_set): The connection userdata </span>
+</span><span id="L-557"><a href="#L-557"><span class="linenos">557</span></a><span class="sd">        rc (int): The return code</span>
+</span><span id="L-558"><a href="#L-558"><span class="linenos">558</span></a><span class="sd">    </span>
+</span><span id="L-559"><a href="#L-559"><span class="linenos">559</span></a><span class="sd">    *Return codes - rc:*</span>
+</span><span id="L-560"><a href="#L-560"><span class="linenos">560</span></a>
+</span><span id="L-561"><a href="#L-561"><span class="linenos">561</span></a><span class="sd">        0: Connection successful </span>
+</span><span id="L-562"><a href="#L-562"><span class="linenos">562</span></a><span class="sd">        1: Connection refused: incorrect protocol version </span>
+</span><span id="L-563"><a href="#L-563"><span class="linenos">563</span></a><span class="sd">        2: Connection refused: invalid client identifier </span>
+</span><span id="L-564"><a href="#L-564"><span class="linenos">564</span></a><span class="sd">        3: Connection refused: server unavailable </span>
+</span><span id="L-565"><a href="#L-565"><span class="linenos">565</span></a><span class="sd">        4: Connection refused: bad username or password </span>
+</span><span id="L-566"><a href="#L-566"><span class="linenos">566</span></a><span class="sd">        5: Connection refused: not authorised </span>
+</span><span id="L-567"><a href="#L-567"><span class="linenos">567</span></a><span class="sd">        6-255: Currently unused. </span>
+</span><span id="L-568"><a href="#L-568"><span class="linenos">568</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-569"><a href="#L-569"><span class="linenos">569</span></a>    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+</span><span id="L-570"><a href="#L-570"><span class="linenos">570</span></a>        <span class="k">global</span> <span class="n">Connected</span>                <span class="c1">#Use global variable</span>
+</span><span id="L-571"><a href="#L-571"><span class="linenos">571</span></a>        <span class="n">Connected</span> <span class="o">=</span> <span class="kc">False</span>               <span class="c1">#Signal connection</span>
+</span><span id="L-572"><a href="#L-572"><span class="linenos">572</span></a>        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">_client_id</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span><span class="o">+</span> <span class="s2">&quot; was unexpected disconnected. Will auto-reconnect. Return code: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rc</span><span class="p">))</span>
+</span><span id="L-573"><a href="#L-573"><span class="linenos">573</span></a>
+</span><span id="L-574"><a href="#L-574"><span class="linenos">574</span></a><span class="c1">########## End of MQTT functions ##########</span>
+</span><span id="L-575"><a href="#L-575"><span class="linenos">575</span></a>
+</span><span id="L-576"><a href="#L-576"><span class="linenos">576</span></a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span><span id="L-577"><a href="#L-577"><span class="linenos">577</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-578"><a href="#L-578"><span class="linenos">578</span></a><span class="sd">    Definition of main function.</span>
+</span><span id="L-579"><a href="#L-579"><span class="linenos">579</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-580"><a href="#L-580"><span class="linenos">580</span></a>    <span class="k">global</span> <span class="n">q</span><span class="p">,</span> <span class="n">models_dict</span><span class="p">,</span> <span class="n">models_anchors_dict</span><span class="p">,</span> <span class="n">use_anchors</span><span class="p">,</span> <span class="n">models_based_on_experiments</span><span class="p">,</span> <span class="n">previous_pos_values</span>
+</span><span id="L-581"><a href="#L-581"><span class="linenos">581</span></a>    <span class="k">global</span> <span class="n">n_antennas</span><span class="p">,</span> <span class="n">models_dir</span><span class="p">,</span> <span class="n">previous_rssi_values</span><span class="p">,</span> <span class="n">previous_rssi_iterations</span><span class="p">,</span> <span class="n">algorithms</span><span class="p">,</span> <span class="n">algorithms2</span>
+</span><span id="L-582"><a href="#L-582"><span class="linenos">582</span></a>    <span class="k">global</span> <span class="n">previous_pos_iterations</span>
+</span><span id="L-583"><a href="#L-583"><span class="linenos">583</span></a>
+</span><span id="L-584"><a href="#L-584"><span class="linenos">584</span></a>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Predicts the location of a tag based on rssi values.&quot;</span><span class="p">)</span>
+</span><span id="L-585"><a href="#L-585"><span class="linenos">585</span></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-m&quot;</span><span class="p">,</span> <span class="s2">&quot;--models&quot;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;src/it&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Enter the name of the rssi models dir. default = it. other = somos_saude&quot;</span><span class="p">)</span>
+</span><span id="L-586"><a href="#L-586"><span class="linenos">586</span></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-n&quot;</span><span class="p">,</span> <span class="s2">&quot;--n_antennas&quot;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Enter the number of antennas. default = 4&quot;</span><span class="p">)</span>
+</span><span id="L-587"><a href="#L-587"><span class="linenos">587</span></a>    <span class="n">models_dir</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span><span class="o">.</span><span class="n">models</span>
+</span><span id="L-588"><a href="#L-588"><span class="linenos">588</span></a>    <span class="n">n_antennas</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span><span class="o">.</span><span class="n">n_antennas</span>
+</span><span id="L-589"><a href="#L-589"><span class="linenos">589</span></a>
+</span><span id="L-590"><a href="#L-590"><span class="linenos">590</span></a>    <span class="n">algorithms</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;knn&quot;</span><span class="p">,</span> <span class="s2">&quot;svr&quot;</span><span class="p">,</span> <span class="s2">&quot;gbr&quot;</span><span class="p">,</span> <span class="s2">&quot;rf&quot;</span><span class="p">,</span> <span class="s2">&quot;dt&quot;</span><span class="p">]</span>
+</span><span id="L-591"><a href="#L-591"><span class="linenos">591</span></a>    <span class="n">algorithms2</span><span class="o">=</span> <span class="p">[</span><span class="s2">&quot;fp_rf&quot;</span><span class="p">,</span> <span class="s2">&quot;fp_dt&quot;</span><span class="p">,</span> <span class="s2">&quot;fp_rnn&quot;</span><span class="p">]</span>
+</span><span id="L-592"><a href="#L-592"><span class="linenos">592</span></a>    <span class="n">q</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">Queue</span><span class="p">()</span> <span class="c1"># backend messages</span>
+</span><span id="L-593"><a href="#L-593"><span class="linenos">593</span></a>
+</span><span id="L-594"><a href="#L-594"><span class="linenos">594</span></a>    <span class="n">previous_pos_iterations</span> <span class="o">=</span> <span class="mi">5</span> 
+</span><span id="L-595"><a href="#L-595"><span class="linenos">595</span></a>    <span class="n">previous_pos_values</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="n">maxlen</span><span class="o">=</span><span class="n">previous_pos_iterations</span><span class="p">)</span>  <span class="c1"># sequences used for future prediction</span>
+</span><span id="L-596"><a href="#L-596"><span class="linenos">596</span></a>
+</span><span id="L-597"><a href="#L-597"><span class="linenos">597</span></a>    <span class="n">previous_rssi_iterations</span> <span class="o">=</span> <span class="mi">3</span>
+</span><span id="L-598"><a href="#L-598"><span class="linenos">598</span></a>    <span class="n">previous_rssi_values</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="n">maxlen</span><span class="o">=</span><span class="n">previous_rssi_iterations</span><span class="p">)</span>  <span class="c1"># sequences used for the average rssi</span>
+</span><span id="L-599"><a href="#L-599"><span class="linenos">599</span></a>
+</span><span id="L-600"><a href="#L-600"><span class="linenos">600</span></a>    <span class="c1"># Load ML models</span>
+</span><span id="L-601"><a href="#L-601"><span class="linenos">601</span></a>    <span class="n">models_dict</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="L-602"><a href="#L-602"><span class="linenos">602</span></a>    <span class="n">models_anchors_dict</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="L-603"><a href="#L-603"><span class="linenos">603</span></a>    <span class="n">use_anchors</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># ANCHORS SWITCH</span>
+</span><span id="L-604"><a href="#L-604"><span class="linenos">604</span></a>    <span class="n">models_based_on_experiments</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># SWITCH MODELS</span>
+</span><span id="L-605"><a href="#L-605"><span class="linenos">605</span></a>    <span class="k">for</span> <span class="n">alg</span> <span class="ow">in</span> <span class="n">algorithms</span><span class="p">:</span>
+</span><span id="L-606"><a href="#L-606"><span class="linenos">606</span></a>        <span class="k">if</span> <span class="n">models_based_on_experiments</span><span class="p">:</span>
+</span><span id="L-607"><a href="#L-607"><span class="linenos">607</span></a>            <span class="n">models_dict</span><span class="p">[</span><span class="n">alg</span><span class="p">]</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./src/activ_models/&quot;</span><span class="o">+</span><span class="n">alg</span><span class="o">+</span><span class="s2">&quot;.sav&quot;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span> <span class="c1"># based on experiments</span>
+</span><span id="L-608"><a href="#L-608"><span class="linenos">608</span></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="L-609"><a href="#L-609"><span class="linenos">609</span></a>            <span class="c1"># models_dict[alg] = pickle.load(open(&quot;./src/activ_sim_models/&quot;+alg+&quot;_activ_sim.sav&quot;, &#39;rb&#39;)) # based on simulator</span>
+</span><span id="L-610"><a href="#L-610"><span class="linenos">610</span></a>            <span class="n">models_dict</span><span class="p">[</span><span class="n">alg</span><span class="p">]</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./src/activ_sim_models/&quot;</span><span class="o">+</span><span class="n">alg</span><span class="o">+</span><span class="s2">&quot;_activ_sim_calc_dist.sav&quot;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+</span><span id="L-611"><a href="#L-611"><span class="linenos">611</span></a>        <span class="n">models_anchors_dict</span><span class="p">[</span><span class="n">alg</span><span class="p">]</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./src/activ_sim_models/&quot;</span><span class="o">+</span><span class="n">alg</span><span class="o">+</span><span class="s2">&quot;_activ_dif_antenna4_sim_calc_dist.sav&quot;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span> <span class="c1"># based on simulator</span>
+</span><span id="L-612"><a href="#L-612"><span class="linenos">612</span></a>
+</span><span id="L-613"><a href="#L-613"><span class="linenos">613</span></a>    <span class="c1"># turn-on the worker thread</span>
+</span><span id="L-614"><a href="#L-614"><span class="linenos">614</span></a>    <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span><span id="L-615"><a href="#L-615"><span class="linenos">615</span></a>
+</span><span id="L-616"><a href="#L-616"><span class="linenos">616</span></a>    <span class="c1"># Create a MQTT client</span>
+</span><span id="L-617"><a href="#L-617"><span class="linenos">617</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Creating new client instance...&quot;</span><span class="p">)</span>
+</span><span id="L-618"><a href="#L-618"><span class="linenos">618</span></a>    <span class="n">randomInt</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
+</span><span id="L-619"><a href="#L-619"><span class="linenos">619</span></a>    <span class="n">mqtt_client</span> <span class="o">=</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="s2">&quot;clientPython-&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">randomInt</span><span class="p">),</span> <span class="n">transport</span><span class="o">=</span><span class="s2">&quot;websockets&quot;</span><span class="p">)</span> <span class="c1">#create new instance websockets</span>
+</span><span id="L-620"><a href="#L-620"><span class="linenos">620</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">username_pw_set</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">)</span>    <span class="c1">#set username and password</span>
+</span><span id="L-621"><a href="#L-621"><span class="linenos">621</span></a>
+</span><span id="L-622"><a href="#L-622"><span class="linenos">622</span></a>    <span class="c1"># Assign event callbacks</span>
+</span><span id="L-623"><a href="#L-623"><span class="linenos">623</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">on_connect</span> <span class="o">=</span> <span class="n">on_connect</span>
+</span><span id="L-624"><a href="#L-624"><span class="linenos">624</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">on_message</span> <span class="o">=</span> <span class="n">on_message</span> 
+</span><span id="L-625"><a href="#L-625"><span class="linenos">625</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">on_subscribe</span> <span class="o">=</span> <span class="n">on_subscribe</span>
+</span><span id="L-626"><a href="#L-626"><span class="linenos">626</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">on_publish</span> <span class="o">=</span> <span class="n">on_publish</span>
+</span><span id="L-627"><a href="#L-627"><span class="linenos">627</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">on_disconnect</span> <span class="o">=</span> <span class="n">on_disconnect</span>
+</span><span id="L-628"><a href="#L-628"><span class="linenos">628</span></a>
+</span><span id="L-629"><a href="#L-629"><span class="linenos">629</span></a>    <span class="c1"># Uncomment to enable debug messages</span>
+</span><span id="L-630"><a href="#L-630"><span class="linenos">630</span></a>    <span class="c1">#client.on_log = on_log</span>
+</span><span id="L-631"><a href="#L-631"><span class="linenos">631</span></a>
+</span><span id="L-632"><a href="#L-632"><span class="linenos">632</span></a>    <span class="c1"># Connect with MQTT Broker</span>
+</span><span id="L-633"><a href="#L-633"><span class="linenos">633</span></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connecting to broker &#39;ws://</span><span class="si">{</span><span class="n">broker_host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">broker_port</span><span class="si">}</span><span class="s2">/mqtt&#39;&quot;</span><span class="p">)</span>
+</span><span id="L-634"><a href="#L-634"><span class="linenos">634</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">broker_host</span><span class="p">,</span> <span class="n">broker_port</span><span class="p">,</span> <span class="n">broker_keepalive</span><span class="p">)</span> <span class="c1">#connect to broker</span>
+</span><span id="L-635"><a href="#L-635"><span class="linenos">635</span></a>    
+</span><span id="L-636"><a href="#L-636"><span class="linenos">636</span></a>    <span class="c1"># Blocking call that processes network traffic, dispatches callbacks and</span>
+</span><span id="L-637"><a href="#L-637"><span class="linenos">637</span></a>    <span class="c1"># handles reconnecting.</span>
+</span><span id="L-638"><a href="#L-638"><span class="linenos">638</span></a>    <span class="c1"># Other loop*() functions are available that give a threaded interface and a</span>
+</span><span id="L-639"><a href="#L-639"><span class="linenos">639</span></a>    <span class="c1"># manual interface.</span>
+</span><span id="L-640"><a href="#L-640"><span class="linenos">640</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">loop_forever</span><span class="p">()</span>
+</span><span id="L-641"><a href="#L-641"><span class="linenos">641</span></a>    <span class="c1"># Non blocking : client.loop_start()  #N.B. need a while True: statement</span>
+</span><span id="L-642"><a href="#L-642"><span class="linenos">642</span></a>
+</span><span id="L-643"><a href="#L-643"><span class="linenos">643</span></a>    <span class="c1"># block until all tasks are done</span>
+</span><span id="L-644"><a href="#L-644"><span class="linenos">644</span></a>    <span class="c1">#q.join()</span>
+</span><span id="L-645"><a href="#L-645"><span class="linenos">645</span></a>
+</span><span id="L-646"><a href="#L-646"><span class="linenos">646</span></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span id="L-647"><a href="#L-647"><span class="linenos">647</span></a>    <span class="n">main</span><span class="p">()</span>
 </span></pre></div>
 
 
@@ -1573,29 +1649,71 @@ $$</p>
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">on_connect</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">client</span>, </span><span class="param"><span class="n">obj</span>, </span><span class="param"><span class="n">flags</span>, </span><span class="param"><span class="n">rc</span></span><span class="return-annotation">):</span></span>
+        <span class="name">on_connect</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">client</span><span class="p">:</span> <span class="n">paho</span><span class="o">.</span><span class="n">mqtt</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">Client</span>,</span><span class="param">	<span class="n">obj</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">Client</span><span class="o">.</span><span class="n">connect</span><span class="o">&gt;</span>,</span><span class="param">	<span class="n">flags</span><span class="p">:</span> <span class="nb">dict</span>,</span><span class="param">	<span class="n">rc</span><span class="p">:</span> <span class="nb">int</span></span><span class="return-annotation">):</span></span>
 
                 <label class="view-source-button" for="on_connect-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#on_connect"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="on_connect-447"><a href="#on_connect-447"><span class="linenos">447</span></a><span class="k">def</span> <span class="nf">on_connect</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
-</span><span id="on_connect-448"><a href="#on_connect-448"><span class="linenos">448</span></a>    <span class="k">global</span> <span class="n">received_topic</span>
-</span><span id="on_connect-449"><a href="#on_connect-449"><span class="linenos">449</span></a>    <span class="k">global</span> <span class="n">publish_topic</span>
-</span><span id="on_connect-450"><a href="#on_connect-450"><span class="linenos">450</span></a>    <span class="k">if</span> <span class="n">rc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="on_connect-451"><a href="#on_connect-451"><span class="linenos">451</span></a>        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">_client_id</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span><span class="o">+</span><span class="s2">&quot; is connected to MQTT Broker, with return code: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rc</span><span class="p">))</span>
-</span><span id="on_connect-452"><a href="#on_connect-452"><span class="linenos">452</span></a>        <span class="k">global</span> <span class="n">Connected</span>                <span class="c1">#Use global variable</span>
-</span><span id="on_connect-453"><a href="#on_connect-453"><span class="linenos">453</span></a>        <span class="n">Connected</span> <span class="o">=</span> <span class="kc">True</span>                <span class="c1">#Signal connection</span>
-</span><span id="on_connect-454"><a href="#on_connect-454"><span class="linenos">454</span></a>        
-</span><span id="on_connect-455"><a href="#on_connect-455"><span class="linenos">455</span></a>        <span class="c1"># Subscribe the topic</span>
-</span><span id="on_connect-456"><a href="#on_connect-456"><span class="linenos">456</span></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Subscribing to topic: &quot;</span><span class="p">,</span> <span class="n">received_topic</span><span class="p">)</span>
-</span><span id="on_connect-457"><a href="#on_connect-457"><span class="linenos">457</span></a>        <span class="n">client</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">received_topic</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</span><span id="on_connect-458"><a href="#on_connect-458"><span class="linenos">458</span></a>    <span class="k">else</span><span class="p">:</span>
-</span><span id="on_connect-459"><a href="#on_connect-459"><span class="linenos">459</span></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failed to connect, with return code: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rc</span><span class="p">))</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="on_connect-447"><a href="#on_connect-447"><span class="linenos">447</span></a><span class="k">def</span> <span class="nf">on_connect</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="o">.</span><span class="n">connect</span><span class="p">,</span> <span class="n">flags</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">rc</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="on_connect-448"><a href="#on_connect-448"><span class="linenos">448</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="on_connect-449"><a href="#on_connect-449"><span class="linenos">449</span></a><span class="sd">    Define MQTT on_connect event function. We shall subscribe to our Topic in this function.</span>
+</span><span id="on_connect-450"><a href="#on_connect-450"><span class="linenos">450</span></a>
+</span><span id="on_connect-451"><a href="#on_connect-451"><span class="linenos">451</span></a><span class="sd">    Args:</span>
+</span><span id="on_connect-452"><a href="#on_connect-452"><span class="linenos">452</span></a><span class="sd">        client (mqtt.Client): The MQTT client object</span>
+</span><span id="on_connect-453"><a href="#on_connect-453"><span class="linenos">453</span></a><span class="sd">        obj (mqtt.Client.connect): The connection object </span>
+</span><span id="on_connect-454"><a href="#on_connect-454"><span class="linenos">454</span></a><span class="sd">        flags (dict): The connection flags</span>
+</span><span id="on_connect-455"><a href="#on_connect-455"><span class="linenos">455</span></a><span class="sd">        rc (int): The return code</span>
+</span><span id="on_connect-456"><a href="#on_connect-456"><span class="linenos">456</span></a><span class="sd">    </span>
+</span><span id="on_connect-457"><a href="#on_connect-457"><span class="linenos">457</span></a><span class="sd">    *Return codes - rc:*</span>
+</span><span id="on_connect-458"><a href="#on_connect-458"><span class="linenos">458</span></a>
+</span><span id="on_connect-459"><a href="#on_connect-459"><span class="linenos">459</span></a><span class="sd">        0: Connection successful </span>
+</span><span id="on_connect-460"><a href="#on_connect-460"><span class="linenos">460</span></a><span class="sd">        1: Connection refused: incorrect protocol version </span>
+</span><span id="on_connect-461"><a href="#on_connect-461"><span class="linenos">461</span></a><span class="sd">        2: Connection refused: invalid client identifier </span>
+</span><span id="on_connect-462"><a href="#on_connect-462"><span class="linenos">462</span></a><span class="sd">        3: Connection refused: server unavailable </span>
+</span><span id="on_connect-463"><a href="#on_connect-463"><span class="linenos">463</span></a><span class="sd">        4: Connection refused: bad username or password </span>
+</span><span id="on_connect-464"><a href="#on_connect-464"><span class="linenos">464</span></a><span class="sd">        5: Connection refused: not authorised </span>
+</span><span id="on_connect-465"><a href="#on_connect-465"><span class="linenos">465</span></a><span class="sd">        6-255: Currently unused. </span>
+</span><span id="on_connect-466"><a href="#on_connect-466"><span class="linenos">466</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="on_connect-467"><a href="#on_connect-467"><span class="linenos">467</span></a>
+</span><span id="on_connect-468"><a href="#on_connect-468"><span class="linenos">468</span></a>    <span class="k">global</span> <span class="n">received_topic</span>
+</span><span id="on_connect-469"><a href="#on_connect-469"><span class="linenos">469</span></a>    <span class="k">global</span> <span class="n">publish_topic</span>
+</span><span id="on_connect-470"><a href="#on_connect-470"><span class="linenos">470</span></a>    <span class="k">if</span> <span class="n">rc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="on_connect-471"><a href="#on_connect-471"><span class="linenos">471</span></a>        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">_client_id</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span><span class="o">+</span><span class="s2">&quot; is connected to MQTT Broker, with return code: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rc</span><span class="p">))</span>
+</span><span id="on_connect-472"><a href="#on_connect-472"><span class="linenos">472</span></a>        <span class="k">global</span> <span class="n">Connected</span>                <span class="c1">#Use global variable</span>
+</span><span id="on_connect-473"><a href="#on_connect-473"><span class="linenos">473</span></a>        <span class="n">Connected</span> <span class="o">=</span> <span class="kc">True</span>                <span class="c1">#Signal connection</span>
+</span><span id="on_connect-474"><a href="#on_connect-474"><span class="linenos">474</span></a>        
+</span><span id="on_connect-475"><a href="#on_connect-475"><span class="linenos">475</span></a>        <span class="c1"># Subscribe the topic</span>
+</span><span id="on_connect-476"><a href="#on_connect-476"><span class="linenos">476</span></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Subscribing to topic: &quot;</span><span class="p">,</span> <span class="n">received_topic</span><span class="p">)</span>
+</span><span id="on_connect-477"><a href="#on_connect-477"><span class="linenos">477</span></a>        <span class="n">client</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">received_topic</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span><span id="on_connect-478"><a href="#on_connect-478"><span class="linenos">478</span></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="on_connect-479"><a href="#on_connect-479"><span class="linenos">479</span></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failed to connect, with return code: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rc</span><span class="p">))</span>
 </span></pre></div>
 
 
-    
+            <div class="docstring"><p>Define MQTT on_connect event function. We shall subscribe to our Topic in this function.</p>
+
+<h6 id="args">Args</h6>
+
+<ul>
+<li><strong>client (mqtt.Client):</strong>  The MQTT client object</li>
+<li><strong>obj (mqtt.Client.connect):</strong>  The connection object </li>
+<li><strong>flags (dict):</strong>  The connection flags</li>
+<li><strong>rc (int):</strong>  The return code</li>
+</ul>
+
+<p><em>Return codes - rc:</em></p>
+
+<pre><code>0: Connection successful 
+1: Connection refused: incorrect protocol version 
+2: Connection refused: invalid client identifier 
+3: Connection refused: server unavailable 
+4: Connection refused: bad username or password 
+5: Connection refused: not authorised 
+6-255: Currently unused.
+</code></pre>
+</div>
+
 
                 </section>
                 <section id="on_message">
@@ -1603,31 +1721,49 @@ $$</p>
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">on_message</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">client</span>, </span><span class="param"><span class="n">obj</span>, </span><span class="param"><span class="n">message</span></span><span class="return-annotation">):</span></span>
+        <span class="name">on_message</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">client</span><span class="p">:</span> <span class="n">paho</span><span class="o">.</span><span class="n">mqtt</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">Client</span>,</span><span class="param">	<span class="n">obj</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">Client</span><span class="o">.</span><span class="n">connect</span><span class="o">&gt;</span>,</span><span class="param">	<span class="n">message</span><span class="p">:</span> <span class="n">paho</span><span class="o">.</span><span class="n">mqtt</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">MQTTMessage</span></span><span class="return-annotation">):</span></span>
 
                 <label class="view-source-button" for="on_message-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#on_message"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="on_message-464"><a href="#on_message-464"><span class="linenos">464</span></a><span class="k">def</span> <span class="nf">on_message</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span> 
-</span><span id="on_message-465"><a href="#on_message-465"><span class="linenos">465</span></a>    <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">topic</span> <span class="o">==</span> <span class="n">received_topic</span><span class="p">:</span>
-</span><span id="on_message-466"><a href="#on_message-466"><span class="linenos">466</span></a>        <span class="n">received_data</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
-</span><span id="on_message-467"><a href="#on_message-467"><span class="linenos">467</span></a>
-</span><span id="on_message-468"><a href="#on_message-468"><span class="linenos">468</span></a>        <span class="c1"># array_data = received_data.split(&#39;, &#39;)</span>
-</span><span id="on_message-469"><a href="#on_message-469"><span class="linenos">469</span></a>        <span class="n">array_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">received_data</span><span class="p">)</span>
-</span><span id="on_message-470"><a href="#on_message-470"><span class="linenos">470</span></a>
-</span><span id="on_message-471"><a href="#on_message-471"><span class="linenos">471</span></a>        <span class="c1"># print received message</span>
-</span><span id="on_message-472"><a href="#on_message-472"><span class="linenos">472</span></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Message received: &quot;</span><span class="p">,</span> <span class="n">array_json</span><span class="p">,</span>
-</span><span id="on_message-473"><a href="#on_message-473"><span class="linenos">473</span></a>            <span class="s2">&quot; | topic=&quot;</span><span class="p">,</span><span class="n">message</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span>
-</span><span id="on_message-474"><a href="#on_message-474"><span class="linenos">474</span></a>            <span class="s2">&quot; | qos=&quot;</span><span class="p">,</span><span class="n">message</span><span class="o">.</span><span class="n">qos</span><span class="p">,</span>
-</span><span id="on_message-475"><a href="#on_message-475"><span class="linenos">475</span></a>            <span class="s2">&quot; | retain flag=&quot;</span><span class="p">,</span><span class="n">message</span><span class="o">.</span><span class="n">retain</span><span class="p">)</span> 
-</span><span id="on_message-476"><a href="#on_message-476"><span class="linenos">476</span></a>
-</span><span id="on_message-477"><a href="#on_message-477"><span class="linenos">477</span></a>        <span class="c1"># predict(client, array_data)</span>
-</span><span id="on_message-478"><a href="#on_message-478"><span class="linenos">478</span></a>        <span class="n">q</span><span class="o">.</span><span class="n">put</span><span class="p">((</span><span class="n">client</span><span class="p">,</span> <span class="n">array_json</span><span class="p">))</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="on_message-484"><a href="#on_message-484"><span class="linenos">484</span></a><span class="k">def</span> <span class="nf">on_message</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="o">.</span><span class="n">connect</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">MQTTMessage</span><span class="p">):</span>
+</span><span id="on_message-485"><a href="#on_message-485"><span class="linenos">485</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="on_message-486"><a href="#on_message-486"><span class="linenos">486</span></a><span class="sd">    Define MQTT on_message event function. This function will be invoked every time a new message arrives for the subscribed topic</span>
+</span><span id="on_message-487"><a href="#on_message-487"><span class="linenos">487</span></a>
+</span><span id="on_message-488"><a href="#on_message-488"><span class="linenos">488</span></a><span class="sd">    Args:</span>
+</span><span id="on_message-489"><a href="#on_message-489"><span class="linenos">489</span></a><span class="sd">        client (mqtt.Client): The MQTT client object</span>
+</span><span id="on_message-490"><a href="#on_message-490"><span class="linenos">490</span></a><span class="sd">        obj (mqtt.Client.connect): The connection object </span>
+</span><span id="on_message-491"><a href="#on_message-491"><span class="linenos">491</span></a><span class="sd">        message (str): The message in MQTT transit communication</span>
+</span><span id="on_message-492"><a href="#on_message-492"><span class="linenos">492</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="on_message-493"><a href="#on_message-493"><span class="linenos">493</span></a>    <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">topic</span> <span class="o">==</span> <span class="n">received_topic</span><span class="p">:</span>
+</span><span id="on_message-494"><a href="#on_message-494"><span class="linenos">494</span></a>        <span class="n">received_data</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+</span><span id="on_message-495"><a href="#on_message-495"><span class="linenos">495</span></a>
+</span><span id="on_message-496"><a href="#on_message-496"><span class="linenos">496</span></a>        <span class="c1"># array_data = received_data.split(&#39;, &#39;)</span>
+</span><span id="on_message-497"><a href="#on_message-497"><span class="linenos">497</span></a>        <span class="n">array_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">received_data</span><span class="p">)</span>
+</span><span id="on_message-498"><a href="#on_message-498"><span class="linenos">498</span></a>
+</span><span id="on_message-499"><a href="#on_message-499"><span class="linenos">499</span></a>        <span class="c1"># print received message</span>
+</span><span id="on_message-500"><a href="#on_message-500"><span class="linenos">500</span></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Message received: &quot;</span><span class="p">,</span> <span class="n">array_json</span><span class="p">,</span>
+</span><span id="on_message-501"><a href="#on_message-501"><span class="linenos">501</span></a>            <span class="s2">&quot; | topic=&quot;</span><span class="p">,</span><span class="n">message</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span>
+</span><span id="on_message-502"><a href="#on_message-502"><span class="linenos">502</span></a>            <span class="s2">&quot; | qos=&quot;</span><span class="p">,</span><span class="n">message</span><span class="o">.</span><span class="n">qos</span><span class="p">,</span>
+</span><span id="on_message-503"><a href="#on_message-503"><span class="linenos">503</span></a>            <span class="s2">&quot; | retain flag=&quot;</span><span class="p">,</span><span class="n">message</span><span class="o">.</span><span class="n">retain</span><span class="p">)</span> 
+</span><span id="on_message-504"><a href="#on_message-504"><span class="linenos">504</span></a>
+</span><span id="on_message-505"><a href="#on_message-505"><span class="linenos">505</span></a>        <span class="c1"># predict(client, array_data)</span>
+</span><span id="on_message-506"><a href="#on_message-506"><span class="linenos">506</span></a>        <span class="n">q</span><span class="o">.</span><span class="n">put</span><span class="p">((</span><span class="n">client</span><span class="p">,</span> <span class="n">array_json</span><span class="p">))</span>
 </span></pre></div>
 
 
-    
+            <div class="docstring"><p>Define MQTT on_message event function. This function will be invoked every time a new message arrives for the subscribed topic</p>
+
+<h6 id="args">Args</h6>
+
+<ul>
+<li><strong>client (mqtt.Client):</strong>  The MQTT client object</li>
+<li><strong>obj (mqtt.Client.connect):</strong>  The connection object </li>
+<li><strong>message (str):</strong>  The message in MQTT transit communication</li>
+</ul>
+</div>
+
 
                 </section>
                 <section id="on_subscribe">
@@ -1635,20 +1771,39 @@ $$</p>
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">on_subscribe</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">client</span>, </span><span class="param"><span class="n">obj</span>, </span><span class="param"><span class="n">mid</span>, </span><span class="param"><span class="n">granted_qos</span></span><span class="return-annotation">):</span></span>
+        <span class="name">on_subscribe</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">client</span><span class="p">:</span> <span class="n">paho</span><span class="o">.</span><span class="n">mqtt</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">Client</span>,</span><span class="param">	<span class="n">obj</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">Client</span><span class="o">.</span><span class="n">connect</span><span class="o">&gt;</span>,</span><span class="param">	<span class="n">mid</span><span class="p">:</span> <span class="nb">int</span>,</span><span class="param">	<span class="n">granted_qos</span><span class="p">:</span> <span class="nb">tuple</span></span><span class="return-annotation">):</span></span>
 
                 <label class="view-source-button" for="on_subscribe-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#on_subscribe"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="on_subscribe-482"><a href="#on_subscribe-482"><span class="linenos">482</span></a><span class="k">def</span> <span class="nf">on_subscribe</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">granted_qos</span><span class="p">):</span>
-</span><span id="on_subscribe-483"><a href="#on_subscribe-483"><span class="linenos">483</span></a>    <span class="c1">#global publish_topic</span>
-</span><span id="on_subscribe-484"><a href="#on_subscribe-484"><span class="linenos">484</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Subscribed to topic: &quot;</span> <span class="o">+</span> <span class="n">received_topic</span> <span class="o">+</span>
-</span><span id="on_subscribe-485"><a href="#on_subscribe-485"><span class="linenos">485</span></a>    <span class="s2">&quot; | mid: &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; | QoS: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">granted_qos</span><span class="p">))</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="on_subscribe-510"><a href="#on_subscribe-510"><span class="linenos">510</span></a><span class="k">def</span> <span class="nf">on_subscribe</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="o">.</span><span class="n">connect</span><span class="p">,</span> <span class="n">mid</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">granted_qos</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">):</span>
+</span><span id="on_subscribe-511"><a href="#on_subscribe-511"><span class="linenos">511</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="on_subscribe-512"><a href="#on_subscribe-512"><span class="linenos">512</span></a><span class="sd">    Define MQTT on_subscribe event function.</span>
+</span><span id="on_subscribe-513"><a href="#on_subscribe-513"><span class="linenos">513</span></a>
+</span><span id="on_subscribe-514"><a href="#on_subscribe-514"><span class="linenos">514</span></a><span class="sd">    Args:</span>
+</span><span id="on_subscribe-515"><a href="#on_subscribe-515"><span class="linenos">515</span></a><span class="sd">        client (mqtt.Client): The MQTT client object</span>
+</span><span id="on_subscribe-516"><a href="#on_subscribe-516"><span class="linenos">516</span></a><span class="sd">        obj (mqtt.Client.connect): The connection object </span>
+</span><span id="on_subscribe-517"><a href="#on_subscribe-517"><span class="linenos">517</span></a><span class="sd">        mid (int): The message id in MQTT transit communication</span>
+</span><span id="on_subscribe-518"><a href="#on_subscribe-518"><span class="linenos">518</span></a><span class="sd">        granted_qos (tuple): (The MQTT Granted Quality of Service, )</span>
+</span><span id="on_subscribe-519"><a href="#on_subscribe-519"><span class="linenos">519</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="on_subscribe-520"><a href="#on_subscribe-520"><span class="linenos">520</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Subscribed successfully.&quot;</span> <span class="o">+</span>
+</span><span id="on_subscribe-521"><a href="#on_subscribe-521"><span class="linenos">521</span></a>          <span class="s2">&quot; | mid: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; | QoS: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">granted_qos</span><span class="p">))</span>
 </span></pre></div>
 
 
-    
+            <div class="docstring"><p>Define MQTT on_subscribe event function.</p>
+
+<h6 id="args">Args</h6>
+
+<ul>
+<li><strong>client (mqtt.Client):</strong>  The MQTT client object</li>
+<li><strong>obj (mqtt.Client.connect):</strong>  The connection object </li>
+<li><strong>mid (int):</strong>  The message id in MQTT transit communication</li>
+<li><strong>granted_qos (tuple):</strong>  (The MQTT Granted Quality of Service, )</li>
+</ul>
+</div>
+
 
                 </section>
                 <section id="on_publish">
@@ -1656,18 +1811,37 @@ $$</p>
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">on_publish</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">client</span>, </span><span class="param"><span class="n">obj</span>, </span><span class="param"><span class="n">mid</span></span><span class="return-annotation">):</span></span>
+        <span class="name">on_publish</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">client</span><span class="p">:</span> <span class="n">paho</span><span class="o">.</span><span class="n">mqtt</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">Client</span>,</span><span class="param">	<span class="n">obj</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">Client</span><span class="o">.</span><span class="n">connect</span><span class="o">&gt;</span>,</span><span class="param">	<span class="n">mid</span><span class="p">:</span> <span class="nb">int</span></span><span class="return-annotation">):</span></span>
 
                 <label class="view-source-button" for="on_publish-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#on_publish"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="on_publish-488"><a href="#on_publish-488"><span class="linenos">488</span></a><span class="k">def</span> <span class="nf">on_publish</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">mid</span><span class="p">):</span>
-</span><span id="on_publish-489"><a href="#on_publish-489"><span class="linenos">489</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mid: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mid</span><span class="p">))</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="on_publish-524"><a href="#on_publish-524"><span class="linenos">524</span></a><span class="k">def</span> <span class="nf">on_publish</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="o">.</span><span class="n">connect</span><span class="p">,</span> <span class="n">mid</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="on_publish-525"><a href="#on_publish-525"><span class="linenos">525</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="on_publish-526"><a href="#on_publish-526"><span class="linenos">526</span></a><span class="sd">    Define MQTT on_publish event function.</span>
+</span><span id="on_publish-527"><a href="#on_publish-527"><span class="linenos">527</span></a>
+</span><span id="on_publish-528"><a href="#on_publish-528"><span class="linenos">528</span></a><span class="sd">    Args:</span>
+</span><span id="on_publish-529"><a href="#on_publish-529"><span class="linenos">529</span></a><span class="sd">        client (mqtt.Client): The MQTT client object</span>
+</span><span id="on_publish-530"><a href="#on_publish-530"><span class="linenos">530</span></a><span class="sd">        obj (mqtt.Client.connect): The connection object  </span>
+</span><span id="on_publish-531"><a href="#on_publish-531"><span class="linenos">531</span></a><span class="sd">        mid (int): The message id in MQTT transit communication</span>
+</span><span id="on_publish-532"><a href="#on_publish-532"><span class="linenos">532</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="on_publish-533"><a href="#on_publish-533"><span class="linenos">533</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Published message.&quot;</span> <span class="o">+</span>
+</span><span id="on_publish-534"><a href="#on_publish-534"><span class="linenos">534</span></a>          <span class="s2">&quot; | mid: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </span></pre></div>
 
 
-    
+            <div class="docstring"><p>Define MQTT on_publish event function.</p>
+
+<h6 id="args">Args</h6>
+
+<ul>
+<li><strong>client (mqtt.Client):</strong>  The MQTT client object</li>
+<li><strong>obj (mqtt.Client.connect):</strong>  The connection object  </li>
+<li><strong>mid (int):</strong>  The message id in MQTT transit communication</li>
+</ul>
+</div>
+
 
                 </section>
                 <section id="on_log">
@@ -1675,18 +1849,38 @@ $$</p>
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">on_log</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">client</span>, </span><span class="param"><span class="n">obj</span>, </span><span class="param"><span class="n">level</span>, </span><span class="param"><span class="n">string</span></span><span class="return-annotation">):</span></span>
+        <span class="name">on_log</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">client</span><span class="p">:</span> <span class="n">paho</span><span class="o">.</span><span class="n">mqtt</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">Client</span>,</span><span class="param">	<span class="n">obj</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">Client</span><span class="o">.</span><span class="n">connect</span><span class="o">&gt;</span>,</span><span class="param">	<span class="n">level</span><span class="p">:</span> <span class="nb">int</span>,</span><span class="param">	<span class="n">string</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">):</span></span>
 
                 <label class="view-source-button" for="on_log-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#on_log"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="on_log-492"><a href="#on_log-492"><span class="linenos">492</span></a><span class="k">def</span> <span class="nf">on_log</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
-</span><span id="on_log-493"><a href="#on_log-493"><span class="linenos">493</span></a>    <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="on_log-537"><a href="#on_log-537"><span class="linenos">537</span></a><span class="k">def</span> <span class="nf">on_log</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="o">.</span><span class="n">connect</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="on_log-538"><a href="#on_log-538"><span class="linenos">538</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="on_log-539"><a href="#on_log-539"><span class="linenos">539</span></a><span class="sd">    Define MQTT on_log event function.</span>
+</span><span id="on_log-540"><a href="#on_log-540"><span class="linenos">540</span></a>
+</span><span id="on_log-541"><a href="#on_log-541"><span class="linenos">541</span></a><span class="sd">    Args:</span>
+</span><span id="on_log-542"><a href="#on_log-542"><span class="linenos">542</span></a><span class="sd">        client (mqtt.Client): The MQTT client object</span>
+</span><span id="on_log-543"><a href="#on_log-543"><span class="linenos">543</span></a><span class="sd">        obj (mqtt.Client.connect): The connection object </span>
+</span><span id="on_log-544"><a href="#on_log-544"><span class="linenos">544</span></a><span class="sd">        level (int): The level of detail log</span>
+</span><span id="on_log-545"><a href="#on_log-545"><span class="linenos">545</span></a><span class="sd">        string (str): The log string message</span>
+</span><span id="on_log-546"><a href="#on_log-546"><span class="linenos">546</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="on_log-547"><a href="#on_log-547"><span class="linenos">547</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;On log: &quot;</span> <span class="o">+</span> <span class="n">string</span><span class="p">)</span>
 </span></pre></div>
 
 
-    
+            <div class="docstring"><p>Define MQTT on_log event function.</p>
+
+<h6 id="args">Args</h6>
+
+<ul>
+<li><strong>client (mqtt.Client):</strong>  The MQTT client object</li>
+<li><strong>obj (mqtt.Client.connect):</strong>  The connection object </li>
+<li><strong>level (int):</strong>  The level of detail log</li>
+<li><strong>string (str):</strong>  The log string message</li>
+</ul>
+</div>
+
 
                 </section>
                 <section id="on_disconnect">
@@ -1694,21 +1888,60 @@ $$</p>
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">on_disconnect</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">client</span>, </span><span class="param"><span class="n">userdata</span>, </span><span class="param"><span class="n">rc</span></span><span class="return-annotation">):</span></span>
+        <span class="name">on_disconnect</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">client</span><span class="p">:</span> <span class="n">paho</span><span class="o">.</span><span class="n">mqtt</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">Client</span>,</span><span class="param">	<span class="n">userdata</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">Client</span><span class="o">.</span><span class="n">user_data_set</span><span class="o">&gt;</span>,</span><span class="param">	<span class="n">rc</span><span class="p">:</span> <span class="nb">int</span></span><span class="return-annotation">):</span></span>
 
                 <label class="view-source-button" for="on_disconnect-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#on_disconnect"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="on_disconnect-496"><a href="#on_disconnect-496"><span class="linenos">496</span></a><span class="k">def</span> <span class="nf">on_disconnect</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
-</span><span id="on_disconnect-497"><a href="#on_disconnect-497"><span class="linenos">497</span></a>    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
-</span><span id="on_disconnect-498"><a href="#on_disconnect-498"><span class="linenos">498</span></a>        <span class="k">global</span> <span class="n">Connected</span>                <span class="c1">#Use global variable</span>
-</span><span id="on_disconnect-499"><a href="#on_disconnect-499"><span class="linenos">499</span></a>        <span class="n">Connected</span> <span class="o">=</span> <span class="kc">False</span>               <span class="c1">#Signal connection</span>
-</span><span id="on_disconnect-500"><a href="#on_disconnect-500"><span class="linenos">500</span></a>        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">_client_id</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span><span class="o">+</span> <span class="s2">&quot; was unexpected disconnected. Will auto-reconnect. Return code: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rc</span><span class="p">))</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="on_disconnect-551"><a href="#on_disconnect-551"><span class="linenos">551</span></a><span class="k">def</span> <span class="nf">on_disconnect</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">:</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="o">.</span><span class="n">user_data_set</span><span class="p">,</span> <span class="n">rc</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="on_disconnect-552"><a href="#on_disconnect-552"><span class="linenos">552</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="on_disconnect-553"><a href="#on_disconnect-553"><span class="linenos">553</span></a><span class="sd">    Define MQTT on_disconnect event function.</span>
+</span><span id="on_disconnect-554"><a href="#on_disconnect-554"><span class="linenos">554</span></a>
+</span><span id="on_disconnect-555"><a href="#on_disconnect-555"><span class="linenos">555</span></a><span class="sd">    Args:</span>
+</span><span id="on_disconnect-556"><a href="#on_disconnect-556"><span class="linenos">556</span></a><span class="sd">        client (mqtt.Client): The MQTT client object</span>
+</span><span id="on_disconnect-557"><a href="#on_disconnect-557"><span class="linenos">557</span></a><span class="sd">        userdata (mqtt.Client.user_data_set): The connection userdata </span>
+</span><span id="on_disconnect-558"><a href="#on_disconnect-558"><span class="linenos">558</span></a><span class="sd">        rc (int): The return code</span>
+</span><span id="on_disconnect-559"><a href="#on_disconnect-559"><span class="linenos">559</span></a><span class="sd">    </span>
+</span><span id="on_disconnect-560"><a href="#on_disconnect-560"><span class="linenos">560</span></a><span class="sd">    *Return codes - rc:*</span>
+</span><span id="on_disconnect-561"><a href="#on_disconnect-561"><span class="linenos">561</span></a>
+</span><span id="on_disconnect-562"><a href="#on_disconnect-562"><span class="linenos">562</span></a><span class="sd">        0: Connection successful </span>
+</span><span id="on_disconnect-563"><a href="#on_disconnect-563"><span class="linenos">563</span></a><span class="sd">        1: Connection refused: incorrect protocol version </span>
+</span><span id="on_disconnect-564"><a href="#on_disconnect-564"><span class="linenos">564</span></a><span class="sd">        2: Connection refused: invalid client identifier </span>
+</span><span id="on_disconnect-565"><a href="#on_disconnect-565"><span class="linenos">565</span></a><span class="sd">        3: Connection refused: server unavailable </span>
+</span><span id="on_disconnect-566"><a href="#on_disconnect-566"><span class="linenos">566</span></a><span class="sd">        4: Connection refused: bad username or password </span>
+</span><span id="on_disconnect-567"><a href="#on_disconnect-567"><span class="linenos">567</span></a><span class="sd">        5: Connection refused: not authorised </span>
+</span><span id="on_disconnect-568"><a href="#on_disconnect-568"><span class="linenos">568</span></a><span class="sd">        6-255: Currently unused. </span>
+</span><span id="on_disconnect-569"><a href="#on_disconnect-569"><span class="linenos">569</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="on_disconnect-570"><a href="#on_disconnect-570"><span class="linenos">570</span></a>    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+</span><span id="on_disconnect-571"><a href="#on_disconnect-571"><span class="linenos">571</span></a>        <span class="k">global</span> <span class="n">Connected</span>                <span class="c1">#Use global variable</span>
+</span><span id="on_disconnect-572"><a href="#on_disconnect-572"><span class="linenos">572</span></a>        <span class="n">Connected</span> <span class="o">=</span> <span class="kc">False</span>               <span class="c1">#Signal connection</span>
+</span><span id="on_disconnect-573"><a href="#on_disconnect-573"><span class="linenos">573</span></a>        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">_client_id</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span><span class="o">+</span> <span class="s2">&quot; was unexpected disconnected. Will auto-reconnect. Return code: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rc</span><span class="p">))</span>
 </span></pre></div>
 
 
-    
+            <div class="docstring"><p>Define MQTT on_disconnect event function.</p>
+
+<h6 id="args">Args</h6>
+
+<ul>
+<li><strong>client (mqtt.Client):</strong>  The MQTT client object</li>
+<li><strong>userdata (mqtt.Client.user_data_set):</strong>  The connection userdata </li>
+<li><strong>rc (int):</strong>  The return code</li>
+</ul>
+
+<p><em>Return codes - rc:</em></p>
+
+<pre><code>0: Connection successful 
+1: Connection refused: incorrect protocol version 
+2: Connection refused: invalid client identifier 
+3: Connection refused: server unavailable 
+4: Connection refused: bad username or password 
+5: Connection refused: not authorised 
+6-255: Currently unused.
+</code></pre>
+</div>
+
 
                 </section>
                 <section id="main">
@@ -1722,76 +1955,81 @@ $$</p>
 
     </div>
     <a class="headerlink" href="#main"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="main-504"><a href="#main-504"><span class="linenos">504</span></a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-</span><span id="main-505"><a href="#main-505"><span class="linenos">505</span></a>    <span class="k">global</span> <span class="n">q</span><span class="p">,</span> <span class="n">models_dict</span><span class="p">,</span> <span class="n">models_anchors_dict</span><span class="p">,</span> <span class="n">use_anchors</span><span class="p">,</span> <span class="n">models_based_on_experiments</span><span class="p">,</span> <span class="n">previous_pos_values</span>
-</span><span id="main-506"><a href="#main-506"><span class="linenos">506</span></a>    <span class="k">global</span> <span class="n">n_antennas</span><span class="p">,</span> <span class="n">models_dir</span><span class="p">,</span> <span class="n">previous_rssi_values</span><span class="p">,</span> <span class="n">previous_rssi_iterations</span><span class="p">,</span> <span class="n">algorithms</span><span class="p">,</span> <span class="n">algorithms2</span>
-</span><span id="main-507"><a href="#main-507"><span class="linenos">507</span></a>    <span class="k">global</span> <span class="n">previous_pos_iterations</span>
-</span><span id="main-508"><a href="#main-508"><span class="linenos">508</span></a>
-</span><span id="main-509"><a href="#main-509"><span class="linenos">509</span></a>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Predicts the location of a tag based on rssi values.&quot;</span><span class="p">)</span>
-</span><span id="main-510"><a href="#main-510"><span class="linenos">510</span></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-m&quot;</span><span class="p">,</span> <span class="s2">&quot;--models&quot;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;src/it&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Enter the name of the rssi models dir. default = it. other = somos_saude&quot;</span><span class="p">)</span>
-</span><span id="main-511"><a href="#main-511"><span class="linenos">511</span></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-n&quot;</span><span class="p">,</span> <span class="s2">&quot;--n_antennas&quot;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Enter the number of antennas. default = 4&quot;</span><span class="p">)</span>
-</span><span id="main-512"><a href="#main-512"><span class="linenos">512</span></a>    <span class="n">models_dir</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span><span class="o">.</span><span class="n">models</span>
-</span><span id="main-513"><a href="#main-513"><span class="linenos">513</span></a>    <span class="n">n_antennas</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span><span class="o">.</span><span class="n">n_antennas</span>
-</span><span id="main-514"><a href="#main-514"><span class="linenos">514</span></a>
-</span><span id="main-515"><a href="#main-515"><span class="linenos">515</span></a>    <span class="n">algorithms</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;knn&quot;</span><span class="p">,</span> <span class="s2">&quot;svr&quot;</span><span class="p">,</span> <span class="s2">&quot;gbr&quot;</span><span class="p">,</span> <span class="s2">&quot;rf&quot;</span><span class="p">,</span> <span class="s2">&quot;dt&quot;</span><span class="p">]</span>
-</span><span id="main-516"><a href="#main-516"><span class="linenos">516</span></a>    <span class="n">algorithms2</span><span class="o">=</span> <span class="p">[</span><span class="s2">&quot;fp_rf&quot;</span><span class="p">,</span> <span class="s2">&quot;fp_dt&quot;</span><span class="p">,</span> <span class="s2">&quot;fp_rnn&quot;</span><span class="p">]</span>
-</span><span id="main-517"><a href="#main-517"><span class="linenos">517</span></a>    <span class="n">q</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">Queue</span><span class="p">()</span> <span class="c1"># backend messages</span>
-</span><span id="main-518"><a href="#main-518"><span class="linenos">518</span></a>
-</span><span id="main-519"><a href="#main-519"><span class="linenos">519</span></a>    <span class="n">previous_pos_iterations</span> <span class="o">=</span> <span class="mi">5</span> 
-</span><span id="main-520"><a href="#main-520"><span class="linenos">520</span></a>    <span class="n">previous_pos_values</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="n">maxlen</span><span class="o">=</span><span class="n">previous_pos_iterations</span><span class="p">)</span>  <span class="c1"># sequences used for future prediction</span>
-</span><span id="main-521"><a href="#main-521"><span class="linenos">521</span></a>
-</span><span id="main-522"><a href="#main-522"><span class="linenos">522</span></a>    <span class="n">previous_rssi_iterations</span> <span class="o">=</span> <span class="mi">3</span>
-</span><span id="main-523"><a href="#main-523"><span class="linenos">523</span></a>    <span class="n">previous_rssi_values</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="n">maxlen</span><span class="o">=</span><span class="n">previous_rssi_iterations</span><span class="p">)</span>  <span class="c1"># sequences used for the average rssi</span>
-</span><span id="main-524"><a href="#main-524"><span class="linenos">524</span></a>
-</span><span id="main-525"><a href="#main-525"><span class="linenos">525</span></a>    <span class="c1"># Load ML models</span>
-</span><span id="main-526"><a href="#main-526"><span class="linenos">526</span></a>    <span class="n">models_dict</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="main-527"><a href="#main-527"><span class="linenos">527</span></a>    <span class="n">models_anchors_dict</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="main-528"><a href="#main-528"><span class="linenos">528</span></a>    <span class="n">use_anchors</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># ANCHORS SWITCH</span>
-</span><span id="main-529"><a href="#main-529"><span class="linenos">529</span></a>    <span class="n">models_based_on_experiments</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># SWITCH MODELS</span>
-</span><span id="main-530"><a href="#main-530"><span class="linenos">530</span></a>    <span class="k">for</span> <span class="n">alg</span> <span class="ow">in</span> <span class="n">algorithms</span><span class="p">:</span>
-</span><span id="main-531"><a href="#main-531"><span class="linenos">531</span></a>        <span class="k">if</span> <span class="n">models_based_on_experiments</span><span class="p">:</span>
-</span><span id="main-532"><a href="#main-532"><span class="linenos">532</span></a>            <span class="n">models_dict</span><span class="p">[</span><span class="n">alg</span><span class="p">]</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./src/activ_models/&quot;</span><span class="o">+</span><span class="n">alg</span><span class="o">+</span><span class="s2">&quot;.sav&quot;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span> <span class="c1"># based on experiments</span>
-</span><span id="main-533"><a href="#main-533"><span class="linenos">533</span></a>        <span class="k">else</span><span class="p">:</span>
-</span><span id="main-534"><a href="#main-534"><span class="linenos">534</span></a>            <span class="c1"># models_dict[alg] = pickle.load(open(&quot;./src/activ_sim_models/&quot;+alg+&quot;_activ_sim.sav&quot;, &#39;rb&#39;)) # based on simulator</span>
-</span><span id="main-535"><a href="#main-535"><span class="linenos">535</span></a>            <span class="n">models_dict</span><span class="p">[</span><span class="n">alg</span><span class="p">]</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./src/activ_sim_models/&quot;</span><span class="o">+</span><span class="n">alg</span><span class="o">+</span><span class="s2">&quot;_activ_sim_calc_dist.sav&quot;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
-</span><span id="main-536"><a href="#main-536"><span class="linenos">536</span></a>        <span class="n">models_anchors_dict</span><span class="p">[</span><span class="n">alg</span><span class="p">]</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./src/activ_sim_models/&quot;</span><span class="o">+</span><span class="n">alg</span><span class="o">+</span><span class="s2">&quot;_activ_dif_antenna4_sim_calc_dist.sav&quot;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span> <span class="c1"># based on simulator</span>
-</span><span id="main-537"><a href="#main-537"><span class="linenos">537</span></a>
-</span><span id="main-538"><a href="#main-538"><span class="linenos">538</span></a>    <span class="c1"># turn-on the worker thread</span>
-</span><span id="main-539"><a href="#main-539"><span class="linenos">539</span></a>    <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-</span><span id="main-540"><a href="#main-540"><span class="linenos">540</span></a>
-</span><span id="main-541"><a href="#main-541"><span class="linenos">541</span></a>    <span class="c1"># Create a MQTT client</span>
-</span><span id="main-542"><a href="#main-542"><span class="linenos">542</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Creating new client instance...&quot;</span><span class="p">)</span>
-</span><span id="main-543"><a href="#main-543"><span class="linenos">543</span></a>    <span class="n">randomInt</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
-</span><span id="main-544"><a href="#main-544"><span class="linenos">544</span></a>    <span class="n">mqtt_client</span> <span class="o">=</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="s2">&quot;clientPython-&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">randomInt</span><span class="p">),</span> <span class="n">transport</span><span class="o">=</span><span class="s2">&quot;websockets&quot;</span><span class="p">)</span> <span class="c1">#create new instance websockets</span>
-</span><span id="main-545"><a href="#main-545"><span class="linenos">545</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">username_pw_set</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">)</span>    <span class="c1">#set username and password</span>
-</span><span id="main-546"><a href="#main-546"><span class="linenos">546</span></a>
-</span><span id="main-547"><a href="#main-547"><span class="linenos">547</span></a>    <span class="c1"># Assign event callbacks</span>
-</span><span id="main-548"><a href="#main-548"><span class="linenos">548</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">on_connect</span> <span class="o">=</span> <span class="n">on_connect</span>
-</span><span id="main-549"><a href="#main-549"><span class="linenos">549</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">on_message</span> <span class="o">=</span> <span class="n">on_message</span> 
-</span><span id="main-550"><a href="#main-550"><span class="linenos">550</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">on_subscribe</span> <span class="o">=</span> <span class="n">on_subscribe</span>
-</span><span id="main-551"><a href="#main-551"><span class="linenos">551</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">on_publish</span> <span class="o">=</span> <span class="n">on_publish</span>
-</span><span id="main-552"><a href="#main-552"><span class="linenos">552</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">on_disconnect</span> <span class="o">=</span> <span class="n">on_disconnect</span>
-</span><span id="main-553"><a href="#main-553"><span class="linenos">553</span></a>
-</span><span id="main-554"><a href="#main-554"><span class="linenos">554</span></a>    <span class="c1"># Uncomment to enable debug messages</span>
-</span><span id="main-555"><a href="#main-555"><span class="linenos">555</span></a>    <span class="c1">#client.on_log = on_log</span>
-</span><span id="main-556"><a href="#main-556"><span class="linenos">556</span></a>
-</span><span id="main-557"><a href="#main-557"><span class="linenos">557</span></a>    <span class="c1"># Connect with MQTT Broker</span>
-</span><span id="main-558"><a href="#main-558"><span class="linenos">558</span></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connecting to broker &#39;ws://</span><span class="si">{</span><span class="n">broker_host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">broker_port</span><span class="si">}</span><span class="s2">/mqtt&#39;&quot;</span><span class="p">)</span>
-</span><span id="main-559"><a href="#main-559"><span class="linenos">559</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">broker_host</span><span class="p">,</span> <span class="n">broker_port</span><span class="p">,</span> <span class="n">broker_keepalive</span><span class="p">)</span> <span class="c1">#connect to broker</span>
-</span><span id="main-560"><a href="#main-560"><span class="linenos">560</span></a>    
-</span><span id="main-561"><a href="#main-561"><span class="linenos">561</span></a>    <span class="c1"># Blocking call that processes network traffic, dispatches callbacks and</span>
-</span><span id="main-562"><a href="#main-562"><span class="linenos">562</span></a>    <span class="c1"># handles reconnecting.</span>
-</span><span id="main-563"><a href="#main-563"><span class="linenos">563</span></a>    <span class="c1"># Other loop*() functions are available that give a threaded interface and a</span>
-</span><span id="main-564"><a href="#main-564"><span class="linenos">564</span></a>    <span class="c1"># manual interface.</span>
-</span><span id="main-565"><a href="#main-565"><span class="linenos">565</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">loop_forever</span><span class="p">()</span>
-</span><span id="main-566"><a href="#main-566"><span class="linenos">566</span></a>    <span class="c1"># Non blocking : client.loop_start()  #N.B. need a while True: statement</span>
-</span><span id="main-567"><a href="#main-567"><span class="linenos">567</span></a>
-</span><span id="main-568"><a href="#main-568"><span class="linenos">568</span></a>    <span class="c1"># block until all tasks are done</span>
-</span><span id="main-569"><a href="#main-569"><span class="linenos">569</span></a>    <span class="c1">#q.join()</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="main-577"><a href="#main-577"><span class="linenos">577</span></a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span><span id="main-578"><a href="#main-578"><span class="linenos">578</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="main-579"><a href="#main-579"><span class="linenos">579</span></a><span class="sd">    Definition of main function.</span>
+</span><span id="main-580"><a href="#main-580"><span class="linenos">580</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="main-581"><a href="#main-581"><span class="linenos">581</span></a>    <span class="k">global</span> <span class="n">q</span><span class="p">,</span> <span class="n">models_dict</span><span class="p">,</span> <span class="n">models_anchors_dict</span><span class="p">,</span> <span class="n">use_anchors</span><span class="p">,</span> <span class="n">models_based_on_experiments</span><span class="p">,</span> <span class="n">previous_pos_values</span>
+</span><span id="main-582"><a href="#main-582"><span class="linenos">582</span></a>    <span class="k">global</span> <span class="n">n_antennas</span><span class="p">,</span> <span class="n">models_dir</span><span class="p">,</span> <span class="n">previous_rssi_values</span><span class="p">,</span> <span class="n">previous_rssi_iterations</span><span class="p">,</span> <span class="n">algorithms</span><span class="p">,</span> <span class="n">algorithms2</span>
+</span><span id="main-583"><a href="#main-583"><span class="linenos">583</span></a>    <span class="k">global</span> <span class="n">previous_pos_iterations</span>
+</span><span id="main-584"><a href="#main-584"><span class="linenos">584</span></a>
+</span><span id="main-585"><a href="#main-585"><span class="linenos">585</span></a>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Predicts the location of a tag based on rssi values.&quot;</span><span class="p">)</span>
+</span><span id="main-586"><a href="#main-586"><span class="linenos">586</span></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-m&quot;</span><span class="p">,</span> <span class="s2">&quot;--models&quot;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;src/it&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Enter the name of the rssi models dir. default = it. other = somos_saude&quot;</span><span class="p">)</span>
+</span><span id="main-587"><a href="#main-587"><span class="linenos">587</span></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-n&quot;</span><span class="p">,</span> <span class="s2">&quot;--n_antennas&quot;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Enter the number of antennas. default = 4&quot;</span><span class="p">)</span>
+</span><span id="main-588"><a href="#main-588"><span class="linenos">588</span></a>    <span class="n">models_dir</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span><span class="o">.</span><span class="n">models</span>
+</span><span id="main-589"><a href="#main-589"><span class="linenos">589</span></a>    <span class="n">n_antennas</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span><span class="o">.</span><span class="n">n_antennas</span>
+</span><span id="main-590"><a href="#main-590"><span class="linenos">590</span></a>
+</span><span id="main-591"><a href="#main-591"><span class="linenos">591</span></a>    <span class="n">algorithms</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;knn&quot;</span><span class="p">,</span> <span class="s2">&quot;svr&quot;</span><span class="p">,</span> <span class="s2">&quot;gbr&quot;</span><span class="p">,</span> <span class="s2">&quot;rf&quot;</span><span class="p">,</span> <span class="s2">&quot;dt&quot;</span><span class="p">]</span>
+</span><span id="main-592"><a href="#main-592"><span class="linenos">592</span></a>    <span class="n">algorithms2</span><span class="o">=</span> <span class="p">[</span><span class="s2">&quot;fp_rf&quot;</span><span class="p">,</span> <span class="s2">&quot;fp_dt&quot;</span><span class="p">,</span> <span class="s2">&quot;fp_rnn&quot;</span><span class="p">]</span>
+</span><span id="main-593"><a href="#main-593"><span class="linenos">593</span></a>    <span class="n">q</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">Queue</span><span class="p">()</span> <span class="c1"># backend messages</span>
+</span><span id="main-594"><a href="#main-594"><span class="linenos">594</span></a>
+</span><span id="main-595"><a href="#main-595"><span class="linenos">595</span></a>    <span class="n">previous_pos_iterations</span> <span class="o">=</span> <span class="mi">5</span> 
+</span><span id="main-596"><a href="#main-596"><span class="linenos">596</span></a>    <span class="n">previous_pos_values</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="n">maxlen</span><span class="o">=</span><span class="n">previous_pos_iterations</span><span class="p">)</span>  <span class="c1"># sequences used for future prediction</span>
+</span><span id="main-597"><a href="#main-597"><span class="linenos">597</span></a>
+</span><span id="main-598"><a href="#main-598"><span class="linenos">598</span></a>    <span class="n">previous_rssi_iterations</span> <span class="o">=</span> <span class="mi">3</span>
+</span><span id="main-599"><a href="#main-599"><span class="linenos">599</span></a>    <span class="n">previous_rssi_values</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="n">maxlen</span><span class="o">=</span><span class="n">previous_rssi_iterations</span><span class="p">)</span>  <span class="c1"># sequences used for the average rssi</span>
+</span><span id="main-600"><a href="#main-600"><span class="linenos">600</span></a>
+</span><span id="main-601"><a href="#main-601"><span class="linenos">601</span></a>    <span class="c1"># Load ML models</span>
+</span><span id="main-602"><a href="#main-602"><span class="linenos">602</span></a>    <span class="n">models_dict</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="main-603"><a href="#main-603"><span class="linenos">603</span></a>    <span class="n">models_anchors_dict</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="main-604"><a href="#main-604"><span class="linenos">604</span></a>    <span class="n">use_anchors</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># ANCHORS SWITCH</span>
+</span><span id="main-605"><a href="#main-605"><span class="linenos">605</span></a>    <span class="n">models_based_on_experiments</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># SWITCH MODELS</span>
+</span><span id="main-606"><a href="#main-606"><span class="linenos">606</span></a>    <span class="k">for</span> <span class="n">alg</span> <span class="ow">in</span> <span class="n">algorithms</span><span class="p">:</span>
+</span><span id="main-607"><a href="#main-607"><span class="linenos">607</span></a>        <span class="k">if</span> <span class="n">models_based_on_experiments</span><span class="p">:</span>
+</span><span id="main-608"><a href="#main-608"><span class="linenos">608</span></a>            <span class="n">models_dict</span><span class="p">[</span><span class="n">alg</span><span class="p">]</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./src/activ_models/&quot;</span><span class="o">+</span><span class="n">alg</span><span class="o">+</span><span class="s2">&quot;.sav&quot;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span> <span class="c1"># based on experiments</span>
+</span><span id="main-609"><a href="#main-609"><span class="linenos">609</span></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="main-610"><a href="#main-610"><span class="linenos">610</span></a>            <span class="c1"># models_dict[alg] = pickle.load(open(&quot;./src/activ_sim_models/&quot;+alg+&quot;_activ_sim.sav&quot;, &#39;rb&#39;)) # based on simulator</span>
+</span><span id="main-611"><a href="#main-611"><span class="linenos">611</span></a>            <span class="n">models_dict</span><span class="p">[</span><span class="n">alg</span><span class="p">]</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./src/activ_sim_models/&quot;</span><span class="o">+</span><span class="n">alg</span><span class="o">+</span><span class="s2">&quot;_activ_sim_calc_dist.sav&quot;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+</span><span id="main-612"><a href="#main-612"><span class="linenos">612</span></a>        <span class="n">models_anchors_dict</span><span class="p">[</span><span class="n">alg</span><span class="p">]</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./src/activ_sim_models/&quot;</span><span class="o">+</span><span class="n">alg</span><span class="o">+</span><span class="s2">&quot;_activ_dif_antenna4_sim_calc_dist.sav&quot;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span> <span class="c1"># based on simulator</span>
+</span><span id="main-613"><a href="#main-613"><span class="linenos">613</span></a>
+</span><span id="main-614"><a href="#main-614"><span class="linenos">614</span></a>    <span class="c1"># turn-on the worker thread</span>
+</span><span id="main-615"><a href="#main-615"><span class="linenos">615</span></a>    <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span><span id="main-616"><a href="#main-616"><span class="linenos">616</span></a>
+</span><span id="main-617"><a href="#main-617"><span class="linenos">617</span></a>    <span class="c1"># Create a MQTT client</span>
+</span><span id="main-618"><a href="#main-618"><span class="linenos">618</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Creating new client instance...&quot;</span><span class="p">)</span>
+</span><span id="main-619"><a href="#main-619"><span class="linenos">619</span></a>    <span class="n">randomInt</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
+</span><span id="main-620"><a href="#main-620"><span class="linenos">620</span></a>    <span class="n">mqtt_client</span> <span class="o">=</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="s2">&quot;clientPython-&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">randomInt</span><span class="p">),</span> <span class="n">transport</span><span class="o">=</span><span class="s2">&quot;websockets&quot;</span><span class="p">)</span> <span class="c1">#create new instance websockets</span>
+</span><span id="main-621"><a href="#main-621"><span class="linenos">621</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">username_pw_set</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">)</span>    <span class="c1">#set username and password</span>
+</span><span id="main-622"><a href="#main-622"><span class="linenos">622</span></a>
+</span><span id="main-623"><a href="#main-623"><span class="linenos">623</span></a>    <span class="c1"># Assign event callbacks</span>
+</span><span id="main-624"><a href="#main-624"><span class="linenos">624</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">on_connect</span> <span class="o">=</span> <span class="n">on_connect</span>
+</span><span id="main-625"><a href="#main-625"><span class="linenos">625</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">on_message</span> <span class="o">=</span> <span class="n">on_message</span> 
+</span><span id="main-626"><a href="#main-626"><span class="linenos">626</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">on_subscribe</span> <span class="o">=</span> <span class="n">on_subscribe</span>
+</span><span id="main-627"><a href="#main-627"><span class="linenos">627</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">on_publish</span> <span class="o">=</span> <span class="n">on_publish</span>
+</span><span id="main-628"><a href="#main-628"><span class="linenos">628</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">on_disconnect</span> <span class="o">=</span> <span class="n">on_disconnect</span>
+</span><span id="main-629"><a href="#main-629"><span class="linenos">629</span></a>
+</span><span id="main-630"><a href="#main-630"><span class="linenos">630</span></a>    <span class="c1"># Uncomment to enable debug messages</span>
+</span><span id="main-631"><a href="#main-631"><span class="linenos">631</span></a>    <span class="c1">#client.on_log = on_log</span>
+</span><span id="main-632"><a href="#main-632"><span class="linenos">632</span></a>
+</span><span id="main-633"><a href="#main-633"><span class="linenos">633</span></a>    <span class="c1"># Connect with MQTT Broker</span>
+</span><span id="main-634"><a href="#main-634"><span class="linenos">634</span></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connecting to broker &#39;ws://</span><span class="si">{</span><span class="n">broker_host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">broker_port</span><span class="si">}</span><span class="s2">/mqtt&#39;&quot;</span><span class="p">)</span>
+</span><span id="main-635"><a href="#main-635"><span class="linenos">635</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">broker_host</span><span class="p">,</span> <span class="n">broker_port</span><span class="p">,</span> <span class="n">broker_keepalive</span><span class="p">)</span> <span class="c1">#connect to broker</span>
+</span><span id="main-636"><a href="#main-636"><span class="linenos">636</span></a>    
+</span><span id="main-637"><a href="#main-637"><span class="linenos">637</span></a>    <span class="c1"># Blocking call that processes network traffic, dispatches callbacks and</span>
+</span><span id="main-638"><a href="#main-638"><span class="linenos">638</span></a>    <span class="c1"># handles reconnecting.</span>
+</span><span id="main-639"><a href="#main-639"><span class="linenos">639</span></a>    <span class="c1"># Other loop*() functions are available that give a threaded interface and a</span>
+</span><span id="main-640"><a href="#main-640"><span class="linenos">640</span></a>    <span class="c1"># manual interface.</span>
+</span><span id="main-641"><a href="#main-641"><span class="linenos">641</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">loop_forever</span><span class="p">()</span>
+</span><span id="main-642"><a href="#main-642"><span class="linenos">642</span></a>    <span class="c1"># Non blocking : client.loop_start()  #N.B. need a while True: statement</span>
+</span><span id="main-643"><a href="#main-643"><span class="linenos">643</span></a>
+</span><span id="main-644"><a href="#main-644"><span class="linenos">644</span></a>    <span class="c1"># block until all tasks are done</span>
+</span><span id="main-645"><a href="#main-645"><span class="linenos">645</span></a>    <span class="c1">#q.join()</span>
 </span></pre></div>
 
 
-    
+            <div class="docstring"><p>Definition of main function.</p>
+</div>
+
 
                 </section>
     </main>

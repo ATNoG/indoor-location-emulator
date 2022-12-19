@@ -1499,7 +1499,8 @@ def on_connect(client: mqtt.Client, obj: mqtt.Client.connect, flags: dict, rc: i
         print("Failed to connect, with return code: " + str(rc))
 
 # Define on_message event function.
-# This function will be invoked every time a new message arrives for the subscribed topic
+# This function will be invoked every time
+# a new message arrives for the subscribed topic
 def on_message(client: mqtt.Client, obj: mqtt.Client.connect, message: mqtt.MQTTMessage):
     """
     Define MQTT on_message event function. This function will be invoked every time a new message arrives for the subscribed topic

@@ -443,7 +443,27 @@ publish_twins_topic = "/topic_mqtt_agents"    # Subscription publish topic
 
 # Define on connect event function
 # We shall subscribe to our Topic in this function
-def on_connect(client, obj, flags, rc):
+def on_connect(client: mqtt.Client, obj: mqtt.Client.connect, flags: dict, rc: int):
+    """
+    Define MQTT on_connect event function. We shall subscribe to our Topic in this function.
+
+    Args:
+        client (mqtt.Client): The MQTT client object
+        obj (mqtt.Client.connect): The connection object 
+        flags (dict): The connection flags
+        rc (int): The return code
+    
+    *Return codes - rc:*
+
+        0: Connection successful 
+        1: Connection refused: incorrect protocol version 
+        2: Connection refused: invalid client identifier 
+        3: Connection refused: server unavailable 
+        4: Connection refused: bad username or password 
+        5: Connection refused: not authorised 
+        6-255: Currently unused. 
+    """
+
     global received_topic
     global publish_topic
     if rc == 0:
@@ -460,7 +480,15 @@ def on_connect(client, obj, flags, rc):
 # Define on_message event function. 
 # This function will be invoked every time,
 # a new message arrives for the subscribed topic
-def on_message(client, obj, message): 
+def on_message(client: mqtt.Client, obj: mqtt.Client.connect, message: mqtt.MQTTMessage):
+    """
+    Define MQTT on_message event function. This function will be invoked every time a new message arrives for the subscribed topic
+
+    Args:
+        client (mqtt.Client): The MQTT client object
+        obj (mqtt.Client.connect): The connection object 
+        message (str): The message in MQTT transit communication
+    """
     if message.topic == received_topic:
         received_data = str(message.payload.decode("utf-8"))
 
@@ -478,21 +506,66 @@ def on_message(client, obj, message):
     
     
 # Define on_subscribe event function.
-def on_subscribe(client, obj, mid, granted_qos):
-    #global publish_topic
-    print("Subscribed to topic: " + received_topic +
-    " | mid: "+ str(mid) + " | QoS: " + str(granted_qos))
+def on_subscribe(client: mqtt.Client, obj: mqtt.Client.connect, mid: int, granted_qos: tuple):
+    """
+    Define MQTT on_subscribe event function.
+
+    Args:
+        client (mqtt.Client): The MQTT client object
+        obj (mqtt.Client.connect): The connection object 
+        mid (int): The message id in MQTT transit communication
+        granted_qos (tuple): (The MQTT Granted Quality of Service, )
+    """
+    print("Subscribed successfully." +
+          " | mid: " + str(mid) + " | QoS: " + str(granted_qos))
 
 # Define on_publish event function.
-def on_publish(client, obj, mid):
-    print("mid: " + str(mid))
+def on_publish(client: mqtt.Client, obj: mqtt.Client.connect, mid: int):
+    """
+    Define MQTT on_publish event function.
 
-# Define on_log event function.
-def on_log(client, obj, level, string):
-    print(string)
+    Args:
+        client (mqtt.Client): The MQTT client object
+        obj (mqtt.Client.connect): The connection object  
+        mid (int): The message id in MQTT transit communication
+    """
+    print("Published message." +
+          " | mid: " + str(mid) + "\n")
+
+# Define on_log event function (uncalled).
+def on_log(client: mqtt.Client, obj: mqtt.Client.connect, level: int, string: str):
+    """
+    Define MQTT on_log event function.
+
+    Args:
+        client (mqtt.Client): The MQTT client object
+        obj (mqtt.Client.connect): The connection object 
+        level (int): The level of detail log
+        string (str): The log string message
+    """
+    print("On log: " + string)
+
 
 # Define on_disconnect event function.
-def on_disconnect(client, userdata, rc):
+def on_disconnect(client: mqtt.Client, userdata: mqtt.Client.user_data_set, rc: int):
+    """
+    Define MQTT on_disconnect event function.
+
+    Args:
+        client (mqtt.Client): The MQTT client object
+        userdata (mqtt.Client.user_data_set): The connection userdata 
+        rc (int): The return code
+    
+    *Return codes - rc:*
+
+        0: Connection successful 
+        1: Connection refused: incorrect protocol version 
+        2: Connection refused: invalid client identifier 
+        3: Connection refused: server unavailable 
+        4: Connection refused: bad username or password 
+        5: Connection refused: not authorised 
+        6-255: Currently unused. 
+    """
     if (rc != 0):
         global Connected                #Use global variable
         Connected = False               #Signal connection
@@ -501,6 +574,9 @@ def on_disconnect(client, userdata, rc):
 ########## End of MQTT functions ##########
 
 def main():
+    """
+    Definition of main function.
+    """
     global q, models_dict, models_anchors_dict, use_anchors, models_based_on_experiments, previous_pos_values
     global n_antennas, models_dir, previous_rssi_values, previous_rssi_iterations, algorithms, algorithms2
     global previous_pos_iterations
