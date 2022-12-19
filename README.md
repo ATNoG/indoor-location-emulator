@@ -1,6 +1,6 @@
 # Indoor Location Emulator For Machine Learning Models  
 
-The <em>indoor-location-emulator<em> is a project that was designed to compile and provide a set of synthetic data from a simulated environment that would allow for the application, study, and evaluation of a set of real characteristic factors, and that would allow for the creation of real automatic learning models in the future, using Machine Learning techniques, to be applied in a context of asset localization and prediction, in an indoor environment, using passive RFID tags and the RSSI values obtained from RF antennas.
+The <em>indoor-location-emulator</em> is a project that was designed to compile and provide a set of synthetic data from a simulated environment that would allow for the application, study, and evaluation of a set of real characteristic factors, and that would allow for the creation of real automatic learning models in the future, using Machine Learning techniques, to be applied in a context of asset localization and prediction, in an indoor environment, using passive RFID tags and the RSSI values obtained from RF antennas.
 
 ## Main Modules:
 
