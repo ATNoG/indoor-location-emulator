@@ -68,8 +68,8 @@ header {
 #github_logo {
 	background-image: url('src/static-files/icons/github_logo.png');
 	background-size: cover;
-	width: 25px;
-	height: 25px;
+	width: 75px;
+	height: 75px;
 	border-radius: 10%;
 	cursor: pointer;
 }
