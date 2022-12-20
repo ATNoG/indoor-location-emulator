@@ -619,7 +619,7 @@ function loadMapAssets(
 
         // Add an image to use as a custom marker (antennas)
         map.loadImage(
-            'static-files/icons/antenna_icon.png',
+            '../static-files/icons/antenna_icon.png',
             (error, image1) => {
                 if (error) throw error;
 
@@ -860,7 +860,7 @@ function loadMapAssets(
 
         // Add an image to use as a custom marker (anchors)
         map.loadImage(
-            'static-files/icons/anchor_icon.png',
+            '../static-files/icons/anchor_icon.png',
             (error, image2) => {
                 if (error) throw error;
 
@@ -1041,7 +1041,7 @@ function loadMapAssets(
             }
         );
 
-        // for first pulsing dots = 8 
+        // for first pulsing dots = 5 (from geojson_pulsing_dots file) 
         const pulsing_dots_fixed_size = geojson_pulsing_dots_points_1.features.length;
 
         // create filterGroup for 'ml_agents_form'
@@ -1088,7 +1088,7 @@ function loadMapAssets(
                 pulsing_dots_layers_sources.push(geojson_pulsing_dots_points_1);
             }
 
-            // for first 8 pulsing dots 
+            // for first 5 pulsing dots 
             for (let i = 0; i < pulsing_dots_fixed_size; i++) {
                 const pulsing_dot_feature = geojson_pulsing_dots_points_1.features[i];
                 const new_pulsing_dot_index = geojson_pulsing_dots_points_1.features.length * (ap_number - 1) + i;

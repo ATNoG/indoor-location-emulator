@@ -30,11 +30,31 @@ from scipy import interpolate
 from scipy.optimize import curve_fit
 from joblib import Parallel, delayed
 from typing import Literal
-from src.asset_classes_module import * 
+from src.backend.src.asset_classes_module import * 
 import cProfile
 
 # profiler to check performances
 #profiler = cProfile.Profile()
+
+# global host_domain_name_server
+host_domain_name_server = "https://atnog.github.io/indoor-location-emulator/"
+
+# MQTT Variables
+Connected = False               # Global var to set Connected STATE
+broker_host = "172.21.176.1"    # Broker address (.venv ip route -> localhost)
+broker_port = 9001              # Broker port
+broker_keepalive = 60           # Connection keepalive
+user = "username"               # Connection username
+password = "password"           # Connection password
+
+# Subscription topic to receive messages
+reception_topic_backend = "/topic_backend"      # Subscription topic
+
+# Publish topic after processing
+publish_topic_predictor = "/topic_predictor"    # Publish topic for predictor
+publish_topic_frontend = "/topic_simulator"     # Publish topic for frontend
+# Publish topic for frontend csv file
+publish_topic_to_csv_file = publish_topic_frontend
 
 # Set decimal places in geojson messages
 # Source: http://wiki.gis.com/wiki/index.php/Decimal_degrees
@@ -51,26 +71,6 @@ walls_by_quadrants = {}
 
 # global dict to get featuresType by session
 featuresType = {}
-
-# global domain_name_server
-domain_name_server = "http://10.0.12.91/sdrt/"
-
-# MQTT Variables
-Connected = False           # Global var to set Connected STATE
-broker_host = "10.0.12.91"  # Broker address
-broker_port = 9001          # Broker port
-broker_keepalive = 60       # Connection keepalive
-user = "username"           # Connection username
-password = "password"       # Connection password
-
-# Subscription topic to receive messages
-reception_topic_backend = "/topic_backend"      # Subscription topic
-
-# Publish topic for predictions
-publish_topic_predictor = "/topic_predictor"    # Publish topic for predictor
-publish_topic_frontend = "/topic_simulator"     # Publish topic for frontend
-# Publish topic for frontend csv file
-publish_topic_to_csv_file = publish_topic_frontend
 
 ########## Queue worker ##########
 # Deal with Mqtt message arrival frequency
@@ -1011,7 +1011,7 @@ def calculate(client: mqtt.Client, session_uuid: str, calculate_cache: dict):
     global antenna_experimental_values
     global matrix_quadrants_long
     global matrix_quadrants_lat
-    global domain_name_server
+    global host_domain_name_server
 
     # verify if status (close) is on message
     if(god.getStatus(session_uuid) == "close"):
@@ -1022,19 +1022,27 @@ def calculate(client: mqtt.Client, session_uuid: str, calculate_cache: dict):
     if(session_uuid not in previousValues):
         previousValues[session_uuid] = []
 
+    # verify if is the first message received
     if(session_uuid not in first_msg):
         if(god.getMapId(session_uuid) == 0):
             # open config file
             config_file_url = urllib.request.urlopen(
-                f"{domain_name_server}/static-objects/config_files/config-params-library-ua-floor2.json")
+                f"{host_domain_name_server}/src/static-files/config_files/config-params-library-ua-floor2.json")
         elif(god.getMapId(session_uuid) == 1):
             # open config file
             config_file_url = urllib.request.urlopen(
-                f"{domain_name_server}/static-objects/config_files/config-params-aveiro-it-building1.json")
+                f"{host_domain_name_server}/src/static-files/config_files/config-params-aveiro-it-building1.json")
         elif(god.getMapId(session_uuid) == 2):
             # open config file
             config_file_url = urllib.request.urlopen(
-                f"{domain_name_server}/static-objects/config_files/config-params-sjm-policlinica-mario-martins.json")
+                f"{host_domain_name_server}/src/static-files/config_files/config-params-sjm-policlinica-mario-martins.json")
+
+        ########## Antenna RF Activations & Average Time of Readings ##########
+        # Get Nr_Activations and AvgTimeReadings of Antenna data from csv file
+        antenna_dataset_file_url = urllib.request.urlopen(
+            f"{host_domain_name_server}/src/static-files/antenna_datasets/antenna_experimental_dataset_10m.csv")
+        # read antenna data file
+        antenna_experimental_data_activations = antenna_dataset_file_url.read().decode('utf-8')
 
         # read config data file
         config_data = config_file_url.read().decode('utf-8')
@@ -1049,7 +1057,7 @@ def calculate(client: mqtt.Client, session_uuid: str, calculate_cache: dict):
         featuresType[session_uuid] = config_json["features"]
 
         # open file map
-        map_file_url = urllib.request.urlopen(f"{domain_name_server}/{map_path_name}") 
+        map_file_url = urllib.request.urlopen(f"{host_domain_name_server}/src/{map_path_name}") 
         # read map data file
         map_data = map_file_url.read().decode('utf-8')
         # load to geojson
@@ -1059,13 +1067,6 @@ def calculate(client: mqtt.Client, session_uuid: str, calculate_cache: dict):
         walls = catch_map_walls(geojson_map, map_walls_filter_keywords, map_walls_filter_levels)
         # get walls by quadrants
         walls_by_quadrants[session_uuid] = get_line_segment_walls_by_quad(walls)
-
-        ########## Antenna RF Activations & Average Time of Readings ##########
-        # Get Nr_Activations and AvgTimeReadings of Antenna data from csv file
-        antenna_dataset_file_url = urllib.request.urlopen(
-            f"{domain_name_server}/static-objects/antenna_datasets/antenna_experimental_dataset_10m.csv")
-        # read antenna data file
-        antenna_experimental_data_activations = antenna_dataset_file_url.read().decode('utf-8')
 
         # get dict of csv with average values for iterations
         # Split a string into a list where each line is a list item

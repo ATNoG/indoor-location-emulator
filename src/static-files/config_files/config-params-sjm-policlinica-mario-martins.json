@@ -5,23 +5,23 @@
         "maptiler_apiKey": "CqUY0prA6SBAAsv1wyQw"
     },
     "map": {
-        "map_url": "static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_map_2d.geojson",
-        "antennas_url": "static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_antennas.geojson",
-        "anchors_url": "static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_anchors.geojson",
-        "assets_url": "static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_asset_points.geojson",
-        "pulsing_dot_points": "static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_pulsing_dot_points.geojson",
+        "map_url": "../static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_map_2d.geojson",
+        "antennas_url": "../static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_antennas.geojson",
+        "anchors_url": "../static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_anchors.geojson",
+        "assets_url": "../static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_asset_points.geojson",
+        "pulsing_dot_points": "../static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_pulsing_dot_points.geojson",
         "asset_point_animations": [
-            "static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_custom_move1.geojson",
-            "static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_custom_move2.geojson",
-            "static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_custom_move3.geojson",
-            "static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_custom_move4.geojson",
-            "static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_custom_move5.geojson",
-            "static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_custom_move6.geojson",
-            "static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_custom_move7.geojson",
-            "static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_custom_move8.geojson",
-            "static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_custom_move9.geojson",
-            "static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_custom_move10.geojson",
-            "static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_custom_move11.geojson"
+            "../static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_custom_move1.geojson",
+            "../static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_custom_move2.geojson",
+            "../static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_custom_move3.geojson",
+            "../static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_custom_move4.geojson",
+            "../static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_custom_move5.geojson",
+            "../static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_custom_move6.geojson",
+            "../static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_custom_move7.geojson",
+            "../static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_custom_move8.geojson",
+            "../static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_custom_move9.geojson",
+            "../static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_custom_move10.geojson",
+            "../static-files/geojson_objs/somos_saude_policlinica_sjm/somos_saude_policlinica_dr_mario_martins_custom_move11.geojson"
         ],
         "filter_walls_keywords": ["wall", "glass"],
         "filter_walls_levels": [0],
@@ -44,7 +44,7 @@
         "marker_info": "Somos Saúde - Policlinica Dr. Mário Martins pop up info."
     },
     "mqtt_connection_parameters": {
-        "hostname": "10.0.12.91",
+        "hostname": "localhost",
         "port": 9001,
         "username": "username",
         "password": "password",
@@ -62,10 +62,7 @@
         "support_vector_regression": "Support Vector Regression (SVR)",
         "gradient_boost_regression": "Gradient Boost Regression (GBR)",
         "random_forest": "Random Forest (RF)",
-        "decision_tree": "Decision Tree (DT)",
-        "future_position_dt": "Future Position - Decision Tree (FP_DT)",
-        "future_position_rf": "Future Position - Random Forest (FP_RF)",
-        "future_position_rnn": "Future Position - Recurrent Neural Network (FP_RNN)"
+        "decision_tree": "Decision Tree (DT)"
     },
     "rssi_path_loss_parameters": {
         "reference_distance": 1,

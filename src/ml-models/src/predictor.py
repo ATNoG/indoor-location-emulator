@@ -22,6 +22,21 @@ from collections import deque
 from keras.models import load_model
 from keras import backend as K
 
+# MQTT Variables
+Connected = False                           # Global variable for the state of the connection
+broker_host="172.21.176.1"                  # Broker address (.venv ip route -> localhost)
+broker_port = 9001                          # Broker port
+broker_keepalive = 60                       # Connection keepalive
+user = "username"                           # Connection username
+password = "password"                       # Connection password
+
+# Subscription topic to receive messages
+received_topic = "/topic_predictor"         # Subscription received topic
+
+# Publish topic after processing
+publish_topic = "/topic_simulator"          # Subscription publish topic
+publish_twins_topic = "/topic_mqtt_agents"  # Subscription publish topic
+
 def worker():
     """
     Worker func that consumes the queue containing the received messages from the backend module.
@@ -418,17 +433,6 @@ def predict_from_rssi(client, json):
             #client.publish(publish_topic, str(return_dict)) 
             client.publish(f'{publish_topic}/{json["uuid"]}', str(return_dict))
     
-# MQTT Variables
-Connected = False                       # Global variable for the state of the connection
-broker_host="10.0.12.91"                # Broker address
-broker_port = 9001                      # Broker port
-broker_keepalive = 60                   # Connection keepalive
-user = "username"                       # Connection username
-password = "password"                   # Connection password
-received_topic = "/topic_predictor"     # Subscription received topic
-publish_topic = "/topic_simulator"      # Subscription publish topic
-publish_twins_topic = "/topic_mqtt_agents"    # Subscription publish topic
-
 ########## MQTT functions ##########
 # return codes:
 # 0: Connection successful
@@ -580,7 +584,7 @@ def main():
     global previous_pos_iterations
 
     parser = argparse.ArgumentParser(description="Predicts the location of a tag based on rssi values.")
-    parser.add_argument("-m", "--models", nargs="?", type=str, default="src/it", help="Enter the name of the rssi models dir. default = it. other = somos_saude")
+    parser.add_argument("-m", "--models", nargs="?", type=str, default="src/ml-models/src/it", help="Enter the name of the rssi models dir. default = it. other = somos_saude")
     parser.add_argument("-n", "--n_antennas", nargs="?", type=int, default=4, help="Enter the number of antennas. default = 4")
     models_dir = parser.parse_args().models
     n_antennas = parser.parse_args().n_antennas
@@ -605,8 +609,8 @@ def main():
             models_dict[alg] = pickle.load(open("./src/activ_models/"+alg+".sav", 'rb')) # based on experiments
         else:
             # models_dict[alg] = pickle.load(open("./src/activ_sim_models/"+alg+"_activ_sim.sav", 'rb')) # based on simulator
-            models_dict[alg] = pickle.load(open("./src/activ_sim_models/"+alg+"_activ_sim_calc_dist.sav", 'rb'))
-        models_anchors_dict[alg] = pickle.load(open("./src/activ_sim_models/"+alg+"_activ_dif_antenna4_sim_calc_dist.sav", 'rb')) # based on simulator
+            models_dict[alg] = pickle.load(open("./src/ml-models/src/activ_sim_models/"+alg+"_activ_sim_calc_dist.sav", 'rb'))
+        models_anchors_dict[alg] = pickle.load(open("./src/ml-models/src/activ_sim_models/"+alg+"_activ_dif_antenna4_sim_calc_dist.sav", 'rb')) # based on simulator
 
     # turn-on the worker thread
     threading.Thread(target=worker, daemon=True).start()

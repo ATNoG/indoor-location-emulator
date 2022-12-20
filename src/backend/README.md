@@ -18,6 +18,7 @@ The Dev environment implies the creation of a virtual environment (venv) whose d
 - activate .venv: > ```source .venv/bin/activate```
 - install dependencies on .venv from requiremnts.txt: > ```pip install -r requirements.txt```
 - generate documentation using pdoc: > ```pdoc --math -d google -o docs src``` 
+- show .venv ip routes: ```ip route```
 
 
 
