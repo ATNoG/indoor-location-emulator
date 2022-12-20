@@ -24,4 +24,4 @@ Documentation was created individually for each module and aggregated into a pag
 Running the <em>backend</em> and <em>ml-models</em> modules, and configuring a mosquitto MQTT broker running locally, it is possible to run a demo of the frontend [here](https://atnog.github.io/indoor-location-emulator/src/frontend/).
 
 
-<img src="https://atnog.github.io/indoor-location-emulator/src/static-files/icons/Screenshot_emulator_1.png" style="max-width:600px" />
+<img src="https://atnog.github.io/indoor-location-emulator/src/static-files/icons/Screenshot_emulator_1.png" style="max-width:800px" />
