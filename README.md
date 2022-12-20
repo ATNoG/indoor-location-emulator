@@ -1,8 +1,9 @@
 # Indoor Location Emulator For Machine Learning Models  
 
 The <em>indoor-location-emulator</em> is a project that was designed to compile and provide a set of synthetic data from a simulated environment that would allow for the application, study, and evaluation of a set of real characteristic factors, and that would allow for the creation of real automatic learning models in the future, using Machine Learning techniques, to be applied in a context of asset localization and prediction, in an indoor environment, using passive RFID tags and the RSSI values obtained from RF antennas. Use a decoupled architecture with pluggable location modules, allow users to create routes, evaluate movement and train ML models. The communication between system 
-modules is done through the MQTT protocol.
+modules is done through the MQTT protocol over websockets.
 
+The mapping of indoor spaces was carried out through the plugin [map-gl-indoor](https://github.com/map-gl-indoor/map-gl-indoor).
 
 ## Main Modules:
 
@@ -21,3 +22,6 @@ Documentation was created individually for each module and aggregated into a pag
 ## Demo
 
 Running the <em>backend</em> and <em>ml-models</em> modules, and configuring a mosquitto MQTT broker running locally, it is possible to run a demo of the frontend [here](https://atnog.github.io/indoor-location-emulator/src/frontend/).
+
+
+<img src="https://atnog.github.io/indoor-location-emulator/src/static-files/icons/Screenshot_emulator_1.png" style="max-width:600px" />
