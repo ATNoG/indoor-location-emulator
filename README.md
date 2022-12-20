@@ -18,3 +18,6 @@ For the communication of the system modules, an MQTT broker [mosquitto](https://
 
 Documentation was created individually for each module and aggregated into that page that is served on GitHub Pages and can be accessed [here](https://atnog.github.io/indoor-location-emulator/).
 
+## Demo
+
+Running the backend modules and ml-models, and after configuring a mosquitto MQTT broker locally, it is possible to run a demo of the frontend at the following [address](https://atnog.github.io/indoor-location-emulator/src/frontend/).
