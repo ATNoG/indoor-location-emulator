@@ -6,8 +6,6 @@
 - gets the rssi/activations values and the model to use
 - predicts and publishes the coordinates
 
----
-
 """
 
 import random

@@ -139,21 +139,6 @@ or
 
 jsdoc ./src/ --readme ./README.md -d docs -r -t ~/path_to_jsdoc/jsdoc/templates/docdash/
 </code></pre>
-<hr>
-<h2>CI/CD Pipeline</h2>
-<h3>Stages for deployment</h3>
-<ul>
-<li>deploy-prod</li>
-</ul>
-<p>deploy-prod:</p>
-<ul>
-<li>This stage must print a message &quot;This job deploys something from the $CI_COMMIT_BRANCH branch.&quot;, change directory and pull the code to selected directory: \
-<ul>
-<li>echo &quot;This job deploys something from the $CI_COMMIT_BRANCH branch.&quot; \</li>
-<li>ssh atnog@10.0.12.91 &quot;cd ~/git/indoor-location-emulator-frontend; git pull;&quot;</li>
-</ul>
-</li>
-</ul>
 <hr></article>
     </section>
 

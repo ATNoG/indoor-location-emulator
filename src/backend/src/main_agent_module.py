@@ -153,14 +153,14 @@ def measure_RSSI(txPower: float, pathLossExpoent: float, constantFading: float, 
     - $n$ is a path-loss parameter ($n = 2 .. 4$) related to the specific wireless transmission environment. The more obstacles there are, the larger $n$ will be.
     - $A$ is the RSSI with distance $d_0$ from the transmitter.
     - $X_σ$ is a Gaussian-distribution random variable with mean $0$ and variance $σ^{2}$.
-    - $nr_{mwi}$ is number of signal map walls intersections.
-    - $a_f$ is the attenuation factor estimated in $1$ $dBm$.
+    - $nr_{mwi}$ is number of signal intersections with map walls.
+    - $a_f$ is the attenuation factor assumed of $1$ $dBm$.
 
 
     Since $X_σ$ has a mean of $0$, the distance-loss model can be obtained with:
     
     $$
-        RSSI = -10 n \\log(d) + A
+        RSSI = -10 n \\log(d) + A - (nr_{mwi} \\times a_{f[dBm]})
     $$
 
     Args:

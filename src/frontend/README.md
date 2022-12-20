@@ -40,14 +40,4 @@ jsdoc ./src/ --readme ./README.md -d docs -r -t ~/path_to_jsdoc/jsdoc/templates/
 ```
 ---
 
-## CI/CD Pipeline
-
-### Stages for deployment
-- deploy-prod
-
-deploy-prod:
-- This stage must print a message "This job deploys something from the $CI_COMMIT_BRANCH branch.", change directory and pull the code to selected directory: \
-    - echo "This job deploys something from the $CI_COMMIT_BRANCH branch." \
-    - ssh atnog@10.0.12.91 "cd ~/git/indoor-location-emulator-frontend; git pull;"
----
 

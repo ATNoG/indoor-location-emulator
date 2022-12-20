@@ -1,5 +1,13 @@
 # coding: utf-8
+"""
 
+## Asset Classes Module
+- AssetPoint class (object that save Asset Points information data)
+- Anchor class (object that save Anchors information data)
+- Antenna class (object that save Antennas information data)
+- GOD class (object that knows everything about the system, including Asset Points, Anchors and Antennas Classes)
+
+"""
 class AssetPoint:
     """
     Computes all the data related to the Asset Points objects from frontend module.

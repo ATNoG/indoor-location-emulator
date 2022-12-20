@@ -28,29 +28,4 @@ It implies the creation of a virtual environment (venv) whose dependencies come 
 
 ---
 
-## CI/CD Pipeline
-
-### Stages for deployment
-- pull-new-commit 
-- build-container 
-- deploy-container 
-
-pull-new-commit: 
-- This stage must print a message "Pulling new commits", change directory and pull the code to selected directory: \
-    - echo "Pulling new commits" \
-    - ssh atnog@10.0.12.115 "cd ~/git/ml_models; git pull;"
-
-
-build-container: 
-- This stage must print a message "Building new image on latest commit", change directory, build docker image with last commit: \
-    - echo "Building new image on latest commit" \
-    - ssh atnog@10.0.12.115 "cd ~/git/ml_models/; sudo docker build -t sdrt/ml_models:$CI_COMMIT_SHORT_SHA .;"
-
-
-deploy-container: 
-- This stage must print a message "Stopping and removing current container", stop docker image, remove docker image and run docker image with last commit: \
-    - echo "Stopping and removing current container" \
-    - ssh atnog@10.0.12.115 "sudo docker stop ml_models; sudo docker rm ml_models; sudo docker run -d --name=ml_models sdrt/ml_models:$CI_COMMIT_SHORT_SHA;"
-
----
 
