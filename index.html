@@ -26,54 +26,64 @@
                 <header>
                     Introduction
                 </header>
+                <p>
+                <table width="1260px">
+                    <tr>
+                        <td>
+                            <p style="text-align: justify; padding: 0px;">
+                                The <em>indoor-location-emulator</em> is a project that was designed to compile and
+                                provide a set of synthetic data from a simulated environment that would allow for 
+                                the application, study, and evaluation of a set of real characteristic factors, and 
+                                that would allow for the creation of real automatic learning models in the future, 
+                                using Machine Learning techniques, to be applied in a context of asset localization 
+                                and prediction, in an indoor environment, using passive RFID tags and the RSSI 
+                                values obtained from RF antennas. Use a decoupled architecture with pluggable
+                                location modules, allow users to create routes, evaluate movement and train ML models. 
+                                The communication between system modules is done through the MQTT protocol.
+                            </p>
+                            <p style="text-align: justify; padding: 0px;">
+                                <strong>Main Modules: </strong>
+                                <br>
+                                <br>
+                                Inside the <em>src</em> directory are disposed the main modules:
+                            </p>
+                            <p style="text-align: justify; padding: 0px;">
+                            <ul>
+                                <li><em>frontend</em>: This module includes the frontend processing of Indoor Location
+                                    Emulator and
+                                    Tracking (using Mapbox GL JS) [Developed with HTML, Vanilla Javascript & CSS]. </li>
+                                <li><em>backend</em>: That module includes the backend processing of Indoor Location
+                                    Emulator
+                                    [Developed in Python].</li>
+                                <li><em>ml-models</em>: This module includes Machine Learning scripts [Developed in
+                                    Python].</li>
+                                <li><em>static-files</em>: This module includes the Static Files objects used in
+                                    Emulation.</li>
+                            </ul>
 
-                <p>
-                    The <em>indoor-location-emulator</em> is a project that was designed to compile and provide a set of
-                    synthetic data from a simulated environment that would allow for the application, study, and
-                    evaluation of a set of real characteristic factors, and that would allow for the creation of real
-                    automatic learning models in the future, using Machine Learning techniques, to be applied in a
-                    context of asset localization and prediction, in an indoor environment, using passive RFID tags and
-                    the RSSI values obtained from RF antennas. Use a decoupled architecture with pluggable location
-                    modules,
-                    allow users to create routes, evaluate movement and train ML models. The communication between
-                    system
-                    modules is done through the MQTT protocol.
-                </p>
-                <p>
-                    <strong>Main Modules: </strong>
-                    <br>
-                    <br>
-                    Inside the <em>src</em> directory are disposed the main modules:
-                </p>
-                <p>
-                <ul>
-                    <li><em>frontend</em>: This module includes the frontend processing of Indoor Location Emulator and
-                        Tracking (using Mapbox GL JS) [Developed with HTML, Vanilla Javascript & CSS]. </li>
-                    <li><em>backend</em>: That module includes the backend processing of Indoor Location Emulator
-                        [Developed in Python].</li>
-                    <li><em>ml-models</em>: This module includes Machine Learning scripts [Developed in Python].</li>
-                    <li><em>static-files</em>: This module includes the Static Files objects used in Emulation.</li>
-                </ul>
+                            For the communication of the system modules, an MQTT broker <a
+                                href="https://mosquitto.org/download/">mosquitto</a>
+                            was configured. You are free to use a similar approach or any other MQTT broker.
+                            </p>
 
-                For the communication of the system modules, an MQTT broker <a
-                    href="https://mosquitto.org/download/">mosquitto</a>
-                was configured. You are free to use a similar approach or any other MQTT broker.
-                </p>
-
-                <p>
-                    <strong>Important Notes: </strong>
-                    <br>
-                <ul>
-                    <li>This page is an aggregator of all the documentation pages of the different
-                        modules of the indoor localization emulation system.</li>
-                    <li>All the relevant information of each module is presented in the corresponding documentation
-                        pages,
-                        as well as the useful commands to setup the solution.</li>
-                    <li>Follow the links to see their content.</li>
-                </ul>
+                            <p style="text-align: justify; padding: 0px;">
+                                <strong>Important Notes: </strong>
+                                <br>
+                            <ul>
+                                <li>This page is an aggregator of all the documentation pages of the different
+                                    modules of the indoor localization emulation system.</li>
+                                <li>All the relevant information of each module is presented in the corresponding
+                                    documentation
+                                    pages,
+                                    as well as the useful commands to setup the solution.</li>
+                                <li>Follow the links to see their content.</li>
+                            </ul>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
                 </p>
             </section>
-
             <section class="main-section" id="Frontend">
                 <header>
                     Frontend Documentation
@@ -109,10 +119,10 @@
                     About Project
                 </header>
                 <p>
-                <table width="1200px" border="1">
+                <table width="1260px">
                     <tr>
                         <td>
-                            <p style="text-align: justify; padding: 5px;">This work is supported by the European
+                            <p style="text-align: justify; padding: 0px;">This work is supported by the European
                                 Regional Development
                                 Fund (FEDER), through the Competitiveness and Internationalization Operational Programme
                                 (COMPETE 2020) of the Portugal 2020 framework [Project SDRT with Nr. 070192
@@ -147,7 +157,7 @@
                             </td>
                             <td>
                                 <div id="authors-images-2">
-                                    
+
                                     <a target="_blank" href="https://portugal2020.pt/">
                                         <img id="portugal2020_logo" />
                                     </a>
@@ -158,7 +168,7 @@
                             </td>
                             <td>
                                 <div id="authors-images-3">
-                                    
+
                                     <a target="_blank" href="https://github.com/ATNoG/indoor-location-emulator">
                                         <img id="github_logo" />
                                     </a>
