@@ -8,7 +8,7 @@ modules is done through the MQTT protocol.
 
 Inside the <em>src</em> directory are disposed the main modules:
 - <em>frontend</em>: This module includes the frontend processing of Indoor Location Emulator and Tracking (using Mapbox GL JS) [Developed with HTML, Vanilla Javascript & CSS].
-- <em>backend</em>: That module includes the backend processing of Indoor Location Emulator [Developed in Python].
+- <em>backend</em>: This module includes the backend processing of Indoor Location Emulator [Developed in Python].
 - <em>ml-models</em>: This module includes Machine Learning scripts [Developed in Python]. 
 - <em>static-files</em>: This module includes the Static Files objects used in Emulation.
 
@@ -16,8 +16,8 @@ For the communication of the system modules, an MQTT broker [mosquitto](https://
 
 ## Documentation 
 
-Documentation was created individually for each module and aggregated into that page that is served on GitHub Pages and can be accessed [here](https://atnog.github.io/indoor-location-emulator/).
+Documentation was created individually for each module and aggregated into a page that can be accessed [here](https://atnog.github.io/indoor-location-emulator/).
 
 ## Demo
 
-Running the backend and ml-models modules, and after configuring a mosquitto MQTT broker locally, it is possible to run a demo of the frontend [here](https://atnog.github.io/indoor-location-emulator/src/frontend/).
+Running the <em>backend</em> and <em>ml-models</em> modules, and configuring a mosquitto MQTT broker running locally, it is possible to run a demo of the frontend [here](https://atnog.github.io/indoor-location-emulator/src/frontend/).
