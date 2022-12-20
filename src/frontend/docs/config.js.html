@@ -212,9 +212,6 @@ function assignVariableParameters(jsonData) {
     document.getElementById("GBR-label").textContent = jsonData.ml_agents_parameters.gradient_boost_regression;
     document.getElementById("RF-label").textContent = jsonData.ml_agents_parameters.random_forest;
     document.getElementById("DT-label").textContent = jsonData.ml_agents_parameters.decision_tree;
-    document.getElementById("FP_DT-label").textContent = jsonData.ml_agents_parameters.future_position_dt;
-    document.getElementById("FP_RF-label").textContent = jsonData.ml_agents_parameters.future_position_rf;
-    document.getElementById("FP_RNN-label").textContent = jsonData.ml_agents_parameters.future_position_rnn;
 
     // rssi_path_loss_parameters
     document.getElementById("reference_distance_parameter").value = jsonData.rssi_path_loss_parameters.reference_distance;

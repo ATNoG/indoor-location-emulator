@@ -157,7 +157,7 @@ function addBackendReadRateToJsonMessage(payloadString, backend_read_rate) {
  * @returns {string} Payload string data
  */
 function addSelectedMlAgentsDataToJsonMessage(payloadString) {
-    if (selected_ml_agent_algorithm == 'knn,svr,gbr,rf,dt,fp_dt,fp_rf,fp_rnn') {
+    if (selected_ml_agent_algorithm == 'knn,svr,gbr,rf,dt') {
         selected_ml_agent_algorithm = '"all"';
 
     }
@@ -532,10 +532,10 @@ function processReceivedJsonMessage(message, geojson_asset_points, geojson_ancho
             
             // verify possibility of receiving all ML algorithms
             if (selected_ml_agent_algorithm == '"all"') {
-                selected_ml_agent_algorithm = ["knn", "svr", "gbr", "rf", "dt", "fp_dt", "fp_rf", "fp_rnn"]
+                selected_ml_agent_algorithm = ["knn", "svr", "gbr", "rf", "dt"]
             }
 
-            var ordered_algorithms_dict = { 'KNN': 0, 'SVR': 1, "GBR": 2, "RF": 3, "DT": 4, "FP_DT": 5, "FP_RF": 6, "FP_RNN": 7 }
+            var ordered_algorithms_dict = { 'KNN': 0, 'SVR': 1, "GBR": 2, "RF": 3, "DT": 4 }
 
             // for the firsts pulsing dots = 8 
             const pulsing_dots_fixed_size = pulsing_dots_layers_sources[0].features.length;
