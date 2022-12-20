@@ -14,10 +14,10 @@ Inside the <em>src</em> directory are disposed the main modules:
 
 For the communication of the system modules, an MQTT broker [mosquitto](https://mosquitto.org/download/) was configured. You are free to use a similar approach or any other MQTT broker.
 
-## Documentantion 
+## Documentation 
 
 Documentation was created individually for each module and aggregated into that page that is served on GitHub Pages and can be accessed [here](https://atnog.github.io/indoor-location-emulator/).
 
 ## Demo
 
-Running the backend modules and ml-models, and after configuring a mosquitto MQTT broker locally, it is possible to run a demo of the frontend at the following [address](https://atnog.github.io/indoor-location-emulator/src/frontend/).
+Running the backend modules and ml-models, and after configuring a mosquitto MQTT broker locally, it is possible to run a demo of the frontend [here](https://atnog.github.io/indoor-location-emulator/src/frontend/).
