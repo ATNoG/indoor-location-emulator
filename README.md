@@ -14,17 +14,18 @@ Inside the <em>src</em> directory are disposed the main modules:
 
 For the communication of the system modules, an MQTT broker [mosquitto](https://mosquitto.org/download/) was configured. You are free to use a similar approach or any other MQTT broker.
 
+## Documentation 
+
+Documentation was created individually for each module and aggregated into a page that can be accessed [here](https://atnog.github.io/indoor-location-emulator/).
+
 ## Dependencies
-In order to setup the virtual environments for <em>backend</em> and <em>ml-models</em> modules and install it's dependencies, a shell script called <em>install.sh</em> was included in project root dir.
+
+In order to setup the virtual environments for <em>backend</em> and <em>ml-models</em> modules and install it's dependencies, a shell script called <em>install.sh</em> was included in project root directory.
 
 On command prompt root directory run:
 ```
 sh install.sh
 ```
-
-## Documentation 
-
-Documentation was created individually for each module and aggregated into a page that can be accessed [here](https://atnog.github.io/indoor-location-emulator/).
 
 ## Demo
 
