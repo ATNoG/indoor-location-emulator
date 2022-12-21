@@ -4,10 +4,13 @@ The <em>indoor-location-emulator</em> is a project that was designed to compile 
 
 The mapping of indoor spaces was carried out through the plugin [map-gl-indoor](https://github.com/map-gl-indoor/map-gl-indoor).
 
+[map-gl-indoor](https://github.com/map-gl-indoor/map-gl-indoor)
+
 ## Main Modules:
 
 Inside the <em>src</em> directory are disposed the main modules:
-- <em>frontend</em>: This module includes the frontend processing of Indoor Location Emulator and Tracking (using Mapbox GL JS) [Developed with HTML, Vanilla Javascript & CSS].
+- <em>frontend</em>: This module includes the frontend processing of Indoor Location Emulator 
+(based on [Mapbox GL JS](https://www.mapbox.com/mapbox-gljs)) [Developed with HTML, Vanilla Javascript & CSS].
 - <em>backend</em>: This module includes the backend processing of Indoor Location Emulator [Developed in Python].
 - <em>ml-models</em>: This module includes Machine Learning scripts [Developed in Python]. 
 - <em>static-files</em>: This module includes the Static Files objects used in Emulation.
