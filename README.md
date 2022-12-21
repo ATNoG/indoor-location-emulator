@@ -4,7 +4,7 @@ The <em>indoor-location-emulator</em> is a project that was designed to compile 
 
 The mapping of indoor spaces was carried out through the plugin [map-gl-indoor](https://github.com/map-gl-indoor/map-gl-indoor).
 
-## Main Modules:
+## Main Modules
 
 Inside the <em>src</em> directory are disposed the main modules:
 - <em>frontend</em>: This module includes the frontend processing of Indoor Location Emulator 
