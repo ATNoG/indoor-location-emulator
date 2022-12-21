@@ -31,64 +31,62 @@
                     Introduction
                 </header>
                 <p>
-                <table width="1080px">
-                    <tr>
-                        <td>
-                            <p style="text-align: justify; padding: 0px; ">
-                                The <em>indoor-location-emulator</em> is a project that was designed to compile and
-                                provide a set of synthetic data from a simulated environment that would allow for the
-                                application, study, and evaluation of a set of real characteristic factors, and that
-                                would allow the creation of real automatic learning models in the future, using Machine
-                                Learning techniques, to be applied in a context of asset localization and prediction in
-                                an indoor environment, using passive RFID tags and the RSSI values obtained from RF
-                                antennas. Use a decoupled architecture with pluggable location modules, allow users to
-                                create routes, evaluate movement and train ML models. The communication between system
-                                modules is done through the MQTT protocol over websockets.
+                    <table width="1080px">
+                        <tr>
+                            <td>
+                                <p style="text-align: justify; padding: 0px; ">
+                                    The <em>indoor-location-emulator</em> is a project that was designed to compile and
+                                    provide a set of synthetic data from a simulated environment that would allow for the
+                                    application, study, and evaluation of a set of real characteristic factors, and that
+                                    would allow the creation of real automatic learning models in the future, using Machine
+                                    Learning techniques, to be applied in a context of asset localization and prediction in
+                                    an indoor environment, using passive RFID tags and the RSSI values obtained from RF
+                                    antennas. Use a decoupled architecture with pluggable location modules, allow users to
+                                    create routes, evaluate movement and train ML models. The communication between system
+                                    modules is done through the MQTT protocol over websockets.
 
-                                The mapping of indoor spaces was carried out through the plugin <a
-                                    href="https://github.com/map-gl-indoor/map-gl-indoor">map-gl-indoor</a>.
-                            </p>
-                            <p style="text-align: justify; padding: 0px;">
-                                <strong>Main Modules: </strong>
-                                <br>
-                                <br>
-                                Inside the <em>src</em> directory are disposed the main modules:
-                            </p>
-                            <p style="text-align: justify; padding: 0px;">
-                            <ul>
-                                <li><em>frontend</em>: This module includes the frontend processing of Indoor Location
-                                    Emulator (based on <a href="https://www.mapbox.com/mapbox-gljs">Mapbox GL JS</a>) 
-                                    [Developed with HTML, Vanilla Javascript & CSS]. </li>
-                                <li><em>backend</em>: This module includes the backend processing of Indoor Location
-                                    Emulator
-                                    [Developed in Python].</li>
-                                <li><em>ml-models</em>: This module includes Machine Learning scripts [Developed in
-                                    Python].</li>
-                                <li><em>static-files</em>: This module includes the Static Files objects used in
-                                    Emulation.</li>
-                            </ul>
+                                    The mapping of indoor spaces was carried out through the plugin <a
+                                        href="https://github.com/map-gl-indoor/map-gl-indoor">map-gl-indoor</a>.
+                                </p>
+                                <p style="color: steelblue; text-align: justify; padding: 0px;">
+                                    <strong>Main Modules: </strong>
+                                </p>
+                                <p style="text-align: justify; padding: 0px;">
+                                    Inside the <em>src</em> directory are disposed the main modules:
+                                    <ul>
+                                        <li><em>frontend</em>: This module includes the frontend processing of Indoor Location
+                                            Emulator (based on <a href="https://www.mapbox.com/mapbox-gljs">Mapbox GL JS</a>)
+                                            [Developed with HTML, Vanilla Javascript & CSS]. </li>
+                                        <li><em>backend</em>: This module includes the backend processing of Indoor Location
+                                            Emulator [Developed in Python].</li>
+                                        <li><em>ml-models</em>: This module includes Machine Learning scripts [Developed in
+                                            Python].</li>
+                                        <li><em>static-files</em>: This module includes the Static Files objects used in
+                                            Emulation.</li>
+                                    </ul>
+                                </p>
+                                <p>
+                                For the communication of the system modules, an MQTT broker 
+                                <a href="https://mosquitto.org/download/">mosquitto</a>
+                                was configured. You are free to use a similar approach or any other MQTT broker.
+                                </p>
 
-                            For the communication of the system modules, an MQTT broker <a
-                                href="https://mosquitto.org/download/">mosquitto</a>
-                            was configured. You are free to use a similar approach or any other MQTT broker.
-                            </p>
-
-                            <p style="text-align: justify; padding: 0px;">
-                                <strong>Important Notes: </strong>
-                                <br>
-                            <ul>
-                                <li>This page is an aggregator of all the documentation pages of the different
-                                    modules of the indoor localization emulation system.</li>
-                                <li>All the relevant information of each module is presented in the corresponding
-                                    documentation
-                                    pages,
-                                    as well as the useful commands to setup the solution.</li>
-                                <li>Follow the links to see their content.</li>
-                            </ul>
-                            </p>
-                        </td>
-                    </tr>
-                </table>
+                                <p style="color: steelblue; text-align: justify; padding: 0px;">
+                                    <strong>Important Notes: </strong>
+                                    <br>
+                                <ul>
+                                    <li>This page is an aggregator of all the documentation pages of the different
+                                        modules of the indoor localization emulation system.</li>
+                                    <li>All the relevant information of each module is presented in the corresponding
+                                        documentation
+                                        pages,
+                                        as well as the useful commands to setup the solution.</li>
+                                    <li>Follow the links to see their content.</li>
+                                </ul>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
                 </p>
             </section>
             <section class="main-section" id="Frontend">
