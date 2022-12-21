@@ -129,14 +129,27 @@ Main features:</p>
 <li>Holding RSSI calculations for Antennas and Asset Point positions (Long, Lat) on a csv file</li>
 </ul>
 <hr>
-<h3>Usefull command</h3>
+<h3>Usefull commands</h3>
+<ul>
+<li>install <code>jsdoc</code> using <code>npm</code>:</li>
+</ul>
+<pre class="prettyprint source"><code>npm install -g jsdoc
+</code></pre>
+<ul>
+<li>install <code>better-docs</code> or <code>docdash</code> using <code>npm</code> :</li>
+</ul>
+<pre class="prettyprint source"><code>npm install --save-dev better-docs
+</code></pre>
+<p>OR</p>
+<pre class="prettyprint source"><code>npm install docdash
+</code></pre>
 <ul>
 <li>generate documentation using <code>jsodc</code> and <code>better-docs</code> or <code>docdash</code>:</li>
 </ul>
-<pre class="prettyprint source"><code>jsdoc ./src/ --readme ./README.md -d docs -r -t ~/path_to_jsdoc/jsdoc/templates/better-docs/
+<pre class="prettyprint source"><code>jsdoc ./src/ --readme ./README.md -d docs -r -t ./node_modules/better-docs
 </code></pre>
-<p>or</p>
-<pre class="prettyprint source"><code>jsdoc ./src/ --readme ./README.md -d docs -r -t ~/path_to_jsdoc/jsdoc/templates/docdash/
+<p>OR</p>
+<pre class="prettyprint source"><code>jsdoc ./src/ --readme ./README.md -d docs -r -t path/to/docdash
 </code></pre>
 <hr></article>
     </section>
