@@ -11,7 +11,7 @@ services:
        - 8000
        - 9001:9001
   ml-models:
-    image: backend
+    image: ml-models
     build: 
       context: .
       dockerfile: ./src/ml-models/Dockerfile
