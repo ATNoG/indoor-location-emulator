@@ -29,17 +29,31 @@ Main features:
 
 ---
 
-### Usefull command
+### Usefull commands
+- install ```jsdoc``` using ```npm```:
+```
+npm install -g jsdoc
+```
+
+- install ```better-docs``` or ```docdash``` using ```npm``` :
+```
+npm install --save-dev better-docs
+```
+
+OR
+
+```
+npm install docdash
+```
+
 - generate documentation using ```jsodc``` and ```better-docs``` or ```docdash```: 
 ```
-jsdoc ./src/ --readme ./README.md -d docs -r -t ~/path_to_jsdoc/jsdoc/templates/better-docs/
+jsdoc ./src/ --readme ./README.md -d docs -r -t ./node_modules/better-docs
 ```
 
-or
+OR
 
 ```
-jsdoc ./src/ --readme ./README.md -d docs -r -t ~/path_to_jsdoc/jsdoc/templates/docdash/
+jsdoc ./src/ --readme ./README.md -d docs -r -t path/to/docdash
 ```
 ---
-
-
