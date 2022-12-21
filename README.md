@@ -18,7 +18,7 @@ For the communication of the system modules, an MQTT broker [mosquitto](https://
 ## Dependencies
 In order to setup the virtual environments for <em>backend</em> and <em>ml-models</em> modules and install it's dependencies, a shell script called <em>install.sh</em> was included in project root dir.
 
-On command prompt root dir run:
+On command prompt root directory run:
 ```
 sh install.sh
 ```

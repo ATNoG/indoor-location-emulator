@@ -32,7 +32,7 @@
                 <table width="1080px">
                     <tr>
                         <td>
-                            <p  style="text-align: justify; padding: 0px; ">
+                            <p style="text-align: justify; padding: 0px; ">
                                 The <em>indoor-location-emulator</em> is a project that was designed to compile and
                                 provide a set of synthetic data from a simulated environment that would allow for 
                                 the application, study, and evaluation of a set of real characteristic factors, and 
@@ -55,8 +55,7 @@
                             <p style="text-align: justify; padding: 0px;">
                             <ul>
                                 <li><em>frontend</em>: This module includes the frontend processing of Indoor Location
-                                    Emulator and
-                                    Tracking (using Mapbox GL JS) [Developed with HTML, Vanilla Javascript & CSS]. </li>
+                                    Emulator (using Mapbox GL JS) [Developed with HTML, Vanilla Javascript & CSS]. </li>
                                 <li><em>backend</em>: This module includes the backend processing of Indoor Location
                                     Emulator
                                     [Developed in Python].</li>
@@ -122,13 +121,30 @@
                 <header>
                     Demo
                 </header>
-                <p> Running the <em>backend</em> and <em>ml-models</em> modules, and configuring a mosquitto MQTT broker running locally, 
-                    it is possible to run a demo of the emulator: 
-                    <a href="https://atnog.github.io/indoor-location-emulator/src/frontend/">here</a>.
-                    <br>
-                    <br>
-                    <img src="https://atnog.github.io/indoor-location-emulator/src/static-files/icons/Screenshot_emulator_1.png" style="max-width:800px" />
-                </p>
+                <table width="1080px">
+                    <tr>
+                        <td>
+                            <p style="text-align: justify; padding: 0px; ">
+                                In order to setup the virtual environments for <em>backend</em> and <em>ml-models</em> modules 
+                                and install it's dependencies, a shell script called <em>install.sh</em> 
+                                was included in project root directory. On command prompt root directory run:
+                                <br>
+                                <code>
+                                    $ sh install.sh
+                                </code>
+                            </p>
+                            <p style="text-align: justify; padding: 0px; "> 
+                                Running the <em>backend</em> and <em>ml-models</em> modules, and configuring a mosquitto MQTT broker running locally, 
+                                it is possible to run a demo of the emulator: 
+                                <a href="https://atnog.github.io/indoor-location-emulator/src/frontend/">here</a>.
+                                <br>
+                                <br>
+                                <img src="https://atnog.github.io/indoor-location-emulator/src/static-files/icons/Screenshot_emulator_1.png" style="max-width:860px" />
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+                
             </section>
             <section class="main-section" id="About">
                 <header>
@@ -139,8 +155,7 @@
                     <tr>
                         <td>
                             <p style="text-align: justify; padding: 0px;">This work is supported by the European
-                                Regional Development
-                                Fund (FEDER), through the Competitiveness and Internationalization Operational Programme
+                                Regional Development Fund (FEDER), through the Competitiveness and Internationalization Operational Programme
                                 (COMPETE 2020) of the Portugal 2020 framework [Project SDRT with Nr. 070192
                                 (POCI-01-0247-FEDER-070192)].
                             </p>
