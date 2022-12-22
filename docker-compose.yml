@@ -3,34 +3,33 @@ services:
   mqtt:
     image: eclipse-mosquitto
     container_name: mqtt
-    restart: unless-stopped
+    restart: always
     volumes:
-      - ./conf:/mosquitto/conf
-      - ./data:/mosquitto/data
-      - ./log:/mosquitto/log
+      - ./mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
     ports:
       - 1883:1883
       - 9001:9001
     networks:
       - default
-
   backend:
     image: backend
-    build: 
+    build:
       context: .
       dockerfile: ./src/backend/Dockerfile
     environment:
-       NODE_ENV: development
+      NODE_ENV: development
     ports:
-       - 8000
-       - 8001:8001
+      - 8000
+      - 8001:8001
   ml-models:
     image: ml-models
-    build: 
+    build:
       context: .
       dockerfile: ./src/ml-models/Dockerfile
     environment:
-       NODE_ENV: development
+      NODE_ENV: development
     ports:
-       - 8002
-       - 8003:8003
+      - 8002
+      - 8003:8003
