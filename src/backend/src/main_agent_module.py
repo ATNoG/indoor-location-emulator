@@ -41,7 +41,7 @@ host_domain_name_server = "https://atnog.github.io/indoor-location-emulator/"
 
 # MQTT Variables
 Connected = False               # Global var to set Connected STATE
-broker_host = "mqtt"    # Broker address (.venv ip route -> localhost)
+broker_host = "localhost"       # Broker address (.venv ip route -> localhost)
 broker_port = 9001              # Broker port
 broker_keepalive = 60           # Connection keepalive
 user = "username"               # Connection username

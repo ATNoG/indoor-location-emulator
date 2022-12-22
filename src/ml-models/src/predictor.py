@@ -24,7 +24,7 @@ from keras import backend as K
 
 # MQTT Variables
 Connected = False                           # Global variable for the state of the connection
-broker_host="mqtt"                  # Broker address (.venv ip route -> localhost)
+broker_host="localhost"                     # Broker address (.venv ip route -> localhost)
 broker_port = 9001                          # Broker port
 broker_keepalive = 60                       # Connection keepalive
 user = "username"                           # Connection username
