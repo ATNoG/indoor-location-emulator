@@ -15,9 +15,9 @@ services:
       - default
   backend:
     image: backend
+    restart: always
     build:
       context: .
-      restart: always
       dockerfile: ./src/backend/Dockerfile
     environment:
       NODE_ENV: development
