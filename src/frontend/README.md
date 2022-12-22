@@ -1,4 +1,4 @@
-## Indoor Location Emulator For Machine Learning Models Frontend Module 
+# Indoor Location Emulator For Machine Learning Models Frontend Module 
 
 That repository includes the frontend Emulator of Indoor Positioning (using Mapbox GL JS).
 
