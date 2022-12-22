@@ -1,11 +1,10 @@
 ## Indoor Location Emulator For Machine Learning Models Frontend Module 
 
-That repository includes the frontend Emulator of Indoor Positioning and Tracking (using Mapbox GL JS).
+That repository includes the frontend Emulator of Indoor Positioning (using Mapbox GL JS).
 
 [Developed with HTML, vanilla JS & CSS]
 
----
-## Main features:
+## Main features
 - MQTT client for communication (paho-mqtt)
 - Load Indoor Map
 - Load Asset Points positions 
@@ -22,7 +21,8 @@ That repository includes the frontend Emulator of Indoor Positioning and Trackin
 - Catch Lines of sight intersections with Directions
 - Display Pulsing Dots (ML Algorithms) positions from predictor module
 
-Includes also a python module to generate datasets (csv files): 
+Includes also a python module to generate datasets (csv files).
+
 Main features:
 - MQTT client for communication (paho-mqtt)
 - Holding RSSI calculations for Antennas and Asset Point positions (Long, Lat) on a csv file
