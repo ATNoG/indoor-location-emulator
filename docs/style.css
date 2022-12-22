@@ -34,7 +34,7 @@ header {
 }
 
 #it_logo {
-	background-image: url('src/static-files/icons/it_logo.png');
+	background-image: url('../src/static-files/icons/it_logo.png');
 	background-size: cover;
 	width: 220px;
 	height: 75px;
@@ -43,7 +43,7 @@ header {
 }
 
 #ua_logo {
-	background-image: url('src/static-files/icons/ua_logo.png');
+	background-image: url('../src/static-files/icons/ua_logo.png');
 	background-size: cover;
 	width: 75px;
 	height: 75px;
@@ -52,7 +52,7 @@ header {
 }
 
 #sdrt_logo {
-	background-image: url('src/static-files/icons/sdrt_logo.png');
+	background-image: url('../src/static-files/icons/sdrt_logo.png');
 	background-size: cover;
 	width: 75px;
 	height: 75px;
@@ -61,7 +61,7 @@ header {
 }
 
 #portugal2020_logo {
-	background-image: url('src/static-files/icons/portugal2020_logo.png');
+	background-image: url('../src/static-files/icons/portugal2020_logo.png');
 	background-size: cover;
 	width: 320px;
 	height: 75px;
@@ -70,7 +70,7 @@ header {
 }
 
 #github_logo {
-	background-image: url('src/static-files/icons/github_logo.png');
+	background-image: url('../src/static-files/icons/github_logo.png');
 	background-size: cover;
 	width: 75px;
 	height: 75px;
