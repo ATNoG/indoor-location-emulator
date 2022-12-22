@@ -2,7 +2,7 @@ version: "3.9"
 services:
   mqtt:
     image: eclipse-mosquitto
-    container_name: mqtt
+    container_name: mosquitto
     restart: always
     volumes:
       - ./mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
@@ -17,6 +17,7 @@ services:
     image: backend
     build:
       context: .
+      restart: always
       dockerfile: ./src/backend/Dockerfile
     environment:
       NODE_ENV: development
@@ -25,6 +26,7 @@ services:
       - 8001:8001
   ml-models:
     image: ml-models
+    restart: always
     build:
       context: .
       dockerfile: ./src/ml-models/Dockerfile
