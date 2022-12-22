@@ -79,6 +79,7 @@ function loadMapAssets(
     map_center, map_zoom, map_pitch, map_bearing,
     map_max_long, map_min_long, map_max_lat, map_min_lat,
     marker_point, marker_logo, marker_info,
+    antenna_icon, anchor_icon,
     client_id, mqtt_hostname, mqtt_port,
     reconnect_timeout, clientUsername, clientPassword,
     ssl_flag, messageToSend,
@@ -619,7 +620,7 @@ function loadMapAssets(
 
         // Add an image to use as a custom marker (antennas)
         map.loadImage(
-            '../static-files/icons/antenna_icon.png',
+            antenna_icon,
             (error, image1) => {
                 if (error) throw error;
 
@@ -860,7 +861,7 @@ function loadMapAssets(
 
         // Add an image to use as a custom marker (anchors)
         map.loadImage(
-            '../static-files/icons/anchor_icon.png',
+            anchor_icon,
             (error, image2) => {
                 if (error) throw error;
 

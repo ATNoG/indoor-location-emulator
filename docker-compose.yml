@@ -1,5 +1,11 @@
 version: "3.9"
 services:
+  mqtt:
+    image: eclipse-mosquitto
+    container_name: mqtt
+    ports:
+      - 1883:1883
+      - 9001:9001
   backend:
     image: backend
     build: 
@@ -9,7 +15,7 @@ services:
        NODE_ENV: development
     ports:
        - 8000
-       - 9001:9001
+       - 8001:8001
   ml-models:
     image: ml-models
     build: 
@@ -18,5 +24,5 @@ services:
     environment:
        NODE_ENV: development
     ports:
-       - 8001
-       - 9002:9002
+       - 8002
+       - 8003:8003
