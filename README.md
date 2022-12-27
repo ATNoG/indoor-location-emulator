@@ -22,6 +22,7 @@ Documentation was created individually for each module and aggregated into a pag
 ## Deployment 
 
 Deploy the <em>eclipse-mosquitto</em> image <em>backend</em> and <em>ml-models</em> modules with docker compose:
+
 <code>docker compose up</code>.
 
 ## Demo
