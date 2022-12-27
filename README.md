@@ -19,6 +19,11 @@ For the communication of the system modules, an MQTT broker [mosquitto](https://
 
 Documentation was created individually for each module and aggregated into a page that can be accessed [here](https://atnog.github.io/indoor-location-emulator/docs).
 
+## Deployment 
+
+Deploy the <em>eclipse-mosquitto</em> image <em>backend</em> and <em>ml-models</em> modules with docker compose:
+<code>docker compose up</code>.
+
 ## Demo
 
 Running the <em>backend</em> and <em>ml-models</em> modules, and configuring a mosquitto MQTT broker running locally, it is possible to run a demo of the emulator [here](https://atnog.github.io/indoor-location-emulator/src/frontend/).
