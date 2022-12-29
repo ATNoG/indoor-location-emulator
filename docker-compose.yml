@@ -8,6 +8,7 @@ services:
       - ./src/mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
       - ./src/mosquitto/data:/mosquitto/data
       - ./src/mosquitto/log:/mosquitto/log
+      - ./mosquitto/certs:/mosquitto/certs
     ports:
       - 1883:1883
       - 8883:8883
