@@ -1,0 +1,474 @@
+1672337599: mosquitto version 2.0.15 starting
+1672337599: Config loaded from /mosquitto/config/mosquitto.conf.
+1672337599: Opening ipv4 listen socket on port 1883.
+1672337599: Opening ipv6 listen socket on port 1883.
+1672337599: Opening ipv4 listen socket on port 8883.
+1672337599: Opening ipv6 listen socket on port 8883.
+1672337599: Opening websockets listen socket on port 9001.
+1672337599: mosquitto version 2.0.15 running
+1672337600: New client connected from 172.19.0.4:34417 as SDRT_Backend_Python_Client_8355 (p2, c1, k60, u'username').
+1672337602: New client connected from 172.19.0.2:41137 as clientPython-1063 (p2, c1, k60, u'username').
+1672337683: New client connected from 172.19.0.1:53780 as clientJS-2886 (p1, c1, k60, u'username').
+1672337697: Client clientJS-2886 disconnected.
+1672338058: mosquitto version 2.0.15 terminating
+1672338058: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1672338058: Client clientPython-1063 closed its connection.
+1672338058: Client SDRT_Backend_Python_Client_8355 closed its connection.
+1672338160: mosquitto version 2.0.15 starting
+1672338160: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338160: Opening ipv4 listen socket on port 1883.
+1672338160: Opening ipv6 listen socket on port 1883.
+1672338160: Opening ipv4 listen socket on port 8883.
+1672338160: Opening ipv6 listen socket on port 8883.
+1672338160: Opening websockets listen socket on port 9001.
+1672338160: Error: Unable to create websockets listener on port 9001.
+1672338161: mosquitto version 2.0.15 starting
+1672338161: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338161: Opening ipv4 listen socket on port 1883.
+1672338161: Opening ipv6 listen socket on port 1883.
+1672338161: Opening ipv4 listen socket on port 8883.
+1672338161: Opening ipv6 listen socket on port 8883.
+1672338161: Opening websockets listen socket on port 9001.
+1672338161: Error: Unable to create websockets listener on port 9001.
+1672338162: mosquitto version 2.0.15 starting
+1672338162: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338162: Opening ipv4 listen socket on port 1883.
+1672338162: Opening ipv6 listen socket on port 1883.
+1672338162: Opening ipv4 listen socket on port 8883.
+1672338162: Opening ipv6 listen socket on port 8883.
+1672338162: Opening websockets listen socket on port 9001.
+1672338162: Error: Unable to create websockets listener on port 9001.
+1672338163: mosquitto version 2.0.15 starting
+1672338163: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338163: Opening ipv4 listen socket on port 1883.
+1672338163: Opening ipv6 listen socket on port 1883.
+1672338163: Opening ipv4 listen socket on port 8883.
+1672338163: Opening ipv6 listen socket on port 8883.
+1672338163: Opening websockets listen socket on port 9001.
+1672338163: Error: Unable to create websockets listener on port 9001.
+1672338164: mosquitto version 2.0.15 starting
+1672338164: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338164: Opening ipv4 listen socket on port 1883.
+1672338164: Opening ipv6 listen socket on port 1883.
+1672338164: Opening ipv4 listen socket on port 8883.
+1672338164: Opening ipv6 listen socket on port 8883.
+1672338164: Opening websockets listen socket on port 9001.
+1672338164: Error: Unable to create websockets listener on port 9001.
+1672338166: mosquitto version 2.0.15 starting
+1672338166: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338166: Opening ipv4 listen socket on port 1883.
+1672338166: Opening ipv6 listen socket on port 1883.
+1672338166: Opening ipv4 listen socket on port 8883.
+1672338166: Opening ipv6 listen socket on port 8883.
+1672338166: Opening websockets listen socket on port 9001.
+1672338166: Error: Unable to create websockets listener on port 9001.
+1672338170: mosquitto version 2.0.15 starting
+1672338170: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338170: Opening ipv4 listen socket on port 1883.
+1672338170: Opening ipv6 listen socket on port 1883.
+1672338170: Opening ipv4 listen socket on port 8883.
+1672338170: Opening ipv6 listen socket on port 8883.
+1672338170: Opening websockets listen socket on port 9001.
+1672338170: Error: Unable to create websockets listener on port 9001.
+1672338177: mosquitto version 2.0.15 starting
+1672338177: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338177: Opening ipv4 listen socket on port 1883.
+1672338177: Opening ipv6 listen socket on port 1883.
+1672338177: Opening ipv4 listen socket on port 8883.
+1672338177: Opening ipv6 listen socket on port 8883.
+1672338177: Opening websockets listen socket on port 9001.
+1672338177: Error: Unable to create websockets listener on port 9001.
+1672338190: mosquitto version 2.0.15 starting
+1672338190: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338190: Opening ipv4 listen socket on port 1883.
+1672338190: Opening ipv6 listen socket on port 1883.
+1672338190: Opening ipv4 listen socket on port 8883.
+1672338190: Opening ipv6 listen socket on port 8883.
+1672338190: Opening websockets listen socket on port 9001.
+1672338190: Error: Unable to create websockets listener on port 9001.
+1672338216: mosquitto version 2.0.15 starting
+1672338216: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338216: Opening ipv4 listen socket on port 1883.
+1672338216: Opening ipv6 listen socket on port 1883.
+1672338216: Opening ipv4 listen socket on port 8883.
+1672338216: Opening ipv6 listen socket on port 8883.
+1672338216: Opening websockets listen socket on port 9001.
+1672338216: Error: Unable to create websockets listener on port 9001.
+1672338228: mosquitto version 2.0.15 starting
+1672338228: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338228: Opening ipv4 listen socket on port 1883.
+1672338228: Opening ipv6 listen socket on port 1883.
+1672338228: Opening ipv4 listen socket on port 8883.
+1672338228: Opening ipv6 listen socket on port 8883.
+1672338228: Opening websockets listen socket on port 9001.
+1672338228: Error: Unable to create websockets listener on port 9001.
+1672338228: mosquitto version 2.0.15 starting
+1672338228: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338228: Opening ipv4 listen socket on port 1883.
+1672338228: Opening ipv6 listen socket on port 1883.
+1672338228: Opening ipv4 listen socket on port 8883.
+1672338228: Opening ipv6 listen socket on port 8883.
+1672338228: Opening websockets listen socket on port 9001.
+1672338228: Error: Unable to create websockets listener on port 9001.
+1672338229: mosquitto version 2.0.15 starting
+1672338229: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338229: Opening ipv4 listen socket on port 1883.
+1672338229: Opening ipv6 listen socket on port 1883.
+1672338229: Opening ipv4 listen socket on port 8883.
+1672338229: Opening ipv6 listen socket on port 8883.
+1672338229: Opening websockets listen socket on port 9001.
+1672338229: Error: Unable to create websockets listener on port 9001.
+1672338230: mosquitto version 2.0.15 starting
+1672338230: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338230: Opening ipv4 listen socket on port 1883.
+1672338230: Opening ipv6 listen socket on port 1883.
+1672338230: Opening ipv4 listen socket on port 8883.
+1672338230: Opening ipv6 listen socket on port 8883.
+1672338230: Opening websockets listen socket on port 9001.
+1672338230: Error: Unable to create websockets listener on port 9001.
+1672338231: mosquitto version 2.0.15 starting
+1672338231: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338231: Opening ipv4 listen socket on port 1883.
+1672338231: Opening ipv6 listen socket on port 1883.
+1672338231: Opening ipv4 listen socket on port 8883.
+1672338231: Opening ipv6 listen socket on port 8883.
+1672338231: Opening websockets listen socket on port 9001.
+1672338231: Error: Unable to create websockets listener on port 9001.
+1672338234: mosquitto version 2.0.15 starting
+1672338234: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338234: Opening ipv4 listen socket on port 1883.
+1672338234: Opening ipv6 listen socket on port 1883.
+1672338234: Opening ipv4 listen socket on port 8883.
+1672338234: Opening ipv6 listen socket on port 8883.
+1672338234: Opening websockets listen socket on port 9001.
+1672338234: Error: Unable to create websockets listener on port 9001.
+1672338237: mosquitto version 2.0.15 starting
+1672338237: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338237: Opening ipv4 listen socket on port 1883.
+1672338237: Opening ipv6 listen socket on port 1883.
+1672338237: Opening ipv4 listen socket on port 8883.
+1672338237: Opening ipv6 listen socket on port 8883.
+1672338237: Opening websockets listen socket on port 9001.
+1672338237: Error: Unable to create websockets listener on port 9001.
+1672338244: mosquitto version 2.0.15 starting
+1672338244: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338244: Opening ipv4 listen socket on port 1883.
+1672338244: Opening ipv6 listen socket on port 1883.
+1672338244: Opening ipv4 listen socket on port 8883.
+1672338244: Opening ipv6 listen socket on port 8883.
+1672338244: Opening websockets listen socket on port 9001.
+1672338244: Error: Unable to create websockets listener on port 9001.
+1672338249: mosquitto version 2.0.15 starting
+1672338249: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338249: Opening ipv4 listen socket on port 1883.
+1672338249: Opening ipv6 listen socket on port 1883.
+1672338249: Opening ipv4 listen socket on port 8883.
+1672338249: Opening ipv6 listen socket on port 8883.
+1672338249: Opening websockets listen socket on port 9001.
+1672338249: mosquitto version 2.0.15 running
+1672338264: mosquitto version 2.0.15 terminating
+1672338264: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1672338265: mosquitto version 2.0.15 starting
+1672338265: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338265: Opening ipv4 listen socket on port 1883.
+1672338265: Opening ipv6 listen socket on port 1883.
+1672338265: Opening ipv4 listen socket on port 8883.
+1672338265: Opening ipv6 listen socket on port 8883.
+1672338265: Opening websockets listen socket on port 9001.
+1672338265: Error: Unable to create websockets listener on port 9001.
+1672338266: mosquitto version 2.0.15 starting
+1672338266: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338266: Opening ipv4 listen socket on port 1883.
+1672338266: Opening ipv6 listen socket on port 1883.
+1672338266: Opening ipv4 listen socket on port 8883.
+1672338266: Opening ipv6 listen socket on port 8883.
+1672338266: Opening websockets listen socket on port 9001.
+1672338266: Error: Unable to create websockets listener on port 9001.
+1672338267: mosquitto version 2.0.15 starting
+1672338267: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338267: Opening ipv4 listen socket on port 1883.
+1672338267: Opening ipv6 listen socket on port 1883.
+1672338267: Opening ipv4 listen socket on port 8883.
+1672338267: Opening ipv6 listen socket on port 8883.
+1672338267: Opening websockets listen socket on port 9001.
+1672338267: Error: Unable to create websockets listener on port 9001.
+1672338268: mosquitto version 2.0.15 starting
+1672338268: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338268: Opening ipv4 listen socket on port 1883.
+1672338268: Opening ipv6 listen socket on port 1883.
+1672338268: Opening ipv4 listen socket on port 8883.
+1672338268: Opening ipv6 listen socket on port 8883.
+1672338268: Opening websockets listen socket on port 9001.
+1672338268: Error: Unable to create websockets listener on port 9001.
+1672338269: mosquitto version 2.0.15 starting
+1672338269: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338269: Opening ipv4 listen socket on port 1883.
+1672338269: Opening ipv6 listen socket on port 1883.
+1672338269: Opening ipv4 listen socket on port 8883.
+1672338269: Opening ipv6 listen socket on port 8883.
+1672338269: Opening websockets listen socket on port 9001.
+1672338269: Error: Unable to create websockets listener on port 9001.
+1672338271: mosquitto version 2.0.15 starting
+1672338271: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338271: Opening ipv4 listen socket on port 1883.
+1672338271: Opening ipv6 listen socket on port 1883.
+1672338271: Opening ipv4 listen socket on port 8883.
+1672338271: Opening ipv6 listen socket on port 8883.
+1672338271: Opening websockets listen socket on port 9001.
+1672338271: Error: Unable to create websockets listener on port 9001.
+1672338274: mosquitto version 2.0.15 starting
+1672338274: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338274: Opening ipv4 listen socket on port 1883.
+1672338274: Opening ipv6 listen socket on port 1883.
+1672338274: Opening ipv4 listen socket on port 8883.
+1672338274: Opening ipv6 listen socket on port 8883.
+1672338274: Opening websockets listen socket on port 9001.
+1672338274: Error: Unable to create websockets listener on port 9001.
+1672338275: mosquitto version 2.0.15 starting
+1672338275: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338275: Opening ipv4 listen socket on port 1883.
+1672338275: Opening ipv6 listen socket on port 1883.
+1672338275: Opening ipv4 listen socket on port 8883.
+1672338275: Opening ipv6 listen socket on port 8883.
+1672338275: Opening websockets listen socket on port 9001.
+1672338275: Error: Unable to create websockets listener on port 9001.
+1672338276: mosquitto version 2.0.15 starting
+1672338276: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338276: Opening ipv4 listen socket on port 1883.
+1672338276: Opening ipv6 listen socket on port 1883.
+1672338276: Opening ipv4 listen socket on port 8883.
+1672338276: Opening ipv6 listen socket on port 8883.
+1672338276: Opening websockets listen socket on port 9001.
+1672338276: Error: Unable to create websockets listener on port 9001.
+1672338276: mosquitto version 2.0.15 starting
+1672338276: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338276: Opening ipv4 listen socket on port 1883.
+1672338276: Opening ipv6 listen socket on port 1883.
+1672338276: Opening ipv4 listen socket on port 8883.
+1672338276: Opening ipv6 listen socket on port 8883.
+1672338276: Opening websockets listen socket on port 9001.
+1672338276: Error: Unable to create websockets listener on port 9001.
+1672338278: mosquitto version 2.0.15 starting
+1672338278: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338278: Opening ipv4 listen socket on port 1883.
+1672338278: Opening ipv6 listen socket on port 1883.
+1672338278: Opening ipv4 listen socket on port 8883.
+1672338278: Opening ipv6 listen socket on port 8883.
+1672338278: Opening websockets listen socket on port 9001.
+1672338278: Error: Unable to create websockets listener on port 9001.
+1672338280: mosquitto version 2.0.15 starting
+1672338280: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338280: Opening ipv4 listen socket on port 1883.
+1672338280: Opening ipv6 listen socket on port 1883.
+1672338280: Opening ipv4 listen socket on port 8883.
+1672338280: Opening ipv6 listen socket on port 8883.
+1672338280: Opening websockets listen socket on port 9001.
+1672338280: Error: Unable to create websockets listener on port 9001.
+1672338283: mosquitto version 2.0.15 starting
+1672338283: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338283: Opening ipv4 listen socket on port 1883.
+1672338283: Opening ipv6 listen socket on port 1883.
+1672338283: Opening ipv4 listen socket on port 8883.
+1672338283: Opening ipv6 listen socket on port 8883.
+1672338283: Opening websockets listen socket on port 9001.
+1672338283: Error: Unable to create websockets listener on port 9001.
+1672338290: mosquitto version 2.0.15 starting
+1672338290: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338290: Opening ipv4 listen socket on port 1883.
+1672338290: Opening ipv6 listen socket on port 1883.
+1672338290: Opening ipv4 listen socket on port 8883.
+1672338290: Opening ipv6 listen socket on port 8883.
+1672338290: Opening websockets listen socket on port 9001.
+1672338290: Error: Unable to create websockets listener on port 9001.
+1672338303: mosquitto version 2.0.15 starting
+1672338303: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338303: Opening ipv4 listen socket on port 1883.
+1672338303: Opening ipv6 listen socket on port 1883.
+1672338303: Opening ipv4 listen socket on port 8883.
+1672338303: Opening ipv6 listen socket on port 8883.
+1672338303: Opening websockets listen socket on port 9001.
+1672338303: Error: Unable to create websockets listener on port 9001.
+1672338305: mosquitto version 2.0.15 starting
+1672338305: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338305: Opening ipv4 listen socket on port 1883.
+1672338305: Opening ipv6 listen socket on port 1883.
+1672338305: Opening ipv4 listen socket on port 8883.
+1672338305: Opening ipv6 listen socket on port 8883.
+1672338305: Opening websockets listen socket on port 9001.
+1672338305: Error: Unable to create websockets listener on port 9001.
+1672338305: mosquitto version 2.0.15 starting
+1672338305: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338305: Opening ipv4 listen socket on port 1883.
+1672338305: Opening ipv6 listen socket on port 1883.
+1672338305: Opening ipv4 listen socket on port 8883.
+1672338305: Opening ipv6 listen socket on port 8883.
+1672338305: Opening websockets listen socket on port 9001.
+1672338305: Error: Unable to create websockets listener on port 9001.
+1672338306: mosquitto version 2.0.15 starting
+1672338306: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338306: Opening ipv4 listen socket on port 1883.
+1672338306: Opening ipv6 listen socket on port 1883.
+1672338306: Opening ipv4 listen socket on port 8883.
+1672338306: Opening ipv6 listen socket on port 8883.
+1672338306: Opening websockets listen socket on port 9001.
+1672338306: Error: Unable to create websockets listener on port 9001.
+1672338307: mosquitto version 2.0.15 starting
+1672338307: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338307: Opening ipv4 listen socket on port 1883.
+1672338307: Opening ipv6 listen socket on port 1883.
+1672338307: Opening ipv4 listen socket on port 8883.
+1672338307: Opening ipv6 listen socket on port 8883.
+1672338307: Opening websockets listen socket on port 9001.
+1672338307: Error: Unable to create websockets listener on port 9001.
+1672338308: mosquitto version 2.0.15 starting
+1672338308: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338308: Opening ipv4 listen socket on port 1883.
+1672338308: Opening ipv6 listen socket on port 1883.
+1672338308: Opening ipv4 listen socket on port 8883.
+1672338308: Opening ipv6 listen socket on port 8883.
+1672338308: Opening websockets listen socket on port 9001.
+1672338308: Error: Unable to create websockets listener on port 9001.
+1672338310: mosquitto version 2.0.15 starting
+1672338310: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338310: Opening ipv4 listen socket on port 1883.
+1672338310: Opening ipv6 listen socket on port 1883.
+1672338310: Opening ipv4 listen socket on port 8883.
+1672338310: Opening ipv6 listen socket on port 8883.
+1672338310: Opening websockets listen socket on port 9001.
+1672338310: Error: Unable to create websockets listener on port 9001.
+1672338314: mosquitto version 2.0.15 starting
+1672338314: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338314: Opening ipv4 listen socket on port 1883.
+1672338314: Opening ipv6 listen socket on port 1883.
+1672338314: Opening ipv4 listen socket on port 8883.
+1672338314: Opening ipv6 listen socket on port 8883.
+1672338314: Opening websockets listen socket on port 9001.
+1672338314: Error: Unable to create websockets listener on port 9001.
+1672338321: mosquitto version 2.0.15 starting
+1672338321: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338321: Opening ipv4 listen socket on port 1883.
+1672338321: Opening ipv6 listen socket on port 1883.
+1672338321: Opening ipv4 listen socket on port 8883.
+1672338321: Opening ipv6 listen socket on port 8883.
+1672338321: Opening websockets listen socket on port 9001.
+1672338321: Error: Unable to create websockets listener on port 9001.
+1672338329: mosquitto version 2.0.15 starting
+1672338329: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338329: Opening ipv4 listen socket on port 1883.
+1672338329: Opening ipv6 listen socket on port 1883.
+1672338329: Opening ipv4 listen socket on port 8883.
+1672338329: Opening ipv6 listen socket on port 8883.
+1672338329: Opening websockets listen socket on port 8081.
+1672338329: Error: Unable to create websockets listener on port 8081.
+1672338330: mosquitto version 2.0.15 starting
+1672338330: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338330: Opening ipv4 listen socket on port 1883.
+1672338330: Opening ipv6 listen socket on port 1883.
+1672338330: Opening ipv4 listen socket on port 8883.
+1672338330: Opening ipv6 listen socket on port 8883.
+1672338330: Opening websockets listen socket on port 8081.
+1672338330: Error: Unable to create websockets listener on port 8081.
+1672338331: mosquitto version 2.0.15 starting
+1672338331: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338331: Opening ipv4 listen socket on port 1883.
+1672338331: Opening ipv6 listen socket on port 1883.
+1672338331: Opening ipv4 listen socket on port 8883.
+1672338331: Opening ipv6 listen socket on port 8883.
+1672338331: Opening websockets listen socket on port 8081.
+1672338331: Error: Unable to create websockets listener on port 8081.
+1672338332: mosquitto version 2.0.15 starting
+1672338332: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338332: Opening ipv4 listen socket on port 1883.
+1672338332: Opening ipv6 listen socket on port 1883.
+1672338332: Opening ipv4 listen socket on port 8883.
+1672338332: Opening ipv6 listen socket on port 8883.
+1672338332: Opening websockets listen socket on port 8081.
+1672338332: Error: Unable to create websockets listener on port 8081.
+1672338333: mosquitto version 2.0.15 starting
+1672338333: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338333: Opening ipv4 listen socket on port 1883.
+1672338333: Opening ipv6 listen socket on port 1883.
+1672338333: Opening ipv4 listen socket on port 8883.
+1672338333: Opening ipv6 listen socket on port 8883.
+1672338333: Opening websockets listen socket on port 8081.
+1672338333: Error: Unable to create websockets listener on port 8081.
+1672338335: mosquitto version 2.0.15 starting
+1672338335: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338335: Opening ipv4 listen socket on port 1883.
+1672338335: Opening ipv6 listen socket on port 1883.
+1672338335: Opening ipv4 listen socket on port 8883.
+1672338335: Opening ipv6 listen socket on port 8883.
+1672338335: Opening websockets listen socket on port 8081.
+1672338335: Error: Unable to create websockets listener on port 8081.
+1672338339: mosquitto version 2.0.15 starting
+1672338339: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338339: Opening ipv4 listen socket on port 1883.
+1672338339: Opening ipv6 listen socket on port 1883.
+1672338339: Opening ipv4 listen socket on port 8883.
+1672338339: Opening ipv6 listen socket on port 8883.
+1672338339: Opening websockets listen socket on port 8081.
+1672338339: Error: Unable to create websockets listener on port 8081.
+1672338345: mosquitto version 2.0.15 starting
+1672338345: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338345: Opening ipv4 listen socket on port 1883.
+1672338345: Opening ipv6 listen socket on port 1883.
+1672338345: Opening ipv4 listen socket on port 8883.
+1672338345: Opening ipv6 listen socket on port 8883.
+1672338345: Opening websockets listen socket on port 8081.
+1672338345: Error: Unable to create websockets listener on port 8081.
+1672338353: mosquitto version 2.0.15 starting
+1672338353: Config loaded from /mosquitto/config/mosquitto.conf.
+1672338353: Opening ipv4 listen socket on port 1883.
+1672338353: Opening ipv6 listen socket on port 1883.
+1672338353: Opening ipv4 listen socket on port 8883.
+1672338353: Opening ipv6 listen socket on port 8883.
+1672338353: Opening websockets listen socket on port 9001.
+1672338353: mosquitto version 2.0.15 running
+1672338374: New client connected from 172.19.0.1:53800 as mqtt-explorer-a6e8f62c (p2, c1, k60, u'username').
+1672338380: Client mqtt-explorer-a6e8f62c disconnected.
+1672338390: New connection from 172.19.0.1:56680 on port 1883.
+1672338390: New client connected from 172.19.0.1:56680 as mqtt-explorer-a6e8f62c (p2, c1, k60, u'username').
+1672338391: Client mqtt-explorer-a6e8f62c disconnected.
+1672338395: New connection from 172.19.0.1:56684 on port 1883.
+1672338395: Client <unknown> disconnected due to protocol error.
+1672338396: New connection from 172.19.0.1:56688 on port 1883.
+1672338396: Client <unknown> disconnected due to protocol error.
+1672338405: New connection from 172.19.0.1:56692 on port 1883.
+1672338405: New client connected from 172.19.0.1:56692 as mqtt-explorer-a6e8f62c (p2, c1, k60, u'username').
+1672338407: Client mqtt-explorer-a6e8f62c disconnected.
+1672338433: New connection from 172.19.0.1:56696 on port 1883.
+1672338433: Client <unknown> disconnected due to protocol error.
+1672338434: New client connected from 172.19.0.2:40893 as clientPython-1063 (p2, c1, k60, u'username').
+1672338435: New client connected from 172.19.0.4:48663 as SDRT_Backend_Python_Client_8355 (p2, c1, k60, u'username').
+1672338441: New connection from 172.19.0.1:46638 on port 8883.
+1672338441: Client <unknown> disconnected due to protocol error.
+1672338444: New connection from 172.19.0.1:46642 on port 8883.
+1672338444: Client <unknown> disconnected due to protocol error.
+1672338447: New connection from 172.19.0.1:46646 on port 8883.
+1672338447: Client <unknown> disconnected due to protocol error.
+1672338450: New connection from 172.19.0.1:46650 on port 8883.
+1672338450: Client <unknown> disconnected due to protocol error.
+1672338451: New connection from 172.19.0.1:46654 on port 8883.
+1672338451: Client <unknown> disconnected due to protocol error.
+1672338452: New connection from 172.19.0.1:46658 on port 8883.
+1672338452: Client <unknown> disconnected due to protocol error.
+1672338473: New connection from 172.19.0.1:46662 on port 8883.
+1672338473: Client <unknown> disconnected due to protocol error.
+1672338474: New connection from 172.19.0.1:46666 on port 8883.
+1672338474: Client <unknown> disconnected due to protocol error.
+1672338475: New connection from 172.19.0.1:46670 on port 8883.
+1672338475: Client <unknown> disconnected due to protocol error.
+1672338476: New connection from 172.19.0.1:46674 on port 8883.
+1672338476: Client <unknown> disconnected due to protocol error.
+1672338477: New connection from 172.19.0.1:46678 on port 8883.
+1672338477: Client <unknown> disconnected due to protocol error.
+1672338478: New connection from 172.19.0.1:46682 on port 8883.
+1672338478: Client <unknown> disconnected due to protocol error.
+1672338480: New connection from 172.19.0.1:46686 on port 8883.
+1672338480: Client <unknown> disconnected due to protocol error.
+1672338542: New connection from 172.19.0.1:46690 on port 8883.
+1672338542: New client connected from 172.19.0.1:46690 as mqtt-explorer-a6e8f62c (p2, c1, k60, u'username').
+1672338550: Client mqtt-explorer-a6e8f62c disconnected.
+1672338555: New connection from 172.19.0.1:46694 on port 8883.
+1672338555: New client connected from 172.19.0.1:46694 as mqtt-explorer-a6e8f62c (p2, c1, k60, u'username').
+1672338557: Client mqtt-explorer-a6e8f62c disconnected.
