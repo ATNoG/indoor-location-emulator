@@ -12,6 +12,7 @@ Inside the <em>src</em> directory are disposed the main modules:
 - <em>backend</em>: This module includes the backend processing of Indoor Location Emulator [Developed in Python].
 - <em>ml-models</em>: This module includes Machine Learning scripts [Developed in Python]. 
 - <em>static-files</em>: This module includes the Static Files objects used in Emulation.
+- <em>mosquitto</em>: This directory includes the eclipse-mosquitto configuration files used in communication of the Emulator modules (deployable via docker compose).
 
 For the communication of the system modules, an MQTT broker [mosquitto](https://mosquitto.org/download/) was configured. You are free to use a similar approach or any other MQTT broker.
 
@@ -21,9 +22,13 @@ Documentation was created individually for each module and aggregated into a pag
 
 ## Deployment 
 
-Deploy the <em>eclipse-mosquitto</em> image <em>backend</em> and <em>ml-models</em> modules with docker compose:
+Deploy an image of <em>eclipse-mosquitto</em>, the <em>backend</em> and <em>ml-models</em> modules with docker compose, using <em>docker-compose.yml</em> file.
 
-<code>docker compose up</code>.
+- Install <em>docker</em> and <em>docker-compose</em> (Example Tutorial: [here](https://support.netfoundry.io/hc/en-us/articles/360057865692-Installing-Docker-and-docker-compose-for-Ubuntu-20-04)).
+- Then on project root directory, on command prompt execute:
+<code>docker-compose up -d</code>.
+- To have a look on deployed containers, on command prompt execute:
+<code>docker ps -a</code>.
 
 ## Demo
 

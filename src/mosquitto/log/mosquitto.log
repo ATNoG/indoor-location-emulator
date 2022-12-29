@@ -1,0 +1,82 @@
+1672326041: mosquitto version 2.0.15 starting
+1672326041: Config loaded from /mosquitto/config/mosquitto.conf.
+1672326041: Opening ipv4 listen socket on port 1883.
+1672326041: Opening ipv6 listen socket on port 1883.
+1672326041: Opening websockets listen socket on port 9001.
+1672326041: mosquitto version 2.0.15 running
+1672326042: New client connected from 172.18.0.4:47009 as SDRT_Backend_Python_Client_5246 (p2, c1, k60, u'username').
+1672326044: New client connected from 172.18.0.2:33197 as clientPython-111 (p2, c1, k60, u'username').
+1672326206: mosquitto version 2.0.15 terminating
+1672326206: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1672326206: Client clientPython-111 closed its connection.
+1672326206: Client SDRT_Backend_Python_Client_5246 closed its connection.
+1672326236: mosquitto version 2.0.15 starting
+1672326236: Config loaded from /mosquitto/config/mosquitto.conf.
+1672326236: Opening ipv4 listen socket on port 1883.
+1672326236: Opening ipv6 listen socket on port 1883.
+1672326236: Opening websockets listen socket on port 9001.
+1672326236: mosquitto version 2.0.15 running
+1672326236: New client connected from 172.18.0.2:45553 as SDRT_Backend_Python_Client_8449 (p2, c1, k60, u'username').
+1672326238: New client connected from 172.18.0.4:33205 as clientPython-23 (p2, c1, k60, u'username').
+1672326284: New client connected from 172.18.0.1:35796 as clientJS-3841 (p1, c1, k60, u'username').
+1672326331: Client clientJS-3841 disconnected.
+1672326337: mosquitto version 2.0.15 terminating
+1672326337: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1672326337: Client clientPython-23 closed its connection.
+1672326337: Client SDRT_Backend_Python_Client_8449 closed its connection.
+1672326379: mosquitto version 2.0.15 starting
+1672326379: Config loaded from /mosquitto/config/mosquitto.conf.
+1672326379: Opening ipv4 listen socket on port 1883.
+1672326379: Opening ipv6 listen socket on port 1883.
+1672326379: Opening websockets listen socket on port 9001.
+1672326379: mosquitto version 2.0.15 running
+1672326380: New client connected from 172.18.0.3:47665 as SDRT_Backend_Python_Client_175 (p2, c1, k60, u'username').
+1672326381: New client connected from 172.18.0.4:34773 as clientPython-8827 (p2, c1, k60, u'username').
+1672326391: Client SDRT_Backend_Python_Client_175 closed its connection.
+1672326413: Client clientPython-8827 closed its connection.
+1672326425: mosquitto version 2.0.15 terminating
+1672326425: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1672326961: mosquitto version 2.0.15 starting
+1672326961: Config loaded from /mosquitto/config/mosquitto.conf.
+1672326961: Opening ipv4 listen socket on port 1883.
+1672326961: Opening ipv6 listen socket on port 1883.
+1672326961: Opening websockets listen socket on port 9001.
+1672326961: mosquitto version 2.0.15 running
+1672326962: New client connected from 172.18.0.4:38341 as SDRT_Backend_Python_Client_8156 (p2, c1, k60, u'username').
+1672326964: New client connected from 172.18.0.2:34181 as clientPython-2911 (p2, c1, k60, u'username').
+1672327055: mosquitto version 2.0.15 terminating
+1672327055: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1672327055: Client clientPython-2911 closed its connection.
+1672327055: Client SDRT_Backend_Python_Client_8156 closed its connection.
+1672327079: mosquitto version 2.0.15 starting
+1672327079: Config loaded from /mosquitto/config/mosquitto.conf.
+1672327079: Opening ipv4 listen socket on port 1883.
+1672327079: Opening ipv6 listen socket on port 1883.
+1672327079: Opening websockets listen socket on port 9001.
+1672327079: mosquitto version 2.0.15 running
+1672327080: mosquitto version 2.0.15 terminating
+1672327080: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1672327122: mosquitto version 2.0.15 starting
+1672327122: Config loaded from /mosquitto/config/mosquitto.conf.
+1672327122: Opening ipv4 listen socket on port 1883.
+1672327122: Opening ipv6 listen socket on port 1883.
+1672327122: Opening websockets listen socket on port 9001.
+1672327122: mosquitto version 2.0.15 running
+1672327123: New client connected from 172.18.0.2:53869 as SDRT_Backend_Python_Client_7759 (p2, c1, k60, u'username').
+1672327124: New client connected from 172.18.0.3:47053 as clientPython-6845 (p2, c1, k60, u'username').
+1672327183: mosquitto version 2.0.15 terminating
+1672327183: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1672327183: Client clientPython-6845 closed its connection.
+1672327183: Client SDRT_Backend_Python_Client_7759 closed its connection.
+1672327224: mosquitto version 2.0.15 starting
+1672327224: Config loaded from /mosquitto/config/mosquitto.conf.
+1672327224: Opening ipv4 listen socket on port 1883.
+1672327224: Opening ipv6 listen socket on port 1883.
+1672327224: Opening websockets listen socket on port 9001.
+1672327224: mosquitto version 2.0.15 running
+1672327224: New client connected from 172.18.0.3:44355 as SDRT_Backend_Python_Client_3362 (p2, c1, k60, u'username').
+1672327226: New client connected from 172.18.0.4:42141 as clientPython-4482 (p2, c1, k60, u'username').
+1672327537: mosquitto version 2.0.15 terminating
+1672327537: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1672327537: Client clientPython-4482 closed its connection.
+1672327537: Client SDRT_Backend_Python_Client_3362 closed its connection.
