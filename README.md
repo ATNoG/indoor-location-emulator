@@ -26,9 +26,9 @@ Deploy an image of <em>eclipse-mosquitto</em>, the <em>backend</em> and <em>ml-m
 
 - Install <em>docker</em> and <em>docker-compose</em> (Example Tutorial: [here](https://support.netfoundry.io/hc/en-us/articles/360057865692-Installing-Docker-and-docker-compose-for-Ubuntu-20-04)).
 - Then on project root directory, on command prompt execute:
-<code>docker-compose up -d</code>.
+<code>docker-compose up -d</code>
 - To have a look on deployed containers, on command prompt execute:
-<code>docker ps -a</code>.
+<code>docker ps -a</code>
 
 ## Demo
 
