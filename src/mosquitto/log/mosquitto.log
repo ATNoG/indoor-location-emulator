@@ -1,82 +1,426 @@
-1672326041: mosquitto version 2.0.15 starting
-1672326041: Config loaded from /mosquitto/config/mosquitto.conf.
-1672326041: Opening ipv4 listen socket on port 1883.
-1672326041: Opening ipv6 listen socket on port 1883.
-1672326041: Opening websockets listen socket on port 9001.
-1672326041: mosquitto version 2.0.15 running
-1672326042: New client connected from 172.18.0.4:47009 as SDRT_Backend_Python_Client_5246 (p2, c1, k60, u'username').
-1672326044: New client connected from 172.18.0.2:33197 as clientPython-111 (p2, c1, k60, u'username').
-1672326206: mosquitto version 2.0.15 terminating
-1672326206: Saving in-memory database to /mosquitto/data//mosquitto.db.
-1672326206: Client clientPython-111 closed its connection.
-1672326206: Client SDRT_Backend_Python_Client_5246 closed its connection.
-1672326236: mosquitto version 2.0.15 starting
-1672326236: Config loaded from /mosquitto/config/mosquitto.conf.
-1672326236: Opening ipv4 listen socket on port 1883.
-1672326236: Opening ipv6 listen socket on port 1883.
-1672326236: Opening websockets listen socket on port 9001.
-1672326236: mosquitto version 2.0.15 running
-1672326236: New client connected from 172.18.0.2:45553 as SDRT_Backend_Python_Client_8449 (p2, c1, k60, u'username').
-1672326238: New client connected from 172.18.0.4:33205 as clientPython-23 (p2, c1, k60, u'username').
-1672326284: New client connected from 172.18.0.1:35796 as clientJS-3841 (p1, c1, k60, u'username').
-1672326331: Client clientJS-3841 disconnected.
-1672326337: mosquitto version 2.0.15 terminating
-1672326337: Saving in-memory database to /mosquitto/data//mosquitto.db.
-1672326337: Client clientPython-23 closed its connection.
-1672326337: Client SDRT_Backend_Python_Client_8449 closed its connection.
-1672326379: mosquitto version 2.0.15 starting
-1672326379: Config loaded from /mosquitto/config/mosquitto.conf.
-1672326379: Opening ipv4 listen socket on port 1883.
-1672326379: Opening ipv6 listen socket on port 1883.
-1672326379: Opening websockets listen socket on port 9001.
-1672326379: mosquitto version 2.0.15 running
-1672326380: New client connected from 172.18.0.3:47665 as SDRT_Backend_Python_Client_175 (p2, c1, k60, u'username').
-1672326381: New client connected from 172.18.0.4:34773 as clientPython-8827 (p2, c1, k60, u'username').
-1672326391: Client SDRT_Backend_Python_Client_175 closed its connection.
-1672326413: Client clientPython-8827 closed its connection.
-1672326425: mosquitto version 2.0.15 terminating
-1672326425: Saving in-memory database to /mosquitto/data//mosquitto.db.
-1672326961: mosquitto version 2.0.15 starting
-1672326961: Config loaded from /mosquitto/config/mosquitto.conf.
-1672326961: Opening ipv4 listen socket on port 1883.
-1672326961: Opening ipv6 listen socket on port 1883.
-1672326961: Opening websockets listen socket on port 9001.
-1672326961: mosquitto version 2.0.15 running
-1672326962: New client connected from 172.18.0.4:38341 as SDRT_Backend_Python_Client_8156 (p2, c1, k60, u'username').
-1672326964: New client connected from 172.18.0.2:34181 as clientPython-2911 (p2, c1, k60, u'username').
-1672327055: mosquitto version 2.0.15 terminating
-1672327055: Saving in-memory database to /mosquitto/data//mosquitto.db.
-1672327055: Client clientPython-2911 closed its connection.
-1672327055: Client SDRT_Backend_Python_Client_8156 closed its connection.
-1672327079: mosquitto version 2.0.15 starting
-1672327079: Config loaded from /mosquitto/config/mosquitto.conf.
-1672327079: Opening ipv4 listen socket on port 1883.
-1672327079: Opening ipv6 listen socket on port 1883.
-1672327079: Opening websockets listen socket on port 9001.
-1672327079: mosquitto version 2.0.15 running
-1672327080: mosquitto version 2.0.15 terminating
-1672327080: Saving in-memory database to /mosquitto/data//mosquitto.db.
-1672327122: mosquitto version 2.0.15 starting
-1672327122: Config loaded from /mosquitto/config/mosquitto.conf.
-1672327122: Opening ipv4 listen socket on port 1883.
-1672327122: Opening ipv6 listen socket on port 1883.
-1672327122: Opening websockets listen socket on port 9001.
-1672327122: mosquitto version 2.0.15 running
-1672327123: New client connected from 172.18.0.2:53869 as SDRT_Backend_Python_Client_7759 (p2, c1, k60, u'username').
-1672327124: New client connected from 172.18.0.3:47053 as clientPython-6845 (p2, c1, k60, u'username').
-1672327183: mosquitto version 2.0.15 terminating
-1672327183: Saving in-memory database to /mosquitto/data//mosquitto.db.
-1672327183: Client clientPython-6845 closed its connection.
-1672327183: Client SDRT_Backend_Python_Client_7759 closed its connection.
-1672327224: mosquitto version 2.0.15 starting
-1672327224: Config loaded from /mosquitto/config/mosquitto.conf.
-1672327224: Opening ipv4 listen socket on port 1883.
-1672327224: Opening ipv6 listen socket on port 1883.
-1672327224: Opening websockets listen socket on port 9001.
-1672327224: mosquitto version 2.0.15 running
-1672327224: New client connected from 172.18.0.3:44355 as SDRT_Backend_Python_Client_3362 (p2, c1, k60, u'username').
-1672327226: New client connected from 172.18.0.4:42141 as clientPython-4482 (p2, c1, k60, u'username').
-1672327537: mosquitto version 2.0.15 terminating
-1672327537: Saving in-memory database to /mosquitto/data//mosquitto.db.
-1672327537: Client clientPython-4482 closed its connection.
-1672327537: Client SDRT_Backend_Python_Client_3362 closed its connection.
+1672334601: mosquitto version 2.0.15 starting
+1672334601: Config loaded from /mosquitto/config/mosquitto.conf.
+1672334601: Opening ipv4 listen socket on port 1883.
+1672334601: Opening ipv6 listen socket on port 1883.
+1672334601: Opening ipv4 listen socket on port 8883.
+1672334601: Opening ipv6 listen socket on port 8883.
+1672334601: Opening ipv4 listen socket on port 9001.
+1672334601: Opening ipv6 listen socket on port 9001.
+1672334601: Opening websockets listen socket on port 8080.
+1672334601: Error: Unable to create websockets listener on port 8080.
+1672334602: mosquitto version 2.0.15 starting
+1672334602: Config loaded from /mosquitto/config/mosquitto.conf.
+1672334602: Opening ipv4 listen socket on port 1883.
+1672334602: Opening ipv6 listen socket on port 1883.
+1672334602: Opening ipv4 listen socket on port 8883.
+1672334602: Opening ipv6 listen socket on port 8883.
+1672334602: Opening ipv4 listen socket on port 9001.
+1672334602: Opening ipv6 listen socket on port 9001.
+1672334602: Opening websockets listen socket on port 8080.
+1672334602: Error: Unable to create websockets listener on port 8080.
+1672334604: mosquitto version 2.0.15 starting
+1672334604: Config loaded from /mosquitto/config/mosquitto.conf.
+1672334604: Opening ipv4 listen socket on port 1883.
+1672334604: Opening ipv6 listen socket on port 1883.
+1672334604: Opening ipv4 listen socket on port 8883.
+1672334604: Opening ipv6 listen socket on port 8883.
+1672334604: Opening ipv4 listen socket on port 9001.
+1672334604: Opening ipv6 listen socket on port 9001.
+1672334604: Opening websockets listen socket on port 8080.
+1672334604: Error: Unable to create websockets listener on port 8080.
+1672334605: mosquitto version 2.0.15 starting
+1672334605: Config loaded from /mosquitto/config/mosquitto.conf.
+1672334605: Opening ipv4 listen socket on port 1883.
+1672334605: Opening ipv6 listen socket on port 1883.
+1672334605: Opening ipv4 listen socket on port 8883.
+1672334605: Opening ipv6 listen socket on port 8883.
+1672334605: Opening ipv4 listen socket on port 9001.
+1672334605: Opening ipv6 listen socket on port 9001.
+1672334605: Opening websockets listen socket on port 8080.
+1672334605: Error: Unable to create websockets listener on port 8080.
+1672334606: mosquitto version 2.0.15 starting
+1672334606: Config loaded from /mosquitto/config/mosquitto.conf.
+1672334606: Opening ipv4 listen socket on port 1883.
+1672334606: Opening ipv6 listen socket on port 1883.
+1672334606: Opening ipv4 listen socket on port 8883.
+1672334606: Opening ipv6 listen socket on port 8883.
+1672334606: Opening ipv4 listen socket on port 9001.
+1672334606: Opening ipv6 listen socket on port 9001.
+1672334606: Opening websockets listen socket on port 8080.
+1672334606: Error: Unable to create websockets listener on port 8080.
+1672334609: mosquitto version 2.0.15 starting
+1672334609: Config loaded from /mosquitto/config/mosquitto.conf.
+1672334609: Opening ipv4 listen socket on port 1883.
+1672334609: Opening ipv6 listen socket on port 1883.
+1672334609: Opening ipv4 listen socket on port 8883.
+1672334609: Opening ipv6 listen socket on port 8883.
+1672334609: Opening ipv4 listen socket on port 9001.
+1672334609: Opening ipv6 listen socket on port 9001.
+1672334609: Opening websockets listen socket on port 8080.
+1672334609: Error: Unable to create websockets listener on port 8080.
+1672334612: mosquitto version 2.0.15 starting
+1672334612: Config loaded from /mosquitto/config/mosquitto.conf.
+1672334612: Opening ipv4 listen socket on port 1883.
+1672334612: Opening ipv6 listen socket on port 1883.
+1672334612: Opening ipv4 listen socket on port 8883.
+1672334612: Opening ipv6 listen socket on port 8883.
+1672334612: Opening ipv4 listen socket on port 9001.
+1672334612: Opening ipv6 listen socket on port 9001.
+1672334612: Opening websockets listen socket on port 8080.
+1672334612: Error: Unable to create websockets listener on port 8080.
+1672334619: mosquitto version 2.0.15 starting
+1672334619: Config loaded from /mosquitto/config/mosquitto.conf.
+1672334619: Opening ipv4 listen socket on port 1883.
+1672334619: Opening ipv6 listen socket on port 1883.
+1672334619: Opening ipv4 listen socket on port 8883.
+1672334619: Opening ipv6 listen socket on port 8883.
+1672334619: Opening ipv4 listen socket on port 9001.
+1672334619: Opening ipv6 listen socket on port 9001.
+1672334619: Opening websockets listen socket on port 8080.
+1672334619: Error: Unable to create websockets listener on port 8080.
+1672334633: mosquitto version 2.0.15 starting
+1672334633: Config loaded from /mosquitto/config/mosquitto.conf.
+1672334633: Opening ipv4 listen socket on port 1883.
+1672334633: Opening ipv6 listen socket on port 1883.
+1672334633: Opening ipv4 listen socket on port 8883.
+1672334633: Opening ipv6 listen socket on port 8883.
+1672334633: Opening ipv4 listen socket on port 9001.
+1672334633: Opening ipv6 listen socket on port 9001.
+1672334633: Opening websockets listen socket on port 8080.
+1672334633: Error: Unable to create websockets listener on port 8080.
+1672334659: mosquitto version 2.0.15 starting
+1672334659: Config loaded from /mosquitto/config/mosquitto.conf.
+1672334659: Opening ipv4 listen socket on port 1883.
+1672334659: Opening ipv6 listen socket on port 1883.
+1672334659: Opening ipv4 listen socket on port 8883.
+1672334659: Opening ipv6 listen socket on port 8883.
+1672334659: Opening ipv4 listen socket on port 9001.
+1672334659: Opening ipv6 listen socket on port 9001.
+1672334659: Opening websockets listen socket on port 8080.
+1672334659: Error: Unable to create websockets listener on port 8080.
+1672334711: mosquitto version 2.0.15 starting
+1672334711: Config loaded from /mosquitto/config/mosquitto.conf.
+1672334711: Opening ipv4 listen socket on port 1883.
+1672334711: Opening ipv6 listen socket on port 1883.
+1672334711: Opening ipv4 listen socket on port 8883.
+1672334711: Opening ipv6 listen socket on port 8883.
+1672334711: Opening ipv4 listen socket on port 9001.
+1672334711: Opening ipv6 listen socket on port 9001.
+1672334711: Opening websockets listen socket on port 8080.
+1672334711: Error: Unable to create websockets listener on port 8080.
+1672334754: mosquitto version 2.0.15 starting
+1672334754: Config loaded from /mosquitto/config/mosquitto.conf.
+1672334754: Opening ipv4 listen socket on port 1883.
+1672334754: Opening ipv6 listen socket on port 1883.
+1672334754: Opening ipv4 listen socket on port 8883.
+1672334754: Opening ipv6 listen socket on port 8883.
+1672334754: Opening websockets listen socket on port 9001.
+1672334754: Error: Unable to create websockets listener on port 9001.
+1672334755: mosquitto version 2.0.15 starting
+1672334755: Config loaded from /mosquitto/config/mosquitto.conf.
+1672334755: Opening ipv4 listen socket on port 1883.
+1672334755: Opening ipv6 listen socket on port 1883.
+1672334755: Opening ipv4 listen socket on port 8883.
+1672334755: Opening ipv6 listen socket on port 8883.
+1672334755: Opening websockets listen socket on port 9001.
+1672334755: Error: Unable to create websockets listener on port 9001.
+1672334756: mosquitto version 2.0.15 starting
+1672334756: Config loaded from /mosquitto/config/mosquitto.conf.
+1672334756: Opening ipv4 listen socket on port 1883.
+1672334756: Opening ipv6 listen socket on port 1883.
+1672334756: Opening ipv4 listen socket on port 8883.
+1672334756: Opening ipv6 listen socket on port 8883.
+1672334756: Opening websockets listen socket on port 9001.
+1672334756: Error: Unable to create websockets listener on port 9001.
+1672334757: mosquitto version 2.0.15 starting
+1672334757: Config loaded from /mosquitto/config/mosquitto.conf.
+1672334757: Opening ipv4 listen socket on port 1883.
+1672334757: Opening ipv6 listen socket on port 1883.
+1672334757: Opening ipv4 listen socket on port 8883.
+1672334757: Opening ipv6 listen socket on port 8883.
+1672334757: Opening websockets listen socket on port 9001.
+1672334757: Error: Unable to create websockets listener on port 9001.
+1672334758: mosquitto version 2.0.15 starting
+1672334758: Config loaded from /mosquitto/config/mosquitto.conf.
+1672334758: Opening ipv4 listen socket on port 1883.
+1672334758: Opening ipv6 listen socket on port 1883.
+1672334758: Opening ipv4 listen socket on port 8883.
+1672334758: Opening ipv6 listen socket on port 8883.
+1672334758: Opening websockets listen socket on port 9001.
+1672334758: Error: Unable to create websockets listener on port 9001.
+1672334760: mosquitto version 2.0.15 starting
+1672334760: Config loaded from /mosquitto/config/mosquitto.conf.
+1672334760: Opening ipv4 listen socket on port 1883.
+1672334760: Opening ipv6 listen socket on port 1883.
+1672334760: Opening ipv4 listen socket on port 8883.
+1672334760: Opening ipv6 listen socket on port 8883.
+1672334760: Opening websockets listen socket on port 9001.
+1672334760: Error: Unable to create websockets listener on port 9001.
+1672334765: mosquitto version 2.0.15 starting
+1672334765: Config loaded from /mosquitto/config/mosquitto.conf.
+1672334765: Opening ipv4 listen socket on port 1883.
+1672334765: Opening ipv6 listen socket on port 1883.
+1672334765: Opening ipv4 listen socket on port 8883.
+1672334765: Opening ipv6 listen socket on port 8883.
+1672334765: Opening websockets listen socket on port 9001.
+1672334765: Error: Unable to create websockets listener on port 9001.
+1672334771: mosquitto version 2.0.15 starting
+1672334771: Config loaded from /mosquitto/config/mosquitto.conf.
+1672334771: Opening ipv4 listen socket on port 1883.
+1672334771: Opening ipv6 listen socket on port 1883.
+1672334771: Opening ipv4 listen socket on port 8883.
+1672334771: Opening ipv6 listen socket on port 8883.
+1672334771: Opening websockets listen socket on port 9001.
+1672334771: Error: Unable to create websockets listener on port 9001.
+1672334785: mosquitto version 2.0.15 starting
+1672334785: Config loaded from /mosquitto/config/mosquitto.conf.
+1672334785: Opening ipv4 listen socket on port 1883.
+1672334785: Opening ipv6 listen socket on port 1883.
+1672334785: Opening ipv4 listen socket on port 8883.
+1672334785: Opening ipv6 listen socket on port 8883.
+1672334785: Opening websockets listen socket on port 9001.
+1672334785: Error: Unable to create websockets listener on port 9001.
+1672334811: mosquitto version 2.0.15 starting
+1672334811: Config loaded from /mosquitto/config/mosquitto.conf.
+1672334811: Opening ipv4 listen socket on port 1883.
+1672334811: Opening ipv6 listen socket on port 1883.
+1672334811: Opening ipv4 listen socket on port 8883.
+1672334811: Opening ipv6 listen socket on port 8883.
+1672334811: Opening websockets listen socket on port 9001.
+1672334811: Error: Unable to create websockets listener on port 9001.
+1672334863: mosquitto version 2.0.15 starting
+1672334863: Config loaded from /mosquitto/config/mosquitto.conf.
+1672334863: Opening ipv4 listen socket on port 1883.
+1672334863: Opening ipv6 listen socket on port 1883.
+1672334863: Opening ipv4 listen socket on port 8883.
+1672334863: Opening ipv6 listen socket on port 8883.
+1672334863: Opening websockets listen socket on port 9001.
+1672334863: Error: Unable to create websockets listener on port 9001.
+1672335279: mosquitto version 2.0.15 starting
+1672335279: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335279: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335279: Error opening password file "/mosquitto/data/pwfile".
+1672335280: mosquitto version 2.0.15 starting
+1672335280: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335280: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335280: Error opening password file "/mosquitto/data/pwfile".
+1672335281: mosquitto version 2.0.15 starting
+1672335281: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335281: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335281: Error opening password file "/mosquitto/data/pwfile".
+1672335282: mosquitto version 2.0.15 starting
+1672335282: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335282: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335282: Error opening password file "/mosquitto/data/pwfile".
+1672335283: mosquitto version 2.0.15 starting
+1672335283: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335283: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335283: Error opening password file "/mosquitto/data/pwfile".
+1672335285: mosquitto version 2.0.15 starting
+1672335285: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335285: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335285: Error opening password file "/mosquitto/data/pwfile".
+1672335289: mosquitto version 2.0.15 starting
+1672335289: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335289: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335289: Error opening password file "/mosquitto/data/pwfile".
+1672335296: mosquitto version 2.0.15 starting
+1672335296: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335296: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335296: Error opening password file "/mosquitto/data/pwfile".
+1672335309: mosquitto version 2.0.15 starting
+1672335309: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335309: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335309: Error opening password file "/mosquitto/data/pwfile".
+1672335335: mosquitto version 2.0.15 starting
+1672335335: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335335: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335335: Error opening password file "/mosquitto/data/pwfile".
+1672335387: mosquitto version 2.0.15 starting
+1672335387: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335387: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335387: Error opening password file "/mosquitto/data/pwfile".
+1672335405: mosquitto version 2.0.15 starting
+1672335405: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335405: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335405: Error opening password file "/mosquitto/data/pwfile".
+1672335405: mosquitto version 2.0.15 starting
+1672335405: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335405: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335405: Error opening password file "/mosquitto/data/pwfile".
+1672335406: mosquitto version 2.0.15 starting
+1672335406: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335406: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335406: Error opening password file "/mosquitto/data/pwfile".
+1672335407: mosquitto version 2.0.15 starting
+1672335407: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335407: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335407: Error opening password file "/mosquitto/data/pwfile".
+1672335408: mosquitto version 2.0.15 starting
+1672335408: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335408: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335408: Error opening password file "/mosquitto/data/pwfile".
+1672335410: mosquitto version 2.0.15 starting
+1672335410: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335410: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335410: Error opening password file "/mosquitto/data/pwfile".
+1672335414: mosquitto version 2.0.15 starting
+1672335414: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335414: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335414: Error opening password file "/mosquitto/data/pwfile".
+1672335421: mosquitto version 2.0.15 starting
+1672335421: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335421: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335421: Error opening password file "/mosquitto/data/pwfile".
+1672335434: mosquitto version 2.0.15 starting
+1672335434: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335434: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335434: Error opening password file "/mosquitto/data/pwfile".
+1672335460: mosquitto version 2.0.15 starting
+1672335460: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335460: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335460: Error opening password file "/mosquitto/data/pwfile".
+1672335512: mosquitto version 2.0.15 starting
+1672335512: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335512: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335512: Error opening password file "/mosquitto/data/pwfile".
+1672335513: mosquitto version 2.0.15 starting
+1672335513: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335513: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335513: Error opening password file "/mosquitto/data/pwfile".
+1672335514: mosquitto version 2.0.15 starting
+1672335514: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335514: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335514: Error opening password file "/mosquitto/data/pwfile".
+1672335515: mosquitto version 2.0.15 starting
+1672335515: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335515: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335515: Error opening password file "/mosquitto/data/pwfile".
+1672335517: mosquitto version 2.0.15 starting
+1672335517: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335517: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335517: Error opening password file "/mosquitto/data/pwfile".
+1672335519: mosquitto version 2.0.15 starting
+1672335519: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335519: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335519: Error opening password file "/mosquitto/data/pwfile".
+1672335523: mosquitto version 2.0.15 starting
+1672335523: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335523: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335523: Error opening password file "/mosquitto/data/pwfile".
+1672335530: mosquitto version 2.0.15 starting
+1672335530: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335530: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335530: Error opening password file "/mosquitto/data/pwfile".
+1672335544: mosquitto version 2.0.15 starting
+1672335544: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335544: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335544: Error opening password file "/mosquitto/data/pwfile".
+1672335570: mosquitto version 2.0.15 starting
+1672335570: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335570: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335570: Error opening password file "/mosquitto/data/pwfile".
+1672335699: mosquitto version 2.0.15 starting
+1672335699: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335699: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335699: Error opening password file "/mosquitto/data/pwfile".
+1672335700: mosquitto version 2.0.15 starting
+1672335700: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335700: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335700: Error opening password file "/mosquitto/data/pwfile".
+1672335701: mosquitto version 2.0.15 starting
+1672335701: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335701: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335701: Error opening password file "/mosquitto/data/pwfile".
+1672335702: mosquitto version 2.0.15 starting
+1672335702: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335702: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335702: Error opening password file "/mosquitto/data/pwfile".
+1672335703: mosquitto version 2.0.15 starting
+1672335703: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335703: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335703: Error opening password file "/mosquitto/data/pwfile".
+1672335705: mosquitto version 2.0.15 starting
+1672335705: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335705: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335705: Error opening password file "/mosquitto/data/pwfile".
+1672335709: mosquitto version 2.0.15 starting
+1672335709: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335709: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335709: Error opening password file "/mosquitto/data/pwfile".
+1672335716: mosquitto version 2.0.15 starting
+1672335716: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335716: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335716: Error opening password file "/mosquitto/data/pwfile".
+1672335729: mosquitto version 2.0.15 starting
+1672335729: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335729: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335729: Error opening password file "/mosquitto/data/pwfile".
+1672335759: mosquitto version 2.0.15 starting
+1672335759: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335759: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335759: Error opening password file "/mosquitto/data/pwfile".
+1672335760: mosquitto version 2.0.15 starting
+1672335760: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335760: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335760: Error opening password file "/mosquitto/data/pwfile".
+1672335761: mosquitto version 2.0.15 starting
+1672335761: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335761: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335761: Error opening password file "/mosquitto/data/pwfile".
+1672335762: mosquitto version 2.0.15 starting
+1672335762: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335762: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335762: Error opening password file "/mosquitto/data/pwfile".
+1672335763: mosquitto version 2.0.15 starting
+1672335763: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335763: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335763: Error opening password file "/mosquitto/data/pwfile".
+1672335765: mosquitto version 2.0.15 starting
+1672335765: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335765: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335765: Error opening password file "/mosquitto/data/pwfile".
+1672335768: mosquitto version 2.0.15 starting
+1672335768: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335768: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335768: Error opening password file "/mosquitto/data/pwfile".
+1672335775: mosquitto version 2.0.15 starting
+1672335775: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335775: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335775: Error opening password file "/mosquitto/data/pwfile".
+1672335788: mosquitto version 2.0.15 starting
+1672335788: Config loaded from /mosquitto/config/mosquitto.conf.
+1672335788: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672335788: Error opening password file "/mosquitto/data/pwfile".
+1672336150: mosquitto version 2.0.15 starting
+1672336150: Config loaded from /mosquitto/config/mosquitto.conf.
+1672336150: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672336150: Error opening password file "/mosquitto/data/pwfile".
+1672336359: mosquitto version 2.0.15 starting
+1672336359: Config loaded from /mosquitto/config/mosquitto.conf.
+1672336359: Error: Unable to open pwfile "/mosquitto/data/pwfile".
+1672336359: Error opening password file "/mosquitto/data/pwfile".
+1672336430: mosquitto version 2.0.15 starting
+1672336430: Config loaded from /mosquitto/config/mosquitto.conf.
+1672336430: Opening ipv4 listen socket on port 1883.
+1672336430: Opening ipv6 listen socket on port 1883.
+1672336430: Opening ipv4 listen socket on port 8883.
+1672336430: Opening ipv6 listen socket on port 8883.
+1672336430: Opening websockets listen socket on port 9001.
+1672336430: mosquitto version 2.0.15 running
+1672336484: mosquitto version 2.0.15 terminating
+1672336484: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1672336498: mosquitto version 2.0.15 starting
+1672336498: Config loaded from /mosquitto/config/mosquitto.conf.
+1672336498: Opening ipv4 listen socket on port 1883.
+1672336498: Opening ipv6 listen socket on port 1883.
+1672336498: Opening ipv4 listen socket on port 8883.
+1672336498: Opening ipv6 listen socket on port 8883.
+1672336498: Opening websockets listen socket on port 9001.
+1672336498: mosquitto version 2.0.15 running
+1672336513: New client connected from 172.18.0.3:56875 as SDRT_Backend_Python_Client_203 (p2, c1, k60, u'username').
+1672336525: New client connected from 172.18.0.4:49755 as clientPython-5954 (p2, c1, k60, u'username').
+1672336596: mosquitto version 2.0.15 terminating
+1672336596: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1672336596: Client clientPython-5954 closed its connection.
+1672336596: Client SDRT_Backend_Python_Client_203 closed its connection.
