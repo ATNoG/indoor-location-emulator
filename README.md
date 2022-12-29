@@ -14,7 +14,7 @@ Inside the <em>src</em> directory are disposed the main modules:
 - <em>static-files</em>: This module includes the Static Files objects used in Emulation.
 - <em>mosquitto</em>: This directory includes the eclipse-mosquitto configuration files used in communication of the Emulator modules (deployable via docker compose).
 
-For the communication of the system modules, an MQTT broker [mosquitto](https://mosquitto.org/download/) was configured. You are free to use a similar approach or any other MQTT broker.
+For the communication of the system modules, an MQTT broker [mosquitto](https://mosquitto.org/download/) was configured. Feel free to use a similar approach or any other MQTT broker.
 
 ## Documentation 
 
