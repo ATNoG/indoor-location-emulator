@@ -2,7 +2,8 @@
 
 That repository includes the Python modules of Indoor Location Emulator backend.
 
-### Main features
+## Main features
+
 - MQTT client for communication (paho-mqtt)
 - Catching Map Walls (from static-files/config_maps)
 - Distances calculations (between points and antennas)
@@ -10,6 +11,10 @@ That repository includes the Python modules of Indoor Location Emulator backend.
 - Use of GOD Class (object that knows everything about the system)
 
 The Dev environment implies the creation of a virtual environment (venv) whose dependencies come in the ```requirements.txt``` file.
+
+### Documentation
+
+Python Documentation of ML Models Module, built with <em>pdoc</em>: [here](https://atnog.github.io/indoor-location-emulator-backend/).
 
 ### Usefull commands:
 - install venv package: > ```sudo apt-get install python3-venv```
@@ -20,6 +25,4 @@ The Dev environment implies the creation of a virtual environment (venv) whose d
 - generate documentation using pdoc: > ```pdoc --math -d google -o docs src``` 
 - show .venv ip routes: ```ip route```
 
-
-
-
+---

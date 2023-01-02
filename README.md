@@ -17,7 +17,7 @@ For the communication of the system modules, an MQTT broker [mosquitto](https://
 
 ## Documentation 
 
-Documentation was created individually for each module and aggregated into a page that can be accessed [here](https://atnog.github.io/indoor-location-emulator/docs).
+Documentation was created individually for each module and aggregated into a page that can be accessed [here](https://atnog.github.io/indoor-location-emulator/).
 
 ## Deployment 
 

@@ -11,12 +11,17 @@ The train.sh script was created as an easier and faster way to train all the mod
 To use it, there must be a dataset which name starts with "rssi_antennas" in the same dir as the script, where shouldn't be stored any important model with the same name as the new ones, otherwise they will be overwritten.
 The dir which the models will be moved into is the "somos_saude" by default, but it can be changed in the script.
 
-Main features:
-- MQTT client for communication (predictor)
+## Main features
+
+- MQTT client for communication (<em>predictor.py</em>)
 - Model trainning
 - Asset location prediction based on stored models
 
 It implies the creation of a virtual environment (venv) whose dependencies come in the ```requirements.txt``` file.
+
+### Documentation
+
+Python Documentation of ML Models Module, built with <em>pdoc</em>: [here](https://atnog.github.io/indoor-location-emulator-ml-models/).
 
 ### Usefull commands:
 - install venv package: > ```sudo apt-get install python3-venv```

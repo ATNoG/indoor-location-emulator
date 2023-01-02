@@ -5,6 +5,7 @@ That repository includes the frontend Emulator of Indoor Positioning (using Mapb
 [Developed with HTML, vanilla JS & CSS]
 
 ## Main features
+
 - MQTT client for communication (paho-mqtt)
 - Load Indoor Map
 - Load Asset Points positions 
@@ -21,13 +22,15 @@ That repository includes the frontend Emulator of Indoor Positioning (using Mapb
 - Catch Lines of sight intersections with Directions
 - Display Pulsing Dots (ML Algorithms) positions from predictor module
 
-Includes also a python module to generate datasets (csv files).
+Includes also an independent python module to generate datasets (csv files).
 
 Main features:
 - MQTT client for communication (paho-mqtt)
 - Holding RSSI calculations for Antennas and Asset Point positions (Long, Lat) on a csv file
 
----
+### Documentation
+
+JavaScript Documentation of Frontend Module, built with <em>jsdoc</em> and <em>better-docs</em>: [here](https://atnog.github.io/indoor-location-emulator-frontend/).
 
 ### Usefull commands
 - install ```jsdoc``` using ```npm```:
@@ -35,7 +38,7 @@ Main features:
 npm install -g jsdoc
 ```
 
-- install ```better-docs``` or ```docdash``` using ```npm``` :
+- install ```better-docs``` OR ```docdash``` using ```npm``` :
 ```
 npm install --save-dev better-docs
 ```
@@ -46,7 +49,7 @@ OR
 npm install docdash
 ```
 
-- generate documentation using ```jsodc``` and ```better-docs``` or ```docdash```: 
+- generate documentation using ```jsodc``` and ```better-docs``` OR ```docdash```: 
 ```
 jsdoc ./src/ --readme ./README.md -d docs -r -t ./node_modules/better-docs
 ```
