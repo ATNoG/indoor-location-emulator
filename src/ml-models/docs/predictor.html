@@ -40,6 +40,7 @@
         <ul>
   <li><a href="#machine-learning-models">Machine Learning Models</a>
   <ul>
+    <li><a href="#main-features">Main features</a></li>
     <li><a href="#predictor">Predictor</a></li>
   </ul></li>
 </ul>
@@ -137,15 +138,19 @@ The train.sh script was created as an easier and faster way to train all the mod
 To use it, there must be a dataset which name starts with "rssi_antennas" in the same dir as the script, where shouldn't be stored any important model with the same name as the new ones, otherwise they will be overwritten.
 The dir which the models will be moved into is the "somos_saude" by default, but it can be changed in the script.</p>
 
-<p>Main features:</p>
+<h2 id="main-features">Main features</h2>
 
 <ul>
-<li>MQTT client for communication (predictor)</li>
+<li>MQTT client for communication (<em>predictor.py</em>)</li>
 <li>Model trainning</li>
 <li>Asset location prediction based on stored models</li>
 </ul>
 
 <p>It implies the creation of a virtual environment (venv) whose dependencies come in the <code>requirements.txt</code> file.</p>
+
+<h3 id="documentation">Documentation</h3>
+
+<p>Python Documentation of ML Models Module, built with <em>pdoc</em>: <a href="https://atnog.github.io/indoor-location-emulator-ml-models/">here</a>.</p>
 
 <h3 id="usefull-commands">Usefull commands:</h3>
 
@@ -199,7 +204,7 @@ The dir which the models will be moved into is the "somos_saude" by default, but
 </span><span id="L-24"><a href="#L-24"><span class="linenos"> 24</span></a>
 </span><span id="L-25"><a href="#L-25"><span class="linenos"> 25</span></a><span class="c1"># MQTT Variables</span>
 </span><span id="L-26"><a href="#L-26"><span class="linenos"> 26</span></a><span class="n">Connected</span> <span class="o">=</span> <span class="kc">False</span>                           <span class="c1"># Global variable for the state of the connection</span>
-</span><span id="L-27"><a href="#L-27"><span class="linenos"> 27</span></a><span class="n">broker_host</span><span class="o">=</span><span class="s2">&quot;172.21.176.1&quot;</span>                  <span class="c1"># Broker address (.venv ip route -&gt; localhost)</span>
+</span><span id="L-27"><a href="#L-27"><span class="linenos"> 27</span></a><span class="n">broker_host</span><span class="o">=</span><span class="s2">&quot;mosquitto&quot;</span>                     <span class="c1"># Broker address (.venv ip route -&gt; localhost)</span>
 </span><span id="L-28"><a href="#L-28"><span class="linenos"> 28</span></a><span class="n">broker_port</span> <span class="o">=</span> <span class="mi">9001</span>                          <span class="c1"># Broker port</span>
 </span><span id="L-29"><a href="#L-29"><span class="linenos"> 29</span></a><span class="n">broker_keepalive</span> <span class="o">=</span> <span class="mi">60</span>                       <span class="c1"># Connection keepalive</span>
 </span><span id="L-30"><a href="#L-30"><span class="linenos"> 30</span></a><span class="n">user</span> <span class="o">=</span> <span class="s2">&quot;username&quot;</span>                           <span class="c1"># Connection username</span>
