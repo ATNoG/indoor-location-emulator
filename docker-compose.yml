@@ -1,5 +1,15 @@
 version: "3.9"
 services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - 8080:80
+      - 443:443
+    volumes:
+      - ./src/frontend:/usr/share/nginx/html
+      #- ./src/static-files:/usr/share/nginx/html
   mqtt:
     image: eclipse-mosquitto
     container_name: mosquitto
