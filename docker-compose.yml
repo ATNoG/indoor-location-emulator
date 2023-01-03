@@ -8,8 +8,8 @@ services:
       - 8080:80
       - 443:443
     volumes:
-      - ./src/frontend:/usr/share/nginx/html
-      #- ./src/static-files:/usr/share/nginx/html
+      - ./src/frontend:/usr/share/nginx/html/frontend
+      - ./src/static-files:/usr/share/nginx/html/static-files
   mqtt:
     image: eclipse-mosquitto
     container_name: mosquitto
