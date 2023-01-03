@@ -5,13 +5,13 @@
         "maptiler_apiKey": "CqUY0prA6SBAAsv1wyQw"
     },
     "map": {
-        "map_url": "../static-files/geojson_objs/library_ua_floor2/library_ua_floor2_custom_map_2d.geojson",
-        "antennas_url": "../static-files/geojson_objs/library_ua_floor2/library_ua_floor2_antennas.geojson",
-        "anchors_url": "../static-files/geojson_objs/library_ua_floor2/library_ua_floor2_anchors.geojson",
-        "assets_url": "../static-files/geojson_objs/library_ua_floor2/library_ua_floor2_asset_points.geojson",
-        "pulsing_dot_points": "../static-files/geojson_objs/library_ua_floor2/library_ua_floor2_pulsing_dot_points.geojson",
+        "map_url": "./static-files/geojson_objs/library_ua_floor2/library_ua_floor2_custom_map_2d.geojson",
+        "antennas_url": "./static-files/geojson_objs/library_ua_floor2/library_ua_floor2_antennas.geojson",
+        "anchors_url": "./static-files/geojson_objs/library_ua_floor2/library_ua_floor2_anchors.geojson",
+        "assets_url": "./static-files/geojson_objs/library_ua_floor2/library_ua_floor2_asset_points.geojson",
+        "pulsing_dot_points": "./static-files/geojson_objs/library_ua_floor2/library_ua_floor2_pulsing_dot_points.geojson",
         "asset_point_animations": [
-            "../static-files/geojson_objs/library_ua_floor2/library_ua_floor2_custom_move1.geojson"
+            "./static-files/geojson_objs/library_ua_floor2/library_ua_floor2_custom_move1.geojson"
         ],
         "filter_walls_keywords": ["wall"],
         "filter_walls_levels": [2],
