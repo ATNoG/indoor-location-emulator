@@ -30,7 +30,7 @@ from scipy import interpolate
 from scipy.optimize import curve_fit
 from joblib import Parallel, delayed
 from typing import Literal
-from src.asset_classes_module import * 
+from src.backend.src.asset_classes_module import * 
 import cProfile
 
 # profiler to check performances
