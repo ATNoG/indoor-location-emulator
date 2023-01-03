@@ -112,6 +112,10 @@ function mainMethod() {
         // path to JSON  (Policlínica Dr. Mário Martins, São João da Madeira, Portugal)
         configJsonFilePath = '../static-files/config_files/config-params-sjm-policlinica-mario-martins.json';
     }
+    
+    // path to antenna_icon and anchor_icon png files
+    var antenna_icon = '../static-files/icons/antenna_icon.png'
+    var anchor_icon = '../static-files/icons/anchor_icon.png'
 
     // generate a UUID and show it on 'session-uuid' HTML element (Connect Broker options)
     var session_uuid = generateUUID();
@@ -438,6 +442,7 @@ function mainMethod() {
                 data.map.map_center, data.map.map_zoom, data.map.map_pitch, data.map.map_bearing,
                 data.map.map_max_long, data.map.map_min_long, data.map.map_max_lat, data.map.map_min_lat,
                 data.map.marker_point, data.map.marker_logo, data.map.marker_info,
+                antenna_icon, anchor_icon,
                 client_id, mqtt_hostname, mqtt_port,
                 reconnect_timeout, clientUsername, clientPassword,
                 ssl_flag, messageToSend,
