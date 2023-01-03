@@ -618,7 +618,7 @@ def main():
     # Create a MQTT client
     print("Creating new client instance...")
     randomInt = random.randint(1,10000)
-    mqtt_client = mqtt.Client("clientPython-"+str(randomInt), transport="websockets") #create new instance websockets
+    mqtt_client = mqtt.Client("clientPython_ML_Models_"+str(randomInt), transport="websockets") #create new instance websockets
     mqtt_client.username_pw_set(user, password=password)    #set username and password
 
     # Assign event callbacks

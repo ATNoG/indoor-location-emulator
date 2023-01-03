@@ -1052,13 +1052,12 @@ def calculate(client: mqtt.Client, session_uuid: str, calculate_cache: dict):
         matrix_quadrants_long = config_json["map"]["map_center"][0]
         matrix_quadrants_lat = config_json["map"]["map_center"][1]
         map_path_name = config_json["map"]["map_url"]
-        new_map_path = map_path_name.replace("..","src")
         map_walls_filter_keywords = config_json["map"]["filter_walls_keywords"]
         map_walls_filter_levels = config_json["map"]["filter_walls_levels"]
         featuresType[session_uuid] = config_json["features"]
 
         # open file map
-        map_file_url = urllib.request.urlopen(f"{host_domain_name_server}/{new_map_path}") 
+        map_file_url = urllib.request.urlopen(f"{host_domain_name_server}/{map_path_name}") 
         # read map data file
         map_data = map_file_url.read().decode('utf-8')
         # load to geojson
@@ -1614,7 +1613,7 @@ def main():
     # Create a MQTT client with new instance websockets
     print("Creating new client instance using websockets...")
     randomInt = random.randint(1, 10000)
-    mqtt_client = mqtt.Client("SDRT_Backend_Python_Client_"+str(randomInt), transport="websockets")
+    mqtt_client = mqtt.Client("clientPython_Backend_"+str(randomInt), transport="websockets")
 
     # set username and password
     mqtt_client.username_pw_set(user, password=password)
