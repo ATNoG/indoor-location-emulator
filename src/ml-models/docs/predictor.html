@@ -148,10 +148,6 @@ The dir which the models will be moved into is the "somos_saude" by default, but
 
 <p>It implies the creation of a virtual environment (venv) whose dependencies come in the <code>requirements.txt</code> file.</p>
 
-<h3 id="documentation">Documentation</h3>
-
-<p>Python Documentation of ML Models Module, built with <em>pdoc</em>: <a href="https://atnog.github.io/indoor-location-emulator-ml-models/">here</a>.</p>
-
 <h3 id="usefull-commands">Usefull commands:</h3>
 
 <ul>
@@ -162,6 +158,10 @@ The dir which the models will be moved into is the "somos_saude" by default, but
 <li>install dependencies on .venv from requirements.txt: &gt; <code>pip install -r requirements.txt</code></li>
 <li>generate documentation using pdoc: &gt; <code>pdoc --math -d google -o docs src/predictor.py</code></li>
 </ul>
+
+<h3 id="documentation">Documentation</h3>
+
+<p>Python Documentation of ML Models Module, built with <em>pdoc</em>: <a href="https://atnog.github.io/indoor-location-emulator-ml-models/">here</a>.</p>
 
 <hr />
 
@@ -798,7 +798,7 @@ The dir which the models will be moved into is the "somos_saude" by default, but
 </span><span id="L-618"><a href="#L-618"><span class="linenos">618</span></a>    <span class="c1"># Create a MQTT client</span>
 </span><span id="L-619"><a href="#L-619"><span class="linenos">619</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Creating new client instance...&quot;</span><span class="p">)</span>
 </span><span id="L-620"><a href="#L-620"><span class="linenos">620</span></a>    <span class="n">randomInt</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
-</span><span id="L-621"><a href="#L-621"><span class="linenos">621</span></a>    <span class="n">mqtt_client</span> <span class="o">=</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="s2">&quot;clientPython-&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">randomInt</span><span class="p">),</span> <span class="n">transport</span><span class="o">=</span><span class="s2">&quot;websockets&quot;</span><span class="p">)</span> <span class="c1">#create new instance websockets</span>
+</span><span id="L-621"><a href="#L-621"><span class="linenos">621</span></a>    <span class="n">mqtt_client</span> <span class="o">=</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="s2">&quot;clientPython_ML_Models_&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">randomInt</span><span class="p">),</span> <span class="n">transport</span><span class="o">=</span><span class="s2">&quot;websockets&quot;</span><span class="p">)</span> <span class="c1">#create new instance websockets</span>
 </span><span id="L-622"><a href="#L-622"><span class="linenos">622</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">username_pw_set</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">)</span>    <span class="c1">#set username and password</span>
 </span><span id="L-623"><a href="#L-623"><span class="linenos">623</span></a>
 </span><span id="L-624"><a href="#L-624"><span class="linenos">624</span></a>    <span class="c1"># Assign event callbacks</span>
@@ -1960,7 +1960,7 @@ $$</p>
 </span><span id="main-619"><a href="#main-619"><span class="linenos">619</span></a>    <span class="c1"># Create a MQTT client</span>
 </span><span id="main-620"><a href="#main-620"><span class="linenos">620</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Creating new client instance...&quot;</span><span class="p">)</span>
 </span><span id="main-621"><a href="#main-621"><span class="linenos">621</span></a>    <span class="n">randomInt</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
-</span><span id="main-622"><a href="#main-622"><span class="linenos">622</span></a>    <span class="n">mqtt_client</span> <span class="o">=</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="s2">&quot;clientPython-&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">randomInt</span><span class="p">),</span> <span class="n">transport</span><span class="o">=</span><span class="s2">&quot;websockets&quot;</span><span class="p">)</span> <span class="c1">#create new instance websockets</span>
+</span><span id="main-622"><a href="#main-622"><span class="linenos">622</span></a>    <span class="n">mqtt_client</span> <span class="o">=</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="s2">&quot;clientPython_ML_Models_&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">randomInt</span><span class="p">),</span> <span class="n">transport</span><span class="o">=</span><span class="s2">&quot;websockets&quot;</span><span class="p">)</span> <span class="c1">#create new instance websockets</span>
 </span><span id="main-623"><a href="#main-623"><span class="linenos">623</span></a>    <span class="n">mqtt_client</span><span class="o">.</span><span class="n">username_pw_set</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">)</span>    <span class="c1">#set username and password</span>
 </span><span id="main-624"><a href="#main-624"><span class="linenos">624</span></a>
 </span><span id="main-625"><a href="#main-625"><span class="linenos">625</span></a>    <span class="c1"># Assign event callbacks</span>

@@ -1057,7 +1057,8 @@ def calculate(client: mqtt.Client, session_uuid: str, calculate_cache: dict):
         featuresType[session_uuid] = config_json["features"]
 
         # open file map
-        map_file_url = urllib.request.urlopen(f"{host_domain_name_server}/{map_path_name}") 
+        static_files_map_path_name = map_path_name.replace("..","")
+        map_file_url = urllib.request.urlopen(f"{host_domain_name_server}/{static_files_map_path_name}") 
         # read map data file
         map_data = map_file_url.read().decode('utf-8')
         # load to geojson

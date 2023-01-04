@@ -19,10 +19,6 @@ The dir which the models will be moved into is the "somos_saude" by default, but
 
 It implies the creation of a virtual environment (venv) whose dependencies come in the ```requirements.txt``` file.
 
-### Documentation
-
-Python Documentation of ML Models Module, built with <em>pdoc</em>: [here](https://atnog.github.io/indoor-location-emulator-ml-models/).
-
 ### Usefull commands:
 - install venv package: > ```sudo apt-get install python3-venv```
 - remove .venv directory: > ```rm -Rfv .venv```
@@ -30,6 +26,10 @@ Python Documentation of ML Models Module, built with <em>pdoc</em>: [here](https
 - activate .venv: > ```source .venv/bin/activate```
 - install dependencies on .venv from requirements.txt: > ```pip install -r requirements.txt```
 - generate documentation using pdoc: > ```pdoc --math -d google -o docs src/predictor.py```
+
+### Documentation
+
+Python Documentation of ML Models Module, built with <em>pdoc</em>: [here](https://atnog.github.io/indoor-location-emulator-ml-models/).
 
 ---
 

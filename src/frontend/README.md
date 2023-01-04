@@ -28,10 +28,6 @@ Main features:
 - MQTT client for communication (paho-mqtt)
 - Holding RSSI calculations for Antennas and Asset Point positions (Long, Lat) on a csv file
 
-### Documentation
-
-JavaScript Documentation of Frontend Module, built with <em>jsdoc</em> and <em>better-docs</em>: [here](https://atnog.github.io/indoor-location-emulator-frontend/).
-
 ### Usefull commands
 - install ```jsdoc``` using ```npm```:
 ```
@@ -59,4 +55,9 @@ OR
 ```
 jsdoc ./src/ --readme ./README.md -d docs -r -t path/to/docdash
 ```
+
+### Documentation
+
+JavaScript Documentation of Frontend Module, built with <em>jsdoc</em> and <em>better-docs</em>: [here](https://atnog.github.io/indoor-location-emulator-frontend/).
+
 ---

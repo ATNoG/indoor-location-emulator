@@ -21,9 +21,7 @@ Documentation was created individually for each module and aggregated into a pag
 
 ## Deployment 
 
-Deploy an image of <em>eclipse-mosquitto</em>, the <em>backend</em> and <em>ml-models</em> modules with docker compose, using <em>docker-compose.yml</em> file.
-
-The <em>src/mosquitto</em> directory includes the eclipse-mosquitto configuration files used in communication of the Emulator modules (deployable via docker compose).
+The <em>docker-compose.yml</em> file includes an image of <em>nginx</em> to serve <em>frontend</em> and <em>static-files</em> modules, an image of <em>eclipse-mosquitto</em> to setup MQTT broker, the <em>backend</em> and <em>ml-models</em> modules to individual containers. The <em>src/mosquitto</em> directory includes the <em>eclipse-mosquitto</em> configuration files used in communication of the Emulator modules (deployable via docker compose).
 
 - Install <em>docker</em> and <em>docker-compose</em> (Example Tutorial: [here](https://support.netfoundry.io/hc/en-us/articles/360057865692-Installing-Docker-and-docker-compose-for-Ubuntu-20-04)).
 - Then on project root directory, on command prompt execute:
@@ -33,7 +31,7 @@ The <em>src/mosquitto</em> directory includes the eclipse-mosquitto configuratio
 
 ## Demo
 
-Running the <em>backend</em> and <em>ml-models</em> modules, and configuring a mosquitto MQTT broker running locally, it is possible to run a demo of the emulator [here](https://atnog.github.io/indoor-location-emulator/src/frontend/).
+After deployment is concluded the <em>nginx</em>, <em>mosquitto</em>, <em>backend</em> and <em>ml-models</em> containers must be up, then it is possible to run a demo of the emulator [http://localhost:8080](http://localhost:8080).
 
 
 <img src="https://github.com/ATNoG/indoor-location-emulator/raw/main/src/static-files/icons/Screenshot_emulator_1.png" style="max-width:800px" />

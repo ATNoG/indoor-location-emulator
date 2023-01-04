@@ -12,10 +12,6 @@ That repository includes the Python modules of Indoor Location Emulator backend.
 
 The Dev environment implies the creation of a virtual environment (venv) whose dependencies come in the ```requirements.txt``` file.
 
-### Documentation
-
-Python Documentation of ML Models Module, built with <em>pdoc</em>: [here](https://atnog.github.io/indoor-location-emulator-backend/).
-
 ### Usefull commands:
 - install venv package: > ```sudo apt-get install python3-venv```
 - remove .venv directory: > ```rm -Rfv .venv```
@@ -24,5 +20,9 @@ Python Documentation of ML Models Module, built with <em>pdoc</em>: [here](https
 - install dependencies on .venv from requiremnts.txt: > ```pip install -r requirements.txt```
 - generate documentation using pdoc: > ```pdoc --math -d google -o docs src``` 
 - show .venv ip routes: ```ip route```
+
+### Documentation
+
+Python Documentation of Backend Module, built with <em>pdoc</em>: [here](https://atnog.github.io/indoor-location-emulator-backend/).
 
 ---
