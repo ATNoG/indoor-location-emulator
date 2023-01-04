@@ -21,7 +21,7 @@ Documentation was created individually for each module and aggregated into a pag
 
 ## Deployment 
 
-The <em>docker-compose.yml</em> file includes an image of <em>nginx</em> to serve <em>frontend</em> and <em>static-files</em> modules, an image of <em>eclipse-mosquitto</em> to setup MQTT broker, the <em>backend</em> and <em>ml-models</em> modules to individual containers. 
+The <em>docker-compose.yml</em> file includes an image of <em>nginx</em> to serve <em>frontend</em> and <em>static-files</em> modules, an image of <em>eclipse-mosquitto</em> to setup MQTT broker, the <em>backend</em> and <em>ml-models</em> modules to individual image containers. 
 
 The <em>src/mosquitto</em> directory includes the <em>eclipse-mosquitto</em> configuration files used in communication of the Emulator modules (deployable via docker compose).
 
@@ -33,7 +33,7 @@ The <em>src/mosquitto</em> directory includes the <em>eclipse-mosquitto</em> con
 
 ## Demo
 
-After deployment is concluded the <em>nginx</em>, <em>mosquitto</em>, <em>backend</em> and <em>ml-models</em> containers must be up, then it is possible to run a demo of the emulator at [http://localhost:8080](http://localhost:8080).
+After deployment is concluded the <em>nginx</em>, <em>mosquitto</em>, <em>backend</em> and <em>ml-models</em> containers must be up, then it is possible to run a demo of the emulator at: [http://localhost:8080](http://localhost:8080).
 
 
 <img src="https://github.com/ATNoG/indoor-location-emulator/raw/main/src/static-files/icons/Screenshot_emulator_1.png" style="max-width:800px" />
