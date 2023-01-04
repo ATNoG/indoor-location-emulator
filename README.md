@@ -21,8 +21,7 @@ Documentation was created individually for each module and aggregated into a pag
 
 ## Deployment 
 
-The <em>docker-compose.yml</em> file include the setup for:
-                                
+The <em>docker-compose.yml</em> file include the setup for:                                
 - An image of <em>nginx</em> to serve <em>frontend</em> and <em>static-files</em> modules.
 - An image of <em>eclipse-mosquitto</em> to setup MQTT broker.
 - A reference to generate an image for <em>backend</em> module to an individual container.
@@ -31,13 +30,8 @@ The <em>docker-compose.yml</em> file include the setup for:
 The <em>src/mosquitto</em> directory includes the <em>eclipse-mosquitto</em> configuration files used in communication of the Emulator modules (deployable via docker compose).
 
 - Install <em>docker</em> and <em>docker-compose</em> (Example Tutorial: [here](https://support.netfoundry.io/hc/en-us/articles/360057865692-Installing-Docker-and-docker-compose-for-Ubuntu-20-04)).
-- Then on project root directory, on command prompt execute:
-
-<code>docker-compose up -d</code>
-
-- To have a look on deployed containers, on command prompt execute:
-
-<code>docker ps -a</code>
+- Then on project root directory, on command prompt execute: <code>docker-compose up -d</code>
+- To have a look on deployed containers, on command prompt execute: <code>docker ps -a</code>
 
 ## Demo
 
