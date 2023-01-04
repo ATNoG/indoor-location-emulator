@@ -37,7 +37,7 @@ import cProfile
 #profiler = cProfile.Profile()
 
 # global host_domain_name_server
-host_domain_name_server = "http://localhost:8080"
+host_domain_name_server = "http://nginx:80"
 
 # MQTT Variables
 Connected = False               # Global var to set Connected STATE

@@ -2,18 +2,15 @@ version: "3.9"
 services:
   nginx:
     image: nginx:latest
-    container_name: nginx
     restart: unless-stopped
     ports:
       - 8080:80
-      - 443:443
     volumes:
       - ./src/frontend:/usr/share/nginx/html
       - ./src/static-files:/usr/share/nginx/html/static-files
-  mqtt:
+  mosquitto:
     image: eclipse-mosquitto
-    container_name: mosquitto
-    restart: always
+    restart: unless-stopped
     volumes:
       - ./src/mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
       - ./src/mosquitto/data:/mosquitto/data
@@ -26,7 +23,7 @@ services:
       - default
   backend:
     image: backend
-    restart: always
+    restart: unless-stopped
     build:
       context: .
       dockerfile: ./src/backend/Dockerfile
@@ -37,7 +34,7 @@ services:
       - 8001:8001
   ml-models:
     image: ml-models
-    restart: always
+    restart: unless-stopped
     build:
       context: .
       dockerfile: ./src/ml-models/Dockerfile
