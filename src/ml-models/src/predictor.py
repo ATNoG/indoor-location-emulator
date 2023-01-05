@@ -356,54 +356,7 @@ def predict_from_rssi(client, json):
                         rssi_dict["RSSI_Antenna_"+str(antenna+1)] = [-170]
                 df = pd.DataFrame(rssi_dict)
                 result = loaded_model.predict(df.values)
-                
-                # Future position prediction
-                # The 1st model's predicted coordinates are used to predict de future position
-                if (i == 0):
-                    previous_pos_values.append([result[0][1], result[0][0]])
-
-                    if previous_pos_iterations == len(previous_pos_values):
-                        filename2 = []
-                        for model in models:
-                            if model == algorithms2[0]:
-                                filename2.append("future_random_forest_model_2.sav")
-                            elif model == algorithms2[1]:
-                                filename2.append("future_decision_tree_model_2.sav")
-                            if model == algorithms2[2]:
-                                filename2.append("future_rnn_model_2.h5")
-                            elif model == "all":
-                                filename2.extend(("future_random_forest_model_2.sav", "future_decision_tree_model_2.sav", "future_rnn_model_2.h5"))
-                        
-                        # print(f"\nFilename: {filename2}")
-
-                        for j in range(len(filename2)):
-                            sequential_data = np.array(previous_pos_values)
-                            nx, ny = sequential_data.shape
-                            # Reshape to avoid error "ValueError: Found array with dim 3. Estimator expected <= 2."
-                            if filename2[j] != "future_rnn_model_2.h5":
-                                sequential_data_reshaped = sequential_data.reshape((nx*ny))
-                                loaded_future_model = pickle.load(open(models_dir+"/"+str(filename2[j]), 'rb'))
-                                pred=loaded_future_model.predict([sequential_data_reshaped]) #make prediction on test set
-                            else:
-                                sequential_data = scale_sd(sequential_data)
-                                sequential_data_reshaped = sequential_data.reshape((1,nx,ny))
-                                loaded_future_model = load_model(models_dir+"/"+"future_rnn_model_2.h5", custom_objects={'root_mean_squared_error': root_mean_squared_error})
-                                pred=loaded_future_model.predict([sequential_data_reshaped])
-                                pred = reverse_scale_val(pred)
-
-                            return_name = "FP_RF"
-                            if filename2[j] == "future_random_forest_model_2.sav":
-                                return_name = "FP_RF"
-                            elif filename2[j] == "future_decision_tree_model_2.sav":
-                                return_name = "FP_DT"
-                            elif filename2[j] == "future_rnn_model_2.h5":
-                                return_name = "FP_RNN"
-
-                            pred = [metres_to_degrees(pred[0][0]), metres_to_degrees(pred[0][1])]
-                            coordinates.append([pred[0], pred[1], return_name])
-
-
-                
+                              
                 lat = metres_to_degrees(result[0][0])
                 lng = metres_to_degrees(result[0][1])  
 
@@ -585,7 +538,7 @@ def main():
 
     parser = argparse.ArgumentParser(description="Predicts the location of a tag based on rssi values.")
     parser.add_argument("-m", "--models", nargs="?", type=str, default="src/ml-models/src/library_ua", help="Enter the name of the rssi models dir. default = it. other = somos_saude")
-    parser.add_argument("-n", "--n_antennas", nargs="?", type=int, default=4, help="Enter the number of antennas. default = 4")
+    parser.add_argument("-n", "--n_antennas", nargs="?", type=int, default=10, help="Enter the number of antennas. default = 10")
     models_dir = parser.parse_args().models
     n_antennas = parser.parse_args().n_antennas
 
