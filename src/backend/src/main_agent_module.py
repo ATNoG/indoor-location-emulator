@@ -1295,7 +1295,7 @@ def calculate(client: mqtt.Client, session_uuid: str, calculate_cache: dict):
                         '''
                     else:
                         # set rssi = -170 (must be None value)
-                        anchor_rssi_value[anchor_index] = None
+                        anchor_rssi_value[anchor_index] = -170 # assumed threshold None value
 
                         # set activations_data = 0 (must be None values)
                         anchor_activation_values[anchor_index] = [0, 0, 0]
@@ -1400,22 +1400,9 @@ def calculate(client: mqtt.Client, session_uuid: str, calculate_cache: dict):
                 else:
                     # set activations_data = 0 (must be None values)
                     ap_activation_values[asset_point_index] = [0, 0, 0]
-
-                '''
-                # OR introduce some logic here:
-                # if distance_value is small than maximum of measured distances experimentally -> apply Interpolation (linear) to the data with stdev noise output
-                # else: distance_value is greater than maximum of measured distances experimentally -> apply Exponential Regression using inverse sigmoid function with stdev noise output
-                if float(distance_value) <= max(antenna_experimental_distances):
-                    # get look up table values of activations of antennas RF readings
-                    activations_data = interpolate_extrapolate_1D_array(
-                        float(distance_value), antenna_experimental_distances, antenna_experimental_values, stdev_mean_dict, 'linear')
-                else:
-                    activations_data = exponential_regression_1D_array(
-                        float(distance_value), antenna_experimental_distances, antenna_experimental_values, stdev_mean_dict)
-                '''
             else:
                 # set rssi = -170 (must be None value)
-                ap_rssi_value[asset_point_index] = None
+                ap_rssi_value[asset_point_index] = -170 # assumed threshold None value
 
                 # set activations_data = 0 (must be None values)
                 ap_activation_values[asset_point_index] = [0, 0, 0]
