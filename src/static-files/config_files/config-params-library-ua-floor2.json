@@ -62,5 +62,5 @@
         "skew_index": 9.6,
         "attenuation_factor": 1
     },
-    "features": "activations"
+    "features": "rssi"
 }
