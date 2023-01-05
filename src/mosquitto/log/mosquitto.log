@@ -1,0 +1,16 @@
+1672927986: mosquitto version 2.0.15 starting
+1672927986: Config loaded from /mosquitto/config/mosquitto.conf.
+1672927986: Opening ipv4 listen socket on port 1883.
+1672927986: Opening ipv6 listen socket on port 1883.
+1672927986: Opening ipv4 listen socket on port 8883.
+1672927986: Opening ipv6 listen socket on port 8883.
+1672927986: Opening websockets listen socket on port 9001.
+1672927986: mosquitto version 2.0.15 running
+1672927990: New client connected from 172.19.0.5:40839 as clientPython_Backend_5472 (p2, c1, k60, u'username').
+1672927991: New client connected from 172.19.0.4:41473 as clientPython_ML_Models_227 (p2, c1, k60, u'username').
+1672928267: New client connected from 172.19.0.1:33884 as clientJS-8530 (p1, c1, k60, u'username').
+1672928381: Client clientJS-8530 disconnected.
+1672928436: mosquitto version 2.0.15 terminating
+1672928436: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1672928436: Client clientPython_ML_Models_227 closed its connection.
+1672928436: Client clientPython_Backend_5472 closed its connection.
