@@ -7,7 +7,7 @@ import json
 
 # MQTT Variables
 Connected = False           #global variable for the state of the connection
-broker_host="10.0.12.91"    #Broker address
+broker_host="mosquitto"    #Broker address
 broker_port = 9001          #Broker port
 broker_keepalive = 60       #Connection keepalive
 user = "username"           #Connection username
