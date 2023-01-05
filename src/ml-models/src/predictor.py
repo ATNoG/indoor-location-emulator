@@ -584,7 +584,7 @@ def main():
     global previous_pos_iterations
 
     parser = argparse.ArgumentParser(description="Predicts the location of a tag based on rssi values.")
-    parser.add_argument("-m", "--models", nargs="?", type=str, default="src/ml-models/src/it", help="Enter the name of the rssi models dir. default = it. other = somos_saude")
+    parser.add_argument("-m", "--models", nargs="?", type=str, default="src/ml-models/src/library_ua", help="Enter the name of the rssi models dir. default = it. other = somos_saude")
     parser.add_argument("-n", "--n_antennas", nargs="?", type=int, default=4, help="Enter the number of antennas. default = 4")
     models_dir = parser.parse_args().models
     n_antennas = parser.parse_args().n_antennas
