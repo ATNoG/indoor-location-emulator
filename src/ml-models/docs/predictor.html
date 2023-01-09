@@ -141,12 +141,12 @@ The dir which the models will be moved into is the "somos_saude" by default, but
 <h2 id="main-features">Main features</h2>
 
 <ul>
-<li>MQTT client for communication (<em>predictor.py</em>)</li>
+<li>MQTT client for communication ((paho-mqtt) at <em>predictor.py</em>)</li>
 <li>Model trainning</li>
 <li>Asset location prediction based on stored models</li>
 </ul>
 
-<p>It implies the creation of a virtual environment (venv) whose dependencies come in the <code>requirements.txt</code> file.</p>
+<p>The Dev environment implies the creation of a virtual environment (venv) whose dependencies come in the <code>requirements.txt</code> file.</p>
 
 <h3 id="usefull-commands">Usefull commands:</h3>
 
@@ -157,6 +157,7 @@ The dir which the models will be moved into is the "somos_saude" by default, but
 <li>activate .venv: &gt; <code>source .venv/bin/activate</code></li>
 <li>install dependencies on .venv from requirements.txt: &gt; <code>pip install -r requirements.txt</code></li>
 <li>generate documentation using pdoc: &gt; <code>pdoc --math -d google -o docs src/predictor.py</code></li>
+<li>show .venv network ip route: &gt; <code>ip route</code></li>
 </ul>
 
 <h3 id="documentation">Documentation</h3>

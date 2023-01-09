@@ -13,11 +13,11 @@ The dir which the models will be moved into is the "somos_saude" by default, but
 
 ## Main features
 
-- MQTT client for communication (<em>predictor.py</em>)
+- MQTT client for communication ((paho-mqtt) at <em>predictor.py</em>)
 - Model trainning
 - Asset location prediction based on stored models
 
-It implies the creation of a virtual environment (venv) whose dependencies come in the ```requirements.txt``` file.
+The Dev environment implies the creation of a virtual environment (venv) whose dependencies come in the ```requirements.txt``` file.
 
 ### Usefull commands:
 - install venv package: > ```sudo apt-get install python3-venv```
@@ -26,6 +26,7 @@ It implies the creation of a virtual environment (venv) whose dependencies come 
 - activate .venv: > ```source .venv/bin/activate```
 - install dependencies on .venv from requirements.txt: > ```pip install -r requirements.txt```
 - generate documentation using pdoc: > ```pdoc --math -d google -o docs src/predictor.py```
+- show .venv network ip route: > ```ip route```
 
 ### Documentation
 
