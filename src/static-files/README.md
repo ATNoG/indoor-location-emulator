@@ -19,8 +19,8 @@ That repository includes the static-files used in <em>frontend</em> and <em>back
         - Machine Learning Agents parameters descriptions.
         - RSSI Path Loss Model parameters.
         - Features to apply calculations: "rssi" or "activations"
-            - "rssi" will predict results of one asset point in map from ml-models using data previously collected from the emulator using asset point animations and trained to generate Machine Learning Models.
-            - "activations" will predict results of multiple asset points in map from ml-models using Look Up table data previously collected from an antenna RF and RFID passive tags.
+            - "rssi" will predict results of one asset point in map from <em>ml-models</em> using data previously collected from the emulator using asset point animations and trained to generate Machine Learning Models.
+            - "activations" will predict results of multiple asset points in map from <em>ml-models</em> using Look Up table data previously collected from an antenna RF and RFID passive tags.
 
 3. geojson_objs folder with:
     - Geojson Maps 
