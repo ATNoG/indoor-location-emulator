@@ -14,7 +14,7 @@ That repository includes the static files used on simulator and on backend:
             - map_url, antennas_url, anchors_url, assets_url, pulsing_dot_points, asset_point_animations.
             - filter keywords and level for map.
             - map center, zoom, pitch and boundaries parameters.
-            - marker point coordinates, image name path and markar info data.
+            - map marker point coordinates, image name path and marker info data.
         - MQTT broker connection parameters.
         - Machine Learning Agents parameters descriptions.
         - RSSI Path Loss Model parameters.
