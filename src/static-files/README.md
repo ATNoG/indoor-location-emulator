@@ -23,12 +23,13 @@ That repository includes the static-files used in <em>frontend</em> and <em>back
             - "activations" will produce results (Pulsing Dots Coordinates) of multiple asset points in map from <em>ml-models</em> using a Look Up table data previously collected from an antenna RF and RFID passive tags.
 
 3. geojson_objs folder with:
-    - Geojson Maps 
-    - Geojson of asset points positions
-    - Geojson of antennas positions
-    - Geojson of anchors positions
-    - Geojson of pulsing dots positions
-    - Geojson of custom move animations
+    - folder of available Maps including:
+        - Geojson of 2d map.
+        - Geojson of asset points positions.
+        - Geojson of antennas positions.
+        - Geojson of anchors positions.
+        - Geojson of pulsing dots positions.
+        - Geojson of custom move asset point animations.
 
 4. icons folder with:
-    - icons/images used in the emulator
+    - icons/images used in the emulator.
