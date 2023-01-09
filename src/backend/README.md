@@ -6,8 +6,9 @@ That repository includes the Python modules of Indoor Location Emulator backend.
 
 - MQTT client for communication (paho-mqtt)
 - Catching Map Walls (from static-files/config_maps)
-- Distances calculations (between points and antennas)
-- RSSI calculations (between points and antennas)
+- Distances calculations (between asset points and antennas)
+- RSSI calculations (between asset points and antennas) using "rssi" features
+- Activations calculations (between asset points points and antennas) using "activations" features
 - Use of GOD Class (object that knows everything about the system)
 
 The Dev environment implies the creation of a virtual environment (venv) whose dependencies come in the ```requirements.txt``` file.
