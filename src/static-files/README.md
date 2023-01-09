@@ -1,8 +1,8 @@
 # Static Objects
 
-Static Files used in Simulation
+Static Files used in Emulator
 
-That repository includes the static files used on simulator and on backend:
+That repository includes the static-files used in <em>frontend</em> and <em>backend</em> modules:
 1. antenna_datasets folder with: 
     - Experimental data collected from an antenna RF and RFID passive tags from 0.5 meters until 10.0 meters with steps of 0.5 meters.
         - Look up table data to estimate activations of each antenna in the emulator using "activations" features from configuration file.
