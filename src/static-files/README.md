@@ -5,7 +5,7 @@ Static Files used in Emulator
 That repository includes the static-files used in <em>frontend</em> and <em>backend</em> modules:
 1. antenna_datasets folder with: 
     - Experimental data collected from an Antenna RF and RFID passive tags from 0.5 meters until 10.0 meters with steps of 0.5 meters, applying power scans at 280, 290, and 300 mW.
-        - Look up table data that correlate number of activations with distance between an Asset Point and an Antenna RF. The Emulator will estimate the "activations" features in the <em>backend</em> module from the features explicited in configuration file.
+        - Look up table data that correlate number of activations with distance between an Asset Point and an Antenna RF. The Emulator will estimate the "activations" in the <em>backend</em> module made use of the features explicited in configuration file.
 
 2. config_files folder with:
     - configuration file for each map, includes (loaded by <em>frontend</em> and <em>backend</em> modules):
