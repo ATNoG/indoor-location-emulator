@@ -39,3 +39,8 @@ After the deployment is completed <em>nginx</em>, <em>mosquitto</em>, <em>backen
 
 
 <img src="https://github.com/ATNoG/indoor-location-emulator/raw/main/src/static-files/icons/Screenshot_emulator_1.png" style="max-width:800px" />
+
+
+## About Project
+
+This work is supported by the European Regional Development Fund (FEDER), through the Competitiveness and Internationalization Operational Programme (COMPETE 2020) of the Portugal 2020 framework [Project SDRT with Nr. 070192 (POCI-01-0247-FEDER-070192)].
