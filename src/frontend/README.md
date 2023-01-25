@@ -22,12 +22,6 @@ That repository includes the frontend Emulator of Indoor Positioning (using Mapb
 - Catch Lines of sight intersections with Directions
 - Display Pulsing Dots (ML Algorithms) positions from predictor module
 
-Includes also an independent python module to generate datasets (csv files).
-
-Main features:
-- MQTT client for communication (paho-mqtt)
-- Holding RSSI calculations for Antennas and Asset Point positions (Long, Lat) on a csv file
-
 ### Usefull commands
 - install ```jsdoc``` using ```npm```:
 ```

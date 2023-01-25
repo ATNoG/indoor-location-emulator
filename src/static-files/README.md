@@ -33,3 +33,10 @@ That repository includes the static-files used in <em>frontend</em> and <em>back
 
 4. icons folder with:
     - icons/images used in the emulator.
+
+5. utils folder with:
+    - Independent python module to generate datasets (csv files).
+
+        Main features:
+        - MQTT client for communication (paho-mqtt)
+        - Holding RSSI calculations for Antennas and Asset Point positions (Long, Lat) on a csv file
