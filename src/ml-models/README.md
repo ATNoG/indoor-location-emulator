@@ -4,12 +4,12 @@ This repository includes machine learning modules for the SDRT project.
 
 src - ML techniques based on the SDRT simulator. It contains python scripts for model training, stored in the corresponding location directory and a python script "predictor.py" that contains a MQTT agent responsible for communicating with the simulator and predict the location of assets based on their rssi values and the previously trained ml models.
 
-By default, the predictor.py script will make predictions based on the models stored in the "somos_saude" dir but this could be changed by running with --models "name of another folder": python3 predictor.py --models it
+By default, the predictor.py script will make predictions based on the models stored in the "library_ua" directory but this could be changed by running with --models "name of another folder": python3 predictor.py --models it
 
 Model Training:
 The train.sh script was created as an easier and faster way to train all the models.
 To use it, there must be a dataset which name starts with "rssi_antennas" in the same dir as the script, where shouldn't be stored any important model with the same name as the new ones, otherwise they will be overwritten.
-The dir which the models will be moved into is the "somos_saude" by default, but it can be changed in the script.
+The dir which the models will be moved into is the "library_ua" by default, but it can be changed in the script.
 
 ## Main features
 
